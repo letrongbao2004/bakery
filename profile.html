@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="images/logo1.png" />
+    <title>Hồ Sơ Của Bạn - Sweet Trio Bakery</title>
+    <!-- Local CSS -->
+    <link rel="stylesheet" href="bootstrap/icons/bootstrap-icons.css" />
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body class="d-flex flex-column min-vh-100">
+    <!-- Navigation Bar -->
+    <nav class="navbar-custom-v2 fixed-top">
+      <div class="container navbar-v2-inner">
+        <!-- BÊN TRÁI: 3 links đầu -->
+        <ul class="navbar-v2-left">
+          <li><a href="index.html" class="nav-v2-link">Trang Chủ</a></li>
+          <li><a href="about.html" class="nav-v2-link">Giới Thiệu</a></li>
+          <li><a href="products.html" class="nav-v2-link">Sản Phẩm</a></li>
+        </ul>
+
+        <!-- GIỮA: Logo cực to -->
+        <a href="index.html" class="navbar-v2-logo-wrap">
+          <img
+            src="images/logo1.png"
+            alt="Sweet Trio Bakery"
+            class="navbar-v2-logo"
+          />
+        </a>
+
+        <!-- BÊN PHẢI: 2 links + icon giỏ hàng + icon user -->
+        <ul class="navbar-v2-right">
+          <li><a href="news.html" class="nav-v2-link">Tin Tức</a></li>
+          <li><a href="contact.html" class="nav-v2-link">Liên Hệ</a></li>
+
+          <!-- Giỏ hàng dropdown — giữ nguyên id để main.js hoạt động -->
+          <li class="nav-v2-icon-item dropdown" id="cartNavContainer">
+            <a
+              href="#"
+              class="nav-v2-icon-link position-relative dropdown-toggle"
+              id="cartDropdownToggle"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <i class="bi bi-cart3"></i>
+              <span
+                class="position-absolute translate-middle badge rounded-pill bg-danger"
+                id="cartBadgeCount"
+                >0</span
+              >
+            </a>
+            <div
+              class="dropdown-menu dropdown-menu-end shadow p-0"
+              id="miniCartDropdown"
+              aria-labelledby="cartDropdownToggle"
+            >
+              <div class="p-3 border-bottom">
+                <h6 class="mb-0 fw-bold">
+                  <i class="bi bi-cart3 me-2"></i>Giỏ Hàng Của Bạn
+                </h6>
+              </div>
+              <div
+                id="miniCartItems"
+                class="px-3 py-2 mini-cart-items-scroll"
+              ></div>
+              <div
+                class="p-3 border-top bg-light d-flex justify-content-between align-items-center"
+              >
+                <span class="fw-bold"
+                  >Tổng:
+                  <span id="miniCartTotal" class="text-accent"
+                    >0 VNĐ</span
+                  ></span
+                >
+                <a href="cart.html" class="btn btn-sm btn-primary-custom"
+                  >Xem Giỏ Hàng</a
+                >
+              </div>
+            </div>
+          </li>
+
+          <!-- Avatar dropdown — giữ nguyên id -->
+          <li class="nav-v2-icon-item dropdown" id="avatarNavContainer">
+            <a
+              href="#"
+              class="nav-v2-icon-link dropdown-toggle"
+              id="avatarDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <i class="bi bi-person-circle"></i>
+            </a>
+            <ul
+              class="dropdown-menu dropdown-menu-end shadow"
+              aria-labelledby="avatarDropdown"
+            >
+              <li>
+                <a class="dropdown-item" href="profile.html"
+                  ><i class="bi bi-person"></i> Xem Profile</a
+                >
+              </li>
+              <li><hr class="dropdown-divider" /></li>
+              <li>
+                <a class="dropdown-item" href="#" onclick="handleLogout(event)">
+                  <i class="bi bi-box-arrow-right"></i> Đăng xuất</a
+                >
+              </li>
+            </ul>
+          </li>
+
+          <!-- Đăng nhập — giữ nguyên id -->
+          <li class="nav-v2-icon-item" id="authNavContainer">
+            <a href="login.html" class="nav-v2-icon-link">
+              <i class="bi bi-box-arrow-in-right"></i>
+            </a>
+          </li>
+        </ul>
+
+        <!-- Hamburger cho mobile -->
+        <button
+          class="navbar-v2-toggler d-lg-none"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarV2Mobile"
+        >
+          <i class="bi bi-list"></i>
+        </button>
+      </div>
+
+      <!-- Mobile menu (collapse) -->
+      <div class="collapse navbar-collapse" id="navbarV2Mobile">
+        <div class="navbar-v2-mobile">
+          <a href="index.html" class="nav-v2-link">Trang Chủ</a>
+          <a href="about.html" class="nav-v2-link">Giới Thiệu</a>
+          <a href="products.html" class="nav-v2-link">Sản Phẩm</a>
+          <a href="news.html" class="nav-v2-link">Tin Tức</a>
+          <a href="contact.html" class="nav-v2-link">Liên Hệ</a>
+          <a href="login.html" class="nav-v2-link">Đăng Nhập / Đăng Ký</a>
+        </div>
+      </div>
+    </nav>
+
+    <main class="container my-5 flex-grow-1">
+      <h2 class="section-title fade-in">Hồ Sơ Cá Nhân</h2>
+      <div class="row fade-in">
+        <!-- Left col: Avatar -->
+        <div class="col-md-4 text-center">
+          <div class="bg-white p-4 rounded shadow-sm border mb-4">
+            <img
+              src=""
+              id="profileAvatarPreview"
+              class="rounded-circle mb-3 bg-light"
+              style="
+                width: 150px;
+                height: 150px;
+                object-fit: cover;
+                border: 3px solid var(--accent-color);
+              "
+            />
+            <h4 id="displayUserName">Người dùng</h4>
+            <p class="text-muted" id="displayUserEmail">email@example.com</p>
+            <hr />
+            <label
+              for="avatarUpload"
+              class="btn btn-outline-secondary btn-sm"
+              style="cursor: pointer"
+            >
+              Thay đổi Avatar
+            </label>
+            <input
+              type="file"
+              id="avatarUpload"
+              class="d-none"
+              accept="image/*"
+            />
+          </div>
+        </div>
+        <!-- Right col: Information Form -->
+        <div class="col-md-8">
+          <div class="bg-white p-4 rounded shadow-sm border">
+            <h4 class="mb-4" style="color: var(--accent-color)">
+              Cập Nhật Thông Tin
+            </h4>
+            <form
+              id="profileForm"
+              onsubmit="
+                event.preventDefault();
+                handleProfileSave();
+              "
+            >
+              <div class="mb-3">
+                <label for="profileName" class="form-label fw-bold"
+                  >Họ và Tên</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="profileName"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="profileEmail" class="form-label fw-bold"
+                  >Email</label
+                >
+                <input
+                  type="email"
+                  class="form-control text-muted"
+                  id="profileEmail"
+                  readonly
+                />
+              </div>
+              <div class="row mb-3">
+                <div class="col-md-6">
+                  <label for="profilePhone" class="form-label fw-bold"
+                    >Số Điện Thoại</label
+                  >
+                  <input type="text" class="form-control" id="profilePhone" />
+                </div>
+                <div class="col-md-6">
+                  <label for="profileDob" class="form-label fw-bold"
+                    >Ngày Sinh</label
+                  >
+                  <input type="date" class="form-control" id="profileDob" />
+                </div>
+              </div>
+              <div class="mb-4">
+                <label for="profileAddress" class="form-label fw-bold"
+                  >Địa Chỉ</label
+                >
+                <textarea
+                  class="form-control"
+                  id="profileAddress"
+                  rows="3"
+                ></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary-custom w-100">
+                Lưu Thay Đổi
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer text-center mt-auto">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <img
+              src="images/logo1.png"
+              alt="Sweet Trio Bakery Logo"
+              class="footer-logo mb-2"
+            />
+            <h5 class="font-weight-bold">Tiệm Bánh Ngọt</h5>
+            <p>Nướng bánh bằng niềm vui mỗi ngày từ 2026.</p>
+          </div>
+          <div class="col-md-4 mb-3">
+            <h5>Liên Kết Nhanh</h5>
+            <ul class="list-unstyled">
+              <li><a href="sitemap.html">Sitemap</a></li>
+              <li><a href="contact.html">Liên Hệ</a></li>
+              <li><a href="about.html">Giới Thiệu</a></li>
+            </ul>
+          </div>
+          <div class="col-md-4 mb-3">
+            <h5>Theo Dõi Chúng Tôi</h5>
+            <p>Luôn cập nhật những thay đổi ngọt ngào mới nhất!</p>
+            <div class="footer-social-icons mt-2">
+              <a
+                href="https://www.facebook.com/Bapsxinkiu"
+                class="footer-social-link"
+                title="Facebook"
+                ><i class="bi bi-facebook"></i
+              ></a>
+              <a
+                href="https://www.instagram.com/nqoc.nahzz/"
+                class="footer-social-link"
+                title="Instagram"
+                ><i class="bi bi-instagram"></i
+              ></a>
+              <a
+                href="https://www.tiktok.com/@nacileng?is_from_webapp=1&sender_device=pc"
+                class="footer-social-link"
+                title="TikTok"
+                ><i class="bi bi-tiktok"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+        <hr class="mt-4 mb-3 footer-divider" />
+        <p class="mb-0">
+          &copy; 2026 Tiệm Bánh Ngọt. Bản quyền thuộc về chúng tôi. (Trang demo)
+        </p>
+      </div>
+    </footer>
+
+    <!-- Local JS Scripts -->
+    <script src="jquery/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+      // Set up generic icon if no base64 found
+      document.addEventListener("DOMContentLoaded", () => {
+        // Handle profile pic load in main.js
+      });
+    </script>
+  </body>
+</html>

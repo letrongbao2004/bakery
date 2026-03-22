@@ -1,0 +1,458 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="images/logo1.png" />
+    <title>Sản Phẩm - Sweet Trio Bakery</title>
+    <!-- Local CSS -->
+    <link rel="stylesheet" href="bootstrap/icons/bootstrap-icons.css" />
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body class="d-flex flex-column min-vh-100">
+    <!-- Navigation Bar -->
+    <nav class="navbar-custom-v2 fixed-top">
+      <div class="container navbar-v2-inner">
+        <!-- BÊN TRÁI: 3 links đầu -->
+        <ul class="navbar-v2-left">
+          <li><a href="index.html" class="nav-v2-link">Trang Chủ</a></li>
+          <li><a href="about.html" class="nav-v2-link">Giới Thiệu</a></li>
+          <li>
+            <a href="products.html" class="nav-v2-link active">Sản Phẩm</a>
+          </li>
+        </ul>
+
+        <!-- GIỮA: Logo cực to -->
+        <a href="index.html" class="navbar-v2-logo-wrap">
+          <img
+            src="images/logo1.png"
+            alt="Sweet Trio Bakery"
+            class="navbar-v2-logo"
+          />
+        </a>
+
+        <!-- BÊN PHẢI: 2 links + icon giỏ hàng + icon user -->
+        <ul class="navbar-v2-right">
+          <li><a href="news.html" class="nav-v2-link">Tin Tức</a></li>
+          <li><a href="contact.html" class="nav-v2-link">Liên Hệ</a></li>
+
+          <!-- Giỏ hàng dropdown — giữ nguyên id để main.js hoạt động -->
+          <li class="nav-v2-icon-item dropdown" id="cartNavContainer">
+            <a
+              href="#"
+              class="nav-v2-icon-link position-relative dropdown-toggle"
+              id="cartDropdownToggle"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <i class="bi bi-cart3"></i>
+              <span
+                class="position-absolute translate-middle badge rounded-pill bg-danger"
+                id="cartBadgeCount"
+                >0</span
+              >
+            </a>
+            <div
+              class="dropdown-menu dropdown-menu-end shadow p-0"
+              id="miniCartDropdown"
+              aria-labelledby="cartDropdownToggle"
+            >
+              <div class="p-3 border-bottom">
+                <h6 class="mb-0 fw-bold">
+                  <i class="bi bi-cart3 me-2"></i>Giỏ Hàng Của Bạn
+                </h6>
+              </div>
+              <div
+                id="miniCartItems"
+                class="px-3 py-2 mini-cart-items-scroll"
+              ></div>
+              <div
+                class="p-3 border-top bg-light d-flex justify-content-between align-items-center"
+              >
+                <span class="fw-bold"
+                  >Tổng:
+                  <span id="miniCartTotal" class="text-accent"
+                    >0 VNĐ</span
+                  ></span
+                >
+                <a href="cart.html" class="btn btn-sm btn-primary-custom"
+                  >Xem Giỏ Hàng</a
+                >
+              </div>
+            </div>
+          </li>
+
+          <!-- Avatar dropdown — giữ nguyên id -->
+          <li class="nav-v2-icon-item dropdown" id="avatarNavContainer">
+            <a
+              href="#"
+              class="nav-v2-icon-link dropdown-toggle"
+              id="avatarDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <i class="bi bi-person-circle"></i>
+            </a>
+            <ul
+              class="dropdown-menu dropdown-menu-end shadow"
+              aria-labelledby="avatarDropdown"
+            >
+              <li>
+                <a class="dropdown-item" href="profile.html"
+                  ><i class="bi bi-person"></i> Xem Profile</a
+                >
+              </li>
+              <li><hr class="dropdown-divider" /></li>
+              <li>
+                <a class="dropdown-item" href="#" onclick="handleLogout(event)">
+                  <i class="bi bi-box-arrow-right"></i> Đăng xuất</a
+                >
+              </li>
+            </ul>
+          </li>
+
+          <!-- Đăng nhập — giữ nguyên id -->
+          <li class="nav-v2-icon-item" id="authNavContainer">
+            <a href="login.html" class="nav-v2-icon-link">
+              <i class="bi bi-box-arrow-in-right"></i>
+            </a>
+          </li>
+        </ul>
+
+        <!-- Hamburger cho mobile -->
+        <button
+          class="navbar-v2-toggler d-lg-none"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarV2Mobile"
+        >
+          <i class="bi bi-list"></i>
+        </button>
+      </div>
+
+      <!-- Mobile menu (collapse) -->
+      <div class="collapse navbar-collapse" id="navbarV2Mobile">
+        <div class="navbar-v2-mobile">
+          <a href="index.html" class="nav-v2-link">Trang Chủ</a>
+          <a href="about.html" class="nav-v2-link">Giới Thiệu</a>
+          <a href="products.html" class="nav-v2-link active">Sản Phẩm</a>
+          <a href="news.html" class="nav-v2-link">Tin Tức</a>
+          <a href="contact.html" class="nav-v2-link">Liên Hệ</a>
+          <a href="login.html" class="nav-v2-link">Đăng Nhập / Đăng Ký</a>
+        </div>
+      </div>
+    </nav>
+
+    <main class="container my-5 flex-grow-1">
+      <h2 class="section-title fade-in">Thực Đơn Ngọt Ngào Của Chúng Tôi</h2>
+
+      <!-- Category Menu (Functional) -->
+      <ul
+        class="nav nav-pills justify-content-center mb-5 border-bottom pb-4"
+        id="categoryMenu"
+      >
+        <li class="nav-item mx-1 mb-2">
+          <a
+            class="nav-link category-pill-active rounded-pill px-4"
+            href="#"
+            data-filter="All"
+            >Tất Cả Bánh</a
+          >
+        </li>
+        <li class="nav-item mx-1 mb-2">
+          <a
+            class="nav-link category-pill-outline rounded-pill px-4"
+            href="#"
+            data-filter="Bánh Sinh Nhật"
+            >Bánh Sinh Nhật</a
+          >
+        </li>
+        <li class="nav-item mx-1 mb-2">
+          <a
+            class="nav-link category-pill-outline rounded-pill px-4"
+            href="#"
+            data-filter="Bánh Kem"
+            >Bánh Kem</a
+          >
+        </li>
+        <li class="nav-item mx-1 mb-2">
+          <a
+            class="nav-link category-pill-outline rounded-pill px-4"
+            href="#"
+            data-filter="Cupcake"
+            >Cupcake</a
+          >
+        </li>
+        <li class="nav-item mx-1 mb-2">
+          <a
+            class="nav-link category-pill-outline rounded-pill px-4"
+            href="#"
+            data-filter="Bánh Socola"
+            >Bánh Socola</a
+          >
+        </li>
+      </ul>
+
+      <!-- Thêm banner tìm kiếm -->
+      <div id="searchResultBanner" class="d-none mb-3"></div>
+
+      <div class="row g-4 mb-5 fade-in">
+        <!-- Product 1 -->
+        <div class="col-sm-6 col-md-4 col-lg-3" data-category="Cupcake">
+          <div class="card fade-in delay-1 cake-card text-center">
+            <img
+              src="images/cake3.jpg"
+              class="card-img-top"
+              alt="Bánh Cupcake Pastel"
+            />
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Bánh Cupcake Pastel</h5>
+              <p class="small text-muted mb-2">Cupcake</p>
+              <p class="card-text fw-bold mb-3" class="product-price">
+                90.000 VNĐ
+              </p>
+              <a
+                href="sanpham1.html"
+                class="btn btn-secondary-custom mt-auto w-100"
+                >Xem Chi Tiết</a
+              >
+            </div>
+          </div>
+        </div>
+        <!-- Product 2 -->
+        <div class="col-sm-6 col-md-4 col-lg-3" data-category="Bánh Kem">
+          <div class="card fade-in delay-1 cake-card text-center">
+            <img
+              src="images/cake4.jpg"
+              class="card-img-top"
+              alt="Bánh Su Kem Dâu"
+            />
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Bánh Su Kem Dâu</h5>
+              <p class="small text-muted mb-2">Bánh Kem</p>
+              <p class="card-text fw-bold mb-3" class="product-price">
+                150.000 VNĐ
+              </p>
+              <a
+                href="sanpham2.html"
+                class="btn btn-secondary-custom mt-auto w-100"
+                >Xem Chi Tiết</a
+              >
+            </div>
+          </div>
+        </div>
+        <!-- Product 3 -->
+        <div class="col-sm-6 col-md-4 col-lg-3" data-category="Bánh Sinh Nhật">
+          <div class="card fade-in delay-1 cake-card text-center">
+            <img
+              src="images/cake5.jpg"
+              class="card-img-top"
+              alt="Bánh Sinh Nhật Cổ Điển"
+            />
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Bánh Sinh Nhật Cổ Điển</h5>
+              <p class="small text-muted mb-2">Bánh Sinh Nhật</p>
+              <p class="card-text fw-bold mb-3" class="product-price">
+                850.000 VNĐ
+              </p>
+              <a
+                href="sanpham3.html"
+                class="btn btn-secondary-custom mt-auto w-100"
+                >Xem Chi Tiết</a
+              >
+            </div>
+          </div>
+        </div>
+        <!-- Product 4 -->
+        <div class="col-sm-6 col-md-4 col-lg-3" data-category="Bánh Kem">
+          <div class="card fade-in delay-1 cake-card text-center">
+            <img
+              src="images/cake1.jpg"
+              class="card-img-top"
+              alt="Kem Dâu Tây"
+            />
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Kem Dâu Tây</h5>
+              <p class="small text-muted mb-2">Bánh Kem</p>
+              <p class="card-text fw-bold mb-3" class="product-price">
+                650.000 VNĐ
+              </p>
+              <a
+                href="sanpham4.html"
+                class="btn btn-secondary-custom mt-auto w-100"
+                >Xem Chi Tiết</a
+              >
+            </div>
+          </div>
+        </div>
+        <!-- Product 5 -->
+        <div class="col-sm-6 col-md-4 col-lg-3" data-category="Bánh Socola">
+          <div class="card fade-in delay-1 cake-card text-center">
+            <img
+              src="images/cake2.jpg"
+              class="card-img-top"
+              alt="Kẹo Mềm Socola"
+            />
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Kẹo Mềm Socola</h5>
+              <p class="small text-muted mb-2">Bánh Socola</p>
+              <p class="card-text fw-bold mb-3" class="product-price">
+                780.000 VNĐ
+              </p>
+              <a
+                href="sanpham5.html"
+                class="btn btn-secondary-custom mt-auto w-100"
+                >Xem Chi Tiết</a
+              >
+            </div>
+          </div>
+        </div>
+        <!-- Product 6 -->
+        <div class="col-sm-6 col-md-4 col-lg-3" data-category="Bánh Sinh Nhật">
+          <div class="card fade-in delay-1 cake-card text-center">
+            <img
+              src="images/cake7.jpg"
+              class="card-img-top"
+              alt="Trắng Thanh Lịch"
+            />
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Trắng Thanh Lịch</h5>
+              <p class="small text-muted mb-2">Bánh Sinh Nhật</p>
+              <p class="card-text fw-bold mb-3" class="product-price">
+                950.000 VNĐ
+              </p>
+              <a
+                href="sanpham6.html"
+                class="btn btn-secondary-custom mt-auto w-100"
+                >Xem Chi Tiết</a
+              >
+            </div>
+          </div>
+        </div>
+        <!-- Product 7 -->
+        <div class="col-sm-6 col-md-4 col-lg-3" data-category="Bánh Kem">
+          <div class="card fade-in delay-1 cake-card text-center">
+            <img src="images/cake6.jpg" class="card-img-top" alt="Kem Chanh" />
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Kem Chanh</h5>
+              <p class="small text-muted mb-2">Bánh Kem</p>
+              <p class="card-text fw-bold mb-3" class="product-price">
+                700.000 VNĐ
+              </p>
+              <a
+                href="sanpham7.html"
+                class="btn btn-secondary-custom mt-auto w-100"
+                >Xem Chi Tiết</a
+              >
+            </div>
+          </div>
+        </div>
+        <!-- Product 8 -->
+        <div class="col-sm-6 col-md-4 col-lg-3" data-category="Cupcake">
+          <div class="card fade-in delay-1 cake-card text-center">
+            <img
+              src="images/cake8.png"
+              class="card-img-top"
+              alt="Cupcake Hoàng Gia"
+            />
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Cupcake Hoàng Gia</h5>
+              <p class="small text-muted mb-2">Cupcake</p>
+              <p class="card-text fw-bold mb-3" class="product-price">
+                110.000 VNĐ
+              </p>
+              <a
+                href="sanpham8.html"
+                class="btn btn-secondary-custom mt-auto w-100"
+                >Xem Chi Tiết</a
+              >
+            </div>
+          </div>
+        </div>
+        <!-- Product 9 -->
+        <div class="col-sm-6 col-md-4 col-lg-3" data-category="Bánh Socola">
+          <div class="card fade-in delay-1 cake-card text-center">
+            <img
+              src="images/cake9.png"
+              class="card-img-top"
+              alt="Socola Hạt Phỉ"
+            />
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Socola Hạt Phỉ</h5>
+              <p class="small text-muted mb-2">Bánh Socola</p>
+              <p class="card-text fw-bold mb-3" class="product-price">
+                850.000 VNĐ
+              </p>
+              <a
+                href="sanpham9.html"
+                class="btn btn-secondary-custom mt-auto w-100"
+                >Xem Chi Tiết</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer text-center mt-auto">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <img
+              src="images/logo1.png"
+              alt="Sweet Trio Bakery Logo"
+              class="footer-logo mb-2"
+            />
+            <h5 class="font-weight-bold">Tiệm Bánh Ngọt</h5>
+            <p>Nướng bánh bằng niềm vui mỗi ngày từ 2026.</p>
+          </div>
+          <div class="col-md-4 mb-3">
+            <h5>Liên Kết Nhanh</h5>
+            <ul class="list-unstyled">
+              <li><a href="sitemap.html">Sitemap</a></li>
+              <li><a href="contact.html">Liên Hệ</a></li>
+              <li><a href="about.html">Giới Thiệu</a></li>
+            </ul>
+          </div>
+          <div class="col-md-4 mb-3">
+            <h5>Theo Dõi Chúng Tôi</h5>
+            <p>Luôn cập nhật những thay đổi ngọt ngào mới nhất!</p>
+            <div class="footer-social-icons mt-2">
+              <a
+                href="https://www.facebook.com/Bapsxinkiu"
+                class="footer-social-link"
+                title="Facebook"
+                ><i class="bi bi-facebook"></i
+              ></a>
+              <a
+                href="https://www.instagram.com/nqoc.nahzz/"
+                class="footer-social-link"
+                title="Instagram"
+                ><i class="bi bi-instagram"></i
+              ></a>
+              <a
+                href="https://www.tiktok.com/@nacileng?is_from_webapp=1&sender_device=pc"
+                class="footer-social-link"
+                title="TikTok"
+                ><i class="bi bi-tiktok"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+        <hr class="mt-4 mb-3 footer-divider" />
+        <p class="mb-0">
+          &copy; 2026 Tiệm Bánh Ngọt. Bản quyền thuộc về chúng tôi. (Trang demo)
+        </p>
+      </div>
+    </footer>
+
+    <!-- Local JS Scripts -->
+    <script src="jquery/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

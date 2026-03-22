@@ -1,0 +1,508 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="images/logo1.png" />
+    <title>Sitemap - Sweet Trio Bakery</title>
+    <!-- Local CSS -->
+    <link rel="stylesheet" href="bootstrap/icons/bootstrap-icons.css" />
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar-custom-v2 fixed-top">
+      <div class="container navbar-v2-inner">
+        <!-- BÊN TRÁI: 3 links đầu -->
+        <ul class="navbar-v2-left">
+          <li><a href="index.html" class="nav-v2-link">Trang Chủ</a></li>
+          <li><a href="about.html" class="nav-v2-link">Giới Thiệu</a></li>
+          <li><a href="products.html" class="nav-v2-link">Sản Phẩm</a></li>
+        </ul>
+
+        <!-- GIỮA: Logo cực to -->
+        <a href="index.html" class="navbar-v2-logo-wrap">
+          <img
+            src="images/logo1.png"
+            alt="Sweet Trio Bakery"
+            class="navbar-v2-logo"
+          />
+        </a>
+
+        <!-- BÊN PHẢI: 2 links + icon giỏ hàng + icon user -->
+        <ul class="navbar-v2-right">
+          <li><a href="news.html" class="nav-v2-link">Tin Tức</a></li>
+          <li><a href="contact.html" class="nav-v2-link">Liên Hệ</a></li>
+
+          <!-- Giỏ hàng dropdown — giữ nguyên id để main.js hoạt động -->
+          <li class="nav-v2-icon-item dropdown" id="cartNavContainer">
+            <a
+              href="#"
+              class="nav-v2-icon-link position-relative dropdown-toggle"
+              id="cartDropdownToggle"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <i class="bi bi-cart3"></i>
+              <span
+                class="position-absolute translate-middle badge rounded-pill bg-danger"
+                id="cartBadgeCount"
+                >0</span
+              >
+            </a>
+            <div
+              class="dropdown-menu dropdown-menu-end shadow p-0"
+              id="miniCartDropdown"
+              aria-labelledby="cartDropdownToggle"
+            >
+              <div class="p-3 border-bottom">
+                <h6 class="mb-0 fw-bold">
+                  <i class="bi bi-cart3 me-2"></i>Giỏ Hàng Của Bạn
+                </h6>
+              </div>
+              <div
+                id="miniCartItems"
+                class="px-3 py-2 mini-cart-items-scroll"
+              ></div>
+              <div
+                class="p-3 border-top bg-light d-flex justify-content-between align-items-center"
+              >
+                <span class="fw-bold"
+                  >Tổng:
+                  <span id="miniCartTotal" class="text-accent"
+                    >0 VNĐ</span
+                  ></span
+                >
+                <a href="cart.html" class="btn btn-sm btn-primary-custom"
+                  >Xem Giỏ Hàng</a
+                >
+              </div>
+            </div>
+          </li>
+
+          <!-- Avatar dropdown — giữ nguyên id -->
+          <li class="nav-v2-icon-item dropdown" id="avatarNavContainer">
+            <a
+              href="#"
+              class="nav-v2-icon-link dropdown-toggle"
+              id="avatarDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <i class="bi bi-person-circle"></i>
+            </a>
+            <ul
+              class="dropdown-menu dropdown-menu-end shadow"
+              aria-labelledby="avatarDropdown"
+            >
+              <li>
+                <a class="dropdown-item" href="profile.html"
+                  ><i class="bi bi-person"></i> Xem Profile</a
+                >
+              </li>
+              <li><hr class="dropdown-divider" /></li>
+              <li>
+                <a class="dropdown-item" href="#" onclick="handleLogout(event)">
+                  <i class="bi bi-box-arrow-right"></i> Đăng xuất</a
+                >
+              </li>
+            </ul>
+          </li>
+
+          <!-- Đăng nhập — giữ nguyên id -->
+          <li class="nav-v2-icon-item" id="authNavContainer">
+            <a href="login.html" class="nav-v2-icon-link">
+              <i class="bi bi-box-arrow-in-right"></i>
+            </a>
+          </li>
+        </ul>
+
+        <!-- Hamburger cho mobile -->
+        <button
+          class="navbar-v2-toggler d-lg-none"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarV2Mobile"
+        >
+          <i class="bi bi-list"></i>
+        </button>
+      </div>
+
+      <!-- Mobile menu (collapse) -->
+      <div class="collapse navbar-collapse" id="navbarV2Mobile">
+        <div class="navbar-v2-mobile">
+          <a href="index.html" class="nav-v2-link">Trang Chủ</a>
+          <a href="about.html" class="nav-v2-link">Giới Thiệu</a>
+          <a href="products.html" class="nav-v2-link">Sản Phẩm</a>
+          <a href="news.html" class="nav-v2-link">Tin Tức</a>
+          <a href="contact.html" class="nav-v2-link">Liên Hệ</a>
+          <a href="login.html" class="nav-v2-link">Đăng Nhập / Đăng Ký</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-grow-1">
+      <!-- Hero Banner -->
+      <section class="hero-sitemap">
+        <div class="container">
+          <div class="hero-icon-wrapper fade-in">
+            <i class="bi bi-diagram-3-fill"></i>
+          </div>
+          <h1 class="fade-in delay-1">Sơ Đồ Trang Web</h1>
+          <p class="fade-in delay-1">
+            Toàn bộ các trang của Sweet Trio Bakery — tìm nhanh bất kỳ nội dung
+            nào
+          </p>
+        </div>
+      </section>
+
+      <!-- Stats Bar -->
+      <div class="container stats-bar text-center fade-in delay-1">
+        <div class="stat-pill">
+          <i class="bi bi-file-earmark-text"></i>
+          <span class="stat-num">21</span>
+          <span class="stat-label">trang tổng cộng</span>
+        </div>
+        <div class="stat-pill">
+          <i class="bi bi-grid-3x3-gap"></i>
+          <span class="stat-num">4</span>
+          <span class="stat-label">nhóm chức năng</span>
+        </div>
+        <div class="stat-pill">
+          <i class="bi bi-cake2"></i>
+          <span class="stat-num">9</span>
+          <span class="stat-label">trang sản phẩm</span>
+        </div>
+        <div class="stat-pill">
+          <i class="bi bi-clock-history"></i>
+          <span class="stat-num">2026</span>
+          <span class="stat-label">năm ra mắt</span>
+        </div>
+      </div>
+
+      <div class="container mb-5">
+        <div class="row">
+          <!-- CỘT TRÁI -->
+          <div class="col-lg-6">
+            <!-- Nhóm 1 -->
+            <div class="sitemap-group fade-in delay-1">
+              <div class="sitemap-header">
+                <div class="sitemap-header-icon">
+                  <i class="bi bi-house-heart-fill"></i>
+                </div>
+                <h5>Trang Chính</h5>
+                <span class="badge text-dark bg-white">5 trang</span>
+              </div>
+              <a href="index.html" class="sitemap-item">
+                <div class="item-dot"></div>
+                <div class="item-text">
+                  <span class="item-title">Trang Chủ</span>
+                  <p class="item-desc">
+                    Slider nổi bật, sản phẩm hot, video hậu trường
+                  </p>
+                </div>
+                <span class="item-badge badge-default">index.html</span>
+                <i class="bi bi-chevron-right item-arrow"></i>
+              </a>
+              <a href="about.html" class="sitemap-item">
+                <div class="item-dot"></div>
+                <div class="item-text">
+                  <span class="item-title">Giới Thiệu</span>
+                  <p class="item-desc">
+                    Câu chuyện tiệm bánh, đội ngũ sáng lập
+                  </p>
+                </div>
+                <span class="item-badge badge-default">about.html</span>
+                <i class="bi bi-chevron-right item-arrow"></i>
+              </a>
+              <a href="news.html" class="sitemap-item">
+                <div class="item-dot"></div>
+                <div class="item-text">
+                  <span class="item-title">Tin Tức & Blog</span>
+                  <p class="item-desc">Mẹo làm bánh, công thức, khuyến mãi</p>
+                </div>
+                <span class="item-badge badge-default">news.html</span>
+                <i class="bi bi-chevron-right item-arrow"></i>
+              </a>
+              <a href="contact.html" class="sitemap-item">
+                <div class="item-dot"></div>
+                <div class="item-text">
+                  <span class="item-title">Liên Hệ</span>
+                  <p class="item-desc">
+                    Form liên hệ, địa chỉ cửa hàng, bản đồ
+                  </p>
+                </div>
+                <span class="item-badge badge-default">contact.html</span>
+                <i class="bi bi-chevron-right item-arrow"></i>
+              </a>
+              <a href="sitemap.html" class="sitemap-item current-page">
+                <div class="item-dot"></div>
+                <div class="item-text">
+                  <span class="item-title">Sơ Đồ Trang Web</span>
+                  <p class="item-desc">
+                    Bạn đang ở đây — danh sách tất cả trang
+                  </p>
+                </div>
+                <span class="item-badge badge-current">Trang này</span>
+                <i class="bi bi-chevron-right item-arrow"></i>
+              </a>
+            </div>
+
+            <div class="section-divider fade-in delay-1">
+              <hr />
+              <span><i class="bi bi-person-badge me-1"></i>Tài khoản</span>
+              <hr />
+            </div>
+
+            <!-- Nhóm 2 -->
+            <div class="sitemap-group fade-in delay-1">
+              <div class="sitemap-header">
+                <div class="sitemap-header-icon">
+                  <i class="bi bi-person-circle"></i>
+                </div>
+                <h5>Tài Khoản Thành Viên</h5>
+                <span class="badge text-dark bg-white">3 trang</span>
+              </div>
+              <a href="register.html" class="sitemap-item">
+                <div class="item-dot"></div>
+                <div class="item-text">
+                  <span class="item-title">Đăng Ký</span>
+                  <p class="item-desc">Tạo tài khoản mới, validation đầy đủ</p>
+                </div>
+                <span class="item-badge badge-account">register.html</span>
+                <i class="bi bi-chevron-right item-arrow"></i>
+              </a>
+              <a href="login.html" class="sitemap-item">
+                <div class="item-dot"></div>
+                <div class="item-text">
+                  <span class="item-title">Đăng Nhập</span>
+                  <p class="item-desc">
+                    Truy cập tài khoản, xác thực localStorage
+                  </p>
+                </div>
+                <span class="item-badge badge-account">login.html</span>
+                <i class="bi bi-chevron-right item-arrow"></i>
+              </a>
+              <a href="profile.html" class="sitemap-item">
+                <div class="item-dot"></div>
+                <div class="item-text">
+                  <span class="item-title">Hồ Sơ Cá Nhân</span>
+                  <p class="item-desc">
+                    Chỉnh sửa thông tin, upload ảnh đại diện
+                  </p>
+                </div>
+                <span class="item-badge badge-account">profile.html</span>
+                <i class="bi bi-chevron-right item-arrow"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- CỘT PHẢI -->
+          <div class="col-lg-6">
+            <!-- Nhóm 3 -->
+            <div class="sitemap-group fade-in delay-1">
+              <div class="sitemap-header">
+                <div class="sitemap-header-icon">
+                  <i class="bi bi-shop-window"></i>
+                </div>
+                <h5>Sản Phẩm & Chi Tiết</h5>
+                <span class="badge text-dark bg-white">10 trang</span>
+              </div>
+              <a href="products.html" class="sitemap-item">
+                <div class="item-dot"></div>
+                <div class="item-text">
+                  <span class="item-title">Danh Sách Sản Phẩm</span>
+                  <p class="item-desc">Lọc theo danh mục, tìm kiếm</p>
+                </div>
+                <span class="item-badge badge-product">products.html</span>
+                <i class="bi bi-chevron-right item-arrow"></i>
+              </a>
+              <a href="sanpham1.html" class="sitemap-item sitemap-subitem">
+                <div class="item-dot"></div>
+                <div class="item-text">
+                  <span class="item-title">Bánh Cupcake Pastel</span>
+                  <p class="item-desc">Cupcake · 90.000 VNĐ</p>
+                </div>
+                <span class="item-badge badge-product">sanpham1.html</span>
+                <i class="bi bi-chevron-right item-arrow"></i>
+              </a>
+              <a href="sanpham2.html" class="sitemap-item sitemap-subitem">
+                <div class="item-dot"></div>
+                <div class="item-text">
+                  <span class="item-title">Bánh Su Kem Dâu</span>
+                  <p class="item-desc">Bánh Kem · 150.000 VNĐ</p>
+                </div>
+                <span class="item-badge badge-product">sanpham2.html</span>
+                <i class="bi bi-chevron-right item-arrow"></i>
+              </a>
+              <a href="sanpham3.html" class="sitemap-item sitemap-subitem">
+                <div class="item-dot"></div>
+                <div class="item-text">
+                  <span class="item-title">Bánh Sinh Nhật Cổ Điển</span>
+                  <p class="item-desc">Bánh Sinh Nhật · 850.000 VNĐ</p>
+                </div>
+                <span class="item-badge badge-product">sanpham3.html</span>
+                <i class="bi bi-chevron-right item-arrow"></i>
+              </a>
+              <a href="sanpham4.html" class="sitemap-item sitemap-subitem">
+                <div class="item-dot"></div>
+                <div class="item-text">
+                  <span class="item-title">Kem Dâu Tây</span>
+                  <p class="item-desc">Bánh Kem · 650.000 VNĐ</p>
+                </div>
+                <span class="item-badge badge-product">sanpham4.html</span>
+                <i class="bi bi-chevron-right item-arrow"></i>
+              </a>
+              <a href="sanpham5.html" class="sitemap-item sitemap-subitem">
+                <div class="item-dot"></div>
+                <div class="item-text">
+                  <span class="item-title">Kẹo Mềm Socola</span>
+                  <p class="item-desc">Bánh Socola · 780.000 VNĐ</p>
+                </div>
+                <span class="item-badge badge-product">sanpham5.html</span>
+                <i class="bi bi-chevron-right item-arrow"></i>
+              </a>
+              <a href="sanpham6.html" class="sitemap-item sitemap-subitem">
+                <div class="item-dot"></div>
+                <div class="item-text">
+                  <span class="item-title">Bánh Trắng Thanh Lịch</span>
+                  <p class="item-desc">Bánh Sinh Nhật · 950.000 VNĐ</p>
+                </div>
+                <span class="item-badge badge-product">sanpham6.html</span>
+                <i class="bi bi-chevron-right item-arrow"></i>
+              </a>
+              <a href="sanpham7.html" class="sitemap-item sitemap-subitem">
+                <div class="item-dot"></div>
+                <div class="item-text">
+                  <span class="item-title">Bánh Kem Chanh</span>
+                  <p class="item-desc">Bánh Kem · 700.000 VNĐ</p>
+                </div>
+                <span class="item-badge badge-product">sanpham7.html</span>
+                <i class="bi bi-chevron-right item-arrow"></i>
+              </a>
+              <a href="sanpham8.html" class="sitemap-item sitemap-subitem">
+                <div class="item-dot"></div>
+                <div class="item-text">
+                  <span class="item-title">Cupcake Hoàng Gia</span>
+                  <p class="item-desc">Cupcake · 110.000 VNĐ</p>
+                </div>
+                <span class="item-badge badge-product">sanpham8.html</span>
+                <i class="bi bi-chevron-right item-arrow"></i>
+              </a>
+              <a href="sanpham9.html" class="sitemap-item sitemap-subitem">
+                <div class="item-dot"></div>
+                <div class="item-text">
+                  <span class="item-title">Socola Hạt Phỉ</span>
+                  <p class="item-desc">Bánh Socola · 850.000 VNĐ</p>
+                </div>
+                <span class="item-badge badge-product">sanpham9.html</span>
+                <i class="bi bi-chevron-right item-arrow"></i>
+              </a>
+            </div>
+
+            <div class="section-divider fade-in delay-1">
+              <hr />
+              <span><i class="bi bi-bag-heart me-1"></i>Mua hàng</span>
+              <hr />
+            </div>
+
+            <!-- Nhóm 4 -->
+            <div class="sitemap-group fade-in delay-1">
+              <div class="sitemap-header">
+                <div class="sitemap-header-icon">
+                  <i class="bi bi-cart-check-fill"></i>
+                </div>
+                <h5>Giỏ Hàng & Thanh Toán</h5>
+                <span class="badge text-dark bg-white">2 trang</span>
+              </div>
+              <a href="cart.html" class="sitemap-item">
+                <div class="item-dot"></div>
+                <div class="item-text">
+                  <span class="item-title">Giỏ Hàng</span>
+                  <p class="item-desc">
+                    Xem, chỉnh sửa sản phẩm, tính tổng tiền
+                  </p>
+                </div>
+                <span class="item-badge badge-cart">cart.html</span>
+                <i class="bi bi-chevron-right item-arrow"></i>
+              </a>
+              <a href="checkout.html" class="sitemap-item">
+                <div class="item-dot"></div>
+                <div class="item-text">
+                  <span class="item-title">Thanh Toán</span>
+                  <p class="item-desc">
+                    Thông tin giao hàng, xác nhận & đặt hàng
+                  </p>
+                </div>
+                <span class="item-badge badge-cart">checkout.html</span>
+                <i class="bi bi-chevron-right item-arrow"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer text-center mt-auto">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <img
+              src="images/logo1.png"
+              alt="Sweet Trio Bakery Logo"
+              class="footer-logo mb-2"
+            />
+            <h5 class="font-weight-bold">Tiệm Bánh Ngọt</h5>
+            <p>Nướng bánh bằng niềm vui mỗi ngày từ 2026.</p>
+          </div>
+          <div class="col-md-4 mb-3">
+            <h5>Liên Kết Nhanh</h5>
+            <ul class="list-unstyled">
+              <li><a href="sitemap.html">Sitemap</a></li>
+              <li><a href="contact.html">Liên Hệ</a></li>
+              <li><a href="about.html">Giới Thiệu</a></li>
+            </ul>
+          </div>
+          <div class="col-md-4 mb-3">
+            <h5>Theo Dõi Chúng Tôi</h5>
+            <p>Luôn cập nhật những thay đổi ngọt ngào mới nhất!</p>
+            <div class="footer-social-icons mt-2">
+              <a
+                href="https://www.facebook.com/Bapsxinkiu"
+                class="footer-social-link"
+                title="Facebook"
+                ><i class="bi bi-facebook"></i
+              ></a>
+              <a
+                href="https://www.instagram.com/nqoc.nahzz/"
+                class="footer-social-link"
+                title="Instagram"
+                ><i class="bi bi-instagram"></i
+              ></a>
+              <a
+                href="https://www.tiktok.com/@nacileng?is_from_webapp=1&sender_device=pc"
+                class="footer-social-link"
+                title="TikTok"
+                ><i class="bi bi-tiktok"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+        <hr class="mt-4 mb-3 footer-divider" />
+        <p class="mb-0">
+          &copy; 2026 Tiệm Bánh Ngọt. Bản quyền thuộc về chúng tôi. (Trang demo)
+        </p>
+      </div>
+    </footer>
+
+    <!-- Local JS Scripts -->
+    <script src="jquery/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

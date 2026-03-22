@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="images/logo1.png">
+    <title>Đăng Ký - Sweet Trio Bakery</title>
+    <!-- Local CSS -->
+    <link rel="stylesheet" href="bootstrap/icons/bootstrap-icons.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="d-flex flex-column min-vh-100">
+    <!-- Navigation Bar -->
+        <nav class="navbar-custom-v2 fixed-top">
+        <div class="container navbar-v2-inner">
+
+            <!-- BÊN TRÁI: 3 links đầu -->
+            <ul class="navbar-v2-left">
+                <li><a href="index.html" class="nav-v2-link">Trang Chủ</a></li>
+                <li><a href="about.html" class="nav-v2-link">Giới Thiệu</a></li>
+                <li><a href="products.html" class="nav-v2-link">Sản Phẩm</a></li>
+            </ul>
+
+            <!-- GIỮA: Logo cực to -->
+            <a href="index.html" class="navbar-v2-logo-wrap">
+                <img src="images/logo1.png" alt="Sweet Trio Bakery" class="navbar-v2-logo">
+            </a>
+
+            <!-- BÊN PHẢI: 2 links + icon giỏ hàng + icon user -->
+            <ul class="navbar-v2-right">
+                <li><a href="news.html" class="nav-v2-link">Tin Tức</a></li>
+                <li><a href="contact.html" class="nav-v2-link">Liên Hệ</a></li>
+
+                <!-- Giỏ hàng dropdown — giữ nguyên id để main.js hoạt động -->
+                <li class="nav-v2-icon-item dropdown" id="cartNavContainer">
+                    <a href="#" class="nav-v2-icon-link position-relative dropdown-toggle"
+                       id="cartDropdownToggle" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-cart3"></i>
+                        <span class="position-absolute translate-middle badge rounded-pill bg-danger"
+                              id="cartBadgeCount">0</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-end shadow p-0"
+                         id="miniCartDropdown" aria-labelledby="cartDropdownToggle">
+                        <div class="p-3 border-bottom">
+                            <h6 class="mb-0 fw-bold"><i class="bi bi-cart3 me-2"></i>Giỏ Hàng Của Bạn</h6>
+                        </div>
+                        <div id="miniCartItems" class="px-3 py-2 mini-cart-items-scroll"></div>
+                        <div class="p-3 border-top bg-light d-flex justify-content-between align-items-center">
+                            <span class="fw-bold">Tổng: <span id="miniCartTotal" class="text-accent">0 VNĐ</span></span>
+                            <a href="cart.html" class="btn btn-sm btn-primary-custom">Xem Giỏ Hàng</a>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- Avatar dropdown — giữ nguyên id -->
+                <li class="nav-v2-icon-item dropdown" id="avatarNavContainer">
+                    <a href="#" class="nav-v2-icon-link dropdown-toggle"
+                       id="avatarDropdown" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-person-circle"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="avatarDropdown">
+                        <li><a class="dropdown-item" href="profile.html"><i class="bi bi-person"></i> Xem Profile</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#" onclick="handleLogout(event)">
+                            <i class="bi bi-box-arrow-right"></i> Đăng xuất</a></li>
+                    </ul>
+                </li>
+
+                <!-- Đăng nhập — giữ nguyên id -->
+                <li class="nav-v2-icon-item" id="authNavContainer">
+                    <a href="login.html" class="nav-v2-icon-link">
+                        <i class="bi bi-box-arrow-in-right"></i>
+                    </a>
+                </li>
+            </ul>
+
+            <!-- Hamburger cho mobile -->
+            <button class="navbar-v2-toggler d-lg-none" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#navbarV2Mobile">
+                <i class="bi bi-list"></i>
+            </button>
+        </div>
+
+        <!-- Mobile menu (collapse) -->
+        <div class="collapse navbar-collapse" id="navbarV2Mobile">
+            <div class="navbar-v2-mobile">
+                <a href="index.html" class="nav-v2-link">Trang Chủ</a>
+                <a href="about.html" class="nav-v2-link">Giới Thiệu</a>
+                <a href="products.html" class="nav-v2-link">Sản Phẩm</a>
+                <a href="news.html" class="nav-v2-link">Tin Tức</a>
+                <a href="contact.html" class="nav-v2-link">Liên Hệ</a>
+                <a href="login.html" class="nav-v2-link">Đăng Nhập / Đăng Ký</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container my-5 pb-5">
+        <h2 class="section-title fade-in">Tạo Tài Khoản</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-7">
+                <div class="bg-white p-4 p-md-5 rounded shadow-sm border" style="border-color: var(--border-color) !important;">
+                    <div id="registerMessages"></div>
+                    
+                    <form id="registerForm">
+                        <div class="mb-3">
+                            <label for="fullName" class="form-label fw-bold">Họ và Tên</label>
+                            <input type="text" class="form-control" id="fullName" placeholder="VD: Nguyễn Văn A">
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6 position-relative">
+                                <label for="email" class="form-label fw-bold">Địa Chỉ Email</label>
+                                <input type="text" class="form-control" id="email" placeholder="name@example.com">
+                            </div>
+                            <div class="col-md-6 mt-3 mt-md-0 position-relative">
+                                <label for="phone" class="form-label fw-bold">Số Điện Thoại</label>
+                                <input type="text" class="form-control" id="phone" placeholder="0123456789">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6 position-relative">
+                                <label for="password" class="form-label fw-bold">Mật Khẩu</label>
+                                <input type="password" class="form-control" id="password" placeholder="Tối thiểu 6 ký tự">
+                            </div>
+                            <div class="col-md-6 mt-3 mt-md-0 position-relative">
+                                <label for="confirmPassword" class="form-label fw-bold">Xác Nhận Mật Khẩu</label>
+                                <input type="password" class="form-control" id="confirmPassword" placeholder="Nhập lại mật khẩu">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6 position-relative">
+                                <label for="dob" class="form-label fw-bold">Ngày Sinh</label>
+                                <input type="date" class="form-control" id="dob">
+                            </div>
+                            <div class="col-md-6 mt-3 mt-md-0">
+                                <label for="gender" class="form-label fw-bold">Giới Tính</label>
+                                <select class="form-select" id="gender">
+                                    <option value="Nam">Nam</option>
+                                    <option value="Nữ">Nữ</option>
+                                    <option value="Khác">Khác</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <label for="address" class="form-label fw-bold">Địa Chỉ</label>
+                            <textarea class="form-control" id="address" rows="3" placeholder="Địa chỉ đầy đủ của bạn"></textarea>
+                        </div>
+                        <div class="d-grid mt-4">
+                            <button type="submit" class="btn btn-primary-custom btn-lg">Tạo Tài Khoản</button>
+                        </div>
+                        </div>
+                    </form>
+
+                    <div id="registerSummaryContainer" class="d-none"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer text-center mt-auto">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <img src="images/logo1.png" alt="Sweet Trio Bakery Logo" class="footer-logo mb-2">
+            <h5 class="font-weight-bold">Tiệm Bánh Ngọt</h5>
+            <p>Nướng bánh bằng niềm vui mỗi ngày từ 2026.</p>
+          </div>
+          <div class="col-md-4 mb-3">
+            <h5>Liên Kết Nhanh</h5>
+            <ul class="list-unstyled">
+              <li><a href="sitemap.html">Sitemap</a></li>
+              <li><a href="contact.html">Liên Hệ</a></li>
+              <li><a href="about.html">Giới Thiệu</a></li>
+            </ul>
+          </div>
+          <div class="col-md-4 mb-3">
+            <h5>Theo Dõi Chúng Tôi</h5>
+            <p>Luôn cập nhật những thay đổi ngọt ngào mới nhất!</p>
+            <div class="footer-social-icons mt-2">
+              <a
+                href="https://www.facebook.com/Bapsxinkiu"
+                class="footer-social-link"
+                title="Facebook"
+                ><i class="bi bi-facebook"></i
+              ></a>
+              <a
+                href="https://www.instagram.com/nqoc.nahzz/"
+                class="footer-social-link"
+                title="Instagram"
+                ><i class="bi bi-instagram"></i
+              ></a>
+              <a
+                href="https://www.tiktok.com/@nacileng?is_from_webapp=1&sender_device=pc"
+                class="footer-social-link"
+                title="TikTok"
+                ><i class="bi bi-tiktok"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+        <hr class="mt-4 mb-3 footer-divider" />
+        <p class="mb-0">
+          &copy; 2026 Tiệm Bánh Ngọt. Bản quyền thuộc về chúng tôi. (Trang demo)
+        </p>
+      </div>
+    </footer>
+    <!-- Local JS Scripts -->
+    <script src="jquery/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
