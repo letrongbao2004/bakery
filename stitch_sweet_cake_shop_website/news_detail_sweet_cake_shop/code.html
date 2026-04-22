@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>News Detail - Sweet Cake Shop</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#ffd8e8",
+                        "inverse-on-surface": "#ffede6",
+                        "on-primary-fixed": "#3f001b",
+                        "on-secondary-container": "#7c3b5a",
+                        "on-tertiary-container": "#482d3a",
+                        "primary-fixed": "#ffd9e1",
+                        "on-primary": "#ffffff",
+                        "on-surface": "#2d1509",
+                        "on-error-container": "#93000a",
+                        "on-tertiary": "#ffffff",
+                        "surface-tint": "#ac2a5d",
+                        "on-primary-fixed-variant": "#8c0a46",
+                        "surface-dim": "#ffd0bb",
+                        "on-background": "#2d1509",
+                        "inverse-surface": "#452a1c",
+                        "tertiary-fixed-dim": "#e3bccc",
+                        "tertiary": "#755664",
+                        "on-primary-container": "#6e0035",
+                        "secondary-fixed-dim": "#ffafd1",
+                        "surface": "#fff8f6",
+                        "primary-fixed-dim": "#ffb1c5",
+                        "inverse-primary": "#ffb1c5",
+                        "on-secondary": "#ffffff",
+                        "primary-container": "#ff6b9d",
+                        "surface-container-low": "#fff1eb",
+                        "surface-container-highest": "#ffdbcc",
+                        "error-container": "#ffdad6",
+                        "outline-variant": "#ddbfc5",
+                        "on-secondary-fixed": "#3b0423",
+                        "background": "#fff8f6",
+                        "secondary": "#8c4868",
+                        "surface-variant": "#ffdbcc",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-container": "#b994a4",
+                        "surface-bright": "#fff8f6",
+                        "on-secondary-fixed-variant": "#703150",
+                        "surface-container-high": "#ffe2d6",
+                        "surface-container": "#ffeae1",
+                        "secondary-container": "#ffabcf",
+                        "error": "#ba1a1a",
+                        "primary": "#ac2a5d",
+                        "secondary-fixed": "#ffd8e6",
+                        "on-tertiary-fixed": "#2b1420",
+                        "on-surface-variant": "#574146",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed-variant": "#5b3e4c",
+                        "outline": "#8a7176"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Noto Serif"],
+                        "body": ["Plus Jakarta Sans"],
+                        "label": ["Plus Jakarta Sans"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body antialiased selection:bg-primary-container selection:text-on-primary-container min-h-screen flex flex-col">
+<!-- Header Component -->
+<header class="bg-[#fff8f6]/80 backdrop-blur-xl dark:bg-[#2d1509]/80 text-[#ac2a5d] dark:text-[#ffb1c5] font-['Noto_Serif'] text-lg tracking-tight dark:text-white fixed top-0 w-full z-50 shadow-[0_20px_40px_rgba(45,21,9,0.06)] flex justify-between items-center px-12 py-6 max-w-[1440px] mx-auto left-0 right-0">
+<div class="bg-[#fff1eb] dark:bg-[#3d2317] h-[2px] w-full absolute bottom-0 left-0"></div>
+<div class="font-['Noto_Serif'] text-2xl font-black italic text-[#2d1509] dark:text-[#fff8f6]">
+            Sweet Cake Shop
+        </div>
+<nav class="hidden md:flex items-center space-x-8">
+<a class="text-[#2d1509] dark:text-[#fff8f6]/70 font-medium hover:text-[#ac2a5d] hover:bg-[#fff1eb] dark:hover:bg-[#3d2317] transition-all duration-300 px-3 py-1 rounded-full" href="#">Home</a>
+<a class="text-[#2d1509] dark:text-[#fff8f6]/70 font-medium hover:text-[#ac2a5d] hover:bg-[#fff1eb] dark:hover:bg-[#3d2317] transition-all duration-300 px-3 py-1 rounded-full" href="#">Products</a>
+<a class="text-[#2d1509] dark:text-[#fff8f6]/70 font-medium hover:text-[#ac2a5d] hover:bg-[#fff1eb] dark:hover:bg-[#3d2317] transition-all duration-300 px-3 py-1 rounded-full" href="#">About</a>
+<a class="text-[#ac2a5d] dark:text-[#ffb1c5] font-bold border-b-2 border-[#ac2a5d] pb-1 hover:bg-[#fff1eb] dark:hover:bg-[#3d2317] transition-all duration-300 px-3 pt-1" href="#">News</a>
+<a class="text-[#2d1509] dark:text-[#fff8f6]/70 font-medium hover:text-[#ac2a5d] hover:bg-[#fff1eb] dark:hover:bg-[#3d2317] transition-all duration-300 px-3 py-1 rounded-full" href="#">Contact</a>
+</nav>
+<div class="flex items-center space-x-6">
+<button class="active:scale-95 transition-transform duration-200 text-[#ac2a5d] hover:text-primary-container">
+<span class="material-symbols-outlined text-2xl">search</span>
+</button>
+<a class="active:scale-95 transition-transform duration-200 font-medium text-[#2d1509] hover:text-[#ac2a5d]" href="#">Login</a>
+</div>
+</header>
+<main class="flex-grow pt-32 pb-24">
+<!-- Breadcrumbs -->
+<div class="max-w-[1440px] mx-auto px-5 lg:px-12 mb-8">
+<nav aria-label="Breadcrumb" class="flex text-sm text-on-surface-variant font-medium">
+<ol class="inline-flex items-center space-x-2">
+<li class="inline-flex items-center">
+<a class="hover:text-primary transition-colors" href="#">Home</a>
+</li>
+<li>
+<div class="flex items-center">
+<span class="material-symbols-outlined text-sm mx-1">chevron_right</span>
+<a class="hover:text-primary transition-colors" href="#">News</a>
+</div>
+</li>
+<li aria-current="page">
+<div class="flex items-center">
+<span class="material-symbols-outlined text-sm mx-1">chevron_right</span>
+<span class="text-primary">The Art of the Perfect Croissant</span>
+</div>
+</li>
+</ol>
+</nav>
+</div>
+<!-- Article Header & Cover -->
+<article class="max-w-[1440px] mx-auto">
+<header class="px-5 lg:px-12 mb-12 text-center max-w-4xl mx-auto">
+<div class="inline-block bg-secondary-container text-on-secondary-container px-4 py-1 rounded-full text-sm font-semibold mb-6 tracking-wide">
+                    Behind the Scenes
+                </div>
+<h1 class="font-headline text-5xl md:text-6xl font-bold tracking-tight text-on-surface mb-6 leading-tight">
+                    The Art of the Perfect Croissant: A Labor of Love
+                </h1>
+<div class="flex items-center justify-center space-x-4 text-on-surface-variant font-medium">
+<img alt="Author Portrait" class="w-12 h-12 rounded-full object-cover shadow-sm" data-alt="Portrait of a female pastry chef in a bright, modern bakery setting, smiling warmly." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnDU3dciwDreDkoOON9xhU9nl8ZyXLaZjGLUbTwZNIf5yISOQHP1kwYRaazT6_1d3DTB2BP-i06-VPdf0PNg_Im-oSOHU55fPsc865LbGp-OrSybtLvhFBGGflurU2MDy8Q31WU0C7UPVgrhhF9CJpyejfZ7M0OLpFqW4fltHlWYW0Dt2R6UfAFm-AVdW99kGHCYBxxapKa0IIAvhmPJ6z8CDNGhO3PpfKvKTlSD_zrY4BpzzURo-O-Jxh6MCsRoPJK7ZbiU20934P"/>
+<div class="text-left">
+<p class="text-on-surface font-semibold">Elara Vance</p>
+<p class="text-sm">Head Pastry Chef • Oct 24, 2024</p>
+</div>
+</div>
+</header>
+<div class="w-full h-[512px] md:h-[716px] mb-16 relative">
+<img alt="Fresh croissants" class="w-full h-full object-cover" data-alt="Close up of freshly baked, golden brown, flaky croissants resting on a dark wire cooling rack, soft window light highlighting the texture." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQv9HvXDIJOO2a8rLw-AjiFPKXjs_5XNK5ziF7aDj3RGWwkhKZjHVgJGPyWeUdp-qLy_5cR2UAmZnO2mJ317baKNwpX0P5YzVN1wagACoL-f8oVvGFOUpjy8b2cOjh3ypdxw9WiO7kp1st6sZNOjXDrepOtliEv4d6833P4HfWUblR2sABNDHQcEs4k3h6UDQT8JyApQWmiC8fOnd-P5pSY_HZkc4PDWPczfcPmr9IuTHVBMT5GRPOhjCNnJnT0voHntH6qMTOJNrm"/>
+</div>
+<!-- Content Area -->
+<div class="max-w-3xl mx-auto px-5 md:px-0">
+<!-- Audio Player Placeholder -->
+<div class="bg-surface-container-low rounded-xl p-6 mb-12 flex items-center space-x-6 relative">
+<button class="w-16 h-16 rounded-full bg-primary flex items-center justify-center text-on-primary hover:bg-primary-container transition-colors shadow-sm flex-shrink-0">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+<div class="flex-grow">
+<h3 class="font-headline font-bold text-xl mb-1">Listen to the Article</h3>
+<p class="text-sm text-on-surface-variant mb-2">Narrated by Elara Vance (4:12)</p>
+<div class="h-1 bg-outline-variant/30 rounded-full w-full overflow-hidden">
+<div class="h-full bg-primary w-1/3 rounded-full"></div>
+</div>
+</div>
+</div>
+<div class="prose prose-lg max-w-none text-on-surface font-body leading-[1.8]">
+<p class="text-xl mb-8 text-on-surface-variant italic font-serif">
+                        Creating a truly exceptional croissant is an exercise in patience, precision, and an intimate understanding of temperature. It is less a recipe and more a daily dialogue with butter and dough.
+                    </p>
+<p class="mb-6">
+                        At Sweet Cake Shop, our mornings begin long before the sun rises. The bakery is quiet, save for the rhythmic hum of the mixers and the soft murmur of the ovens warming up. This is when the real magic happens. The process of lamination—folding butter into dough repeatedly to create those signature flaky layers—is a delicate dance.
+                    </p>
+<h2 class="font-headline text-3xl font-bold mt-12 mb-6">The Butter Benchmark</h2>
+<p class="mb-6">
+                        The secret lies undeniably in the butter. We source our European-style butter from a small dairy cooperative known for its high butterfat content and cultured tang. It must be cold enough to remain distinct from the dough, yet pliable enough to roll without shattering. If the butter melts into the dough during lamination, you lose the distinct layers; you end up with a rich brioche rather than a flaky croissant.
+                    </p>
+<blockquote class="bg-surface-container-low border-l-4 border-primary p-6 my-10 rounded-r-lg font-headline italic text-xl">
+                        "A croissant should shatter slightly when you bite into it, scattering evidence of your indulgence before melting into a rich, buttery finish."
+                    </blockquote>
+<p class="mb-6">
+                        We allow our dough to rest and ferment slowly overnight. This extended fermentation not only develops complex flavors—a slight yeasty tang that balances the rich sweetness—but also relaxes the gluten, making it easier to roll the next day without shrinking.
+                    </p>
+<div class="my-12">
+<img alt="Baker rolling dough" class="w-full rounded-lg object-cover h-96" data-alt="Overhead shot of a baker's hands rolling out laminated pastry dough on a marble surface dusted lightly with flour, warm ambient lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEcI4vvm5KUIE84eMQBRHPuI3PeydB7Cdvv3T2QpetTeUPXztQTflxdCQe9S1zN-d9RelNBs_lEx0Qs4DXLoJRClY4omcfvyvDbnImTos2R6T4MInjcShNC8W-Bqu7pI5ql3s6EVrXUdDWBx579TUYI6omZxZ5WIjIXC5SY0mXWuvnFU2lA3FHYqfAn-p-ssy7d1K3pFDPlwSzP5RYwYv3Ygrv6aKZxLwXuRgl1QFUS5BnbVJVXJUcpODbmFvfrcw6tTu2_QHtD99r"/>
+<p class="text-sm text-center mt-3 text-on-surface-variant">The delicate process of lamination requires a cool room and swift hands.</p>
+</div>
+<h2 class="font-headline text-3xl font-bold mt-12 mb-6">The Final Bake</h2>
+<p class="mb-6">
+                        Baking is the final crucible. The initial high heat causes the moisture in the butter layers to turn to steam, pushing the thin layers of dough apart and creating the honeycomb interior. We look for a deep, mahogany brown finish—a sign that the sugars have caramelized properly, adding a subtle bitterness that cuts through the richness.
+                    </p>
+<p>
+                        Next time you enjoy one of our croissants, take a moment to appreciate the shatter, the aroma, and the hours of dedication folded into every single layer.
+                    </p>
+</div>
+<!-- Tags & Share -->
+<div class="mt-16 pt-8 border-t border-outline-variant/20 flex flex-col sm:flex-row justify-between items-center gap-6">
+<div class="flex gap-3 flex-wrap">
+<span class="px-4 py-1.5 bg-surface-container-high rounded-full text-sm font-medium hover:bg-tertiary-container hover:text-on-tertiary-container transition-colors cursor-pointer">Baking Techniques</span>
+<span class="px-4 py-1.5 bg-surface-container-high rounded-full text-sm font-medium hover:bg-tertiary-container hover:text-on-tertiary-container transition-colors cursor-pointer">Pastry</span>
+<span class="px-4 py-1.5 bg-surface-container-high rounded-full text-sm font-medium hover:bg-tertiary-container hover:text-on-tertiary-container transition-colors cursor-pointer">Behind the Scenes</span>
+</div>
+<div class="flex items-center space-x-4 text-on-surface-variant">
+<span class="text-sm font-semibold uppercase tracking-wider">Share</span>
+<button class="hover:text-primary transition-colors"><span class="material-symbols-outlined">share</span></button>
+<button class="hover:text-primary transition-colors"><span class="material-symbols-outlined">link</span></button>
+</div>
+</div>
+</div>
+</article>
+<!-- Related Posts Section -->
+<section class="max-w-[1440px] mx-auto px-5 lg:px-12 mt-24">
+<h2 class="font-headline text-4xl font-bold mb-12 text-center">More from the Kitchen</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+<!-- Card 1 -->
+<a class="group block relative overflow-hidden rounded-xl bg-surface-container-lowest transition-all duration-300 hover:bg-surface-container-low hover:-translate-y-1" href="#">
+<div class="aspect-w-16 aspect-h-10 overflow-hidden">
+<img alt="Macarons" class="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A row of brightly colored macarons neatly arranged on a white marble slab, soft pastel lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCARBX_BZbsNP2Xa3DUkLbvQGZBrxywhVbBVoZX8pEH4VUL85_QEJaAoyMAxf2HB40K7mC_xt7FzUEcqkeD6fRTtipj4-DJkAg-IlG1T9QbvvZxT8WUhUnL7Yy3qaH6_j7xD1JZkyqWb2aZKMaGlhEgzDeRP4v_3QgBFNRucsRJO7oztR4W_zKwLO0LWnZl5QROxnpTH6tzqcoOkqCo9v-xNrpAtnzOIFCrMFrfa43mWyCFXzv5iTtLbkM1fsY2cI79issAB5z8Cvsw"/>
+</div>
+<div class="p-8">
+<div class="text-primary font-bold text-sm uppercase tracking-wider mb-3">Ingredient Spotlight</div>
+<h3 class="font-headline text-2xl font-bold mb-4 text-on-surface">Decoding the Perfect Macaron Shell</h3>
+<p class="text-on-surface-variant line-clamp-2">Exploring the delicate balance of almond flour, egg whites, and sugar to achieve the elusive 'pied'.</p>
+</div>
+</a>
+<!-- Card 2 -->
+<a class="group block relative overflow-hidden rounded-xl bg-surface-container-lowest transition-all duration-300 hover:bg-surface-container-low hover:-translate-y-1" href="#">
+<div class="aspect-w-16 aspect-h-10 overflow-hidden">
+<img alt="Sourdough" class="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Rustic sourdough loaves resting on a wooden bakery shelf, warm golden hour light emphasizing the crusty texture." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqed8s1sMUypOFBcOwKjsv04dlWjDnVP7_rInbAHNXoJJEvvZIRLRa1TW6ZsrRLnvDov4nqeICG_QOthgunvovvTg2W8n_58w4gSMGfD1dkC54Bl-uL7uQCJdAJG85JLOJlTRaBp_hR6MbpYreLWEeTB0UoRpqHthkgqgHRoCLXi_ha-pSE7PmmLoZq1MLQkuVHBd0HpH7GiAiH7_fhLBzZ5Mzp-TmSG-u4w6WLpIFDnoRfJwdx3G70DMFg3ePHTuYwRaj0QG0lQ-O"/>
+</div>
+<div class="p-8">
+<div class="text-primary font-bold text-sm uppercase tracking-wider mb-3">Our Process</div>
+<h3 class="font-headline text-2xl font-bold mb-4 text-on-surface">The Wild Yeast Journey</h3>
+<p class="text-on-surface-variant line-clamp-2">How we nurture our sourdough starters to create bread with character, depth, and a story.</p>
+</div>
+</a>
+<!-- Card 3 -->
+<a class="group block relative overflow-hidden rounded-xl bg-surface-container-lowest transition-all duration-300 hover:bg-surface-container-low hover:-translate-y-1" href="#">
+<div class="aspect-w-16 aspect-h-10 overflow-hidden">
+<img alt="Fruit Tart" class="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Close up of a glazed fruit tart topped with fresh berries and kiwi on a dark plate, moody lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBm5LJyknsdFhzfGY7hcenKOhr0RUUrUUt_g0tjsHxmUv-fY1CAXIP48cbuqNGM2Z_QLdxZRFIWcSol_uxJjBCvFvA0H05UxF6KmI8dv8jTwUR8_-DOXiDCDanz9DH_9eO_0Ga_ipgGJW-JQrwRe05RuFBEYxffQ8qOGc87ocsIZa-LAb0tS3O92ePTJeOYStHuR3dD3AhFPNTYuUsTTLROVbTFTtL6QGU23WDQsHd_nPpfXbkiZn9fhaRMgVzjw47Ium-RwOratD8d"/>
+</div>
+<div class="p-8">
+<div class="text-primary font-bold text-sm uppercase tracking-wider mb-3">Seasonal Flavors</div>
+<h3 class="font-headline text-2xl font-bold mb-4 text-on-surface">Embracing Summer Berries</h3>
+<p class="text-on-surface-variant line-clamp-2">Our new collection of tarts featuring local, sun-ripened fruits straight from the farm.</p>
+</div>
+</a>
+</div>
+</section>
+<!-- Comments Section -->
+<section class="max-w-3xl mx-auto px-5 md:px-0 mt-24">
+<div class="bg-surface-container-low rounded-xl p-8 md:p-12">
+<h3 class="font-headline text-3xl font-bold mb-8">Join the Conversation</h3>
+<!-- Comment Form -->
+<form class="mb-12 relative">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+<div class="relative group">
+<input class="w-full bg-surface-container-lowest border border-outline-variant/30 rounded-lg px-4 py-3 text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all peer placeholder-transparent" id="name" placeholder="Name" type="text"/>
+<label class="absolute left-4 top-3 text-on-surface-variant text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-3.5 peer-focus:-top-2 peer-focus:text-xs peer-focus:text-primary bg-surface-container-lowest px-1" for="name">Your Name</label>
+</div>
+<div class="relative group">
+<input class="w-full bg-surface-container-lowest border border-outline-variant/30 rounded-lg px-4 py-3 text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all peer placeholder-transparent" id="email" placeholder="Email" type="email"/>
+<label class="absolute left-4 top-3 text-on-surface-variant text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-3.5 peer-focus:-top-2 peer-focus:text-xs peer-focus:text-primary bg-surface-container-lowest px-1" for="email">Your Email</label>
+</div>
+</div>
+<div class="relative group mb-6">
+<textarea class="w-full bg-surface-container-lowest border border-outline-variant/30 rounded-lg px-4 py-3 text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all peer placeholder-transparent resize-none" id="comment" placeholder="Comment" rows="4"></textarea>
+<label class="absolute left-4 top-3 text-on-surface-variant text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-3.5 peer-focus:-top-2 peer-focus:text-xs peer-focus:text-primary bg-surface-container-lowest px-1" for="comment">Share your thoughts...</label>
+</div>
+<button class="bg-gradient-to-r from-primary to-primary-container text-on-primary font-semibold text-sm uppercase tracking-wider py-3 px-8 rounded-full hover:shadow-[0_8px_16px_rgba(172,42,93,0.2)] hover:-translate-y-0.5 transition-all duration-300" type="button">
+                        Post Comment
+                    </button>
+</form>
+<!-- Existing Comments -->
+<div class="space-y-8">
+<div class="flex space-x-4">
+<div class="w-10 h-10 rounded-full bg-tertiary-container flex items-center justify-center text-on-tertiary-container font-bold flex-shrink-0">
+                            JM
+                        </div>
+<div>
+<div class="flex items-baseline space-x-3 mb-1">
+<h4 class="font-bold text-on-surface">Julianne Moore</h4>
+<span class="text-xs text-on-surface-variant">2 days ago</span>
+</div>
+<p class="text-on-surface-variant leading-relaxed text-sm">
+                                I've always wondered why yours taste so different from the chain bakeries. The butter makes absolute sense. Beautifully written article!
+                            </p>
+</div>
+</div>
+<div class="flex space-x-4">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container font-bold flex-shrink-0">
+                            TK
+                        </div>
+<div>
+<div class="flex items-baseline space-x-3 mb-1">
+<h4 class="font-bold text-on-surface">Thomas Keller</h4>
+<span class="text-xs text-on-surface-variant">5 days ago</span>
+</div>
+<p class="text-on-surface-variant leading-relaxed text-sm">
+                                Respect for the slow fermentation process. It's becoming a lost art in modern quick-bake setups. Keep up the phenomenal work.
+                            </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer Component -->
+<footer class="bg-[#fff1eb] dark:bg-[#1a0c05] text-[#ac2a5d] dark:text-[#ffb1c5] font-['Plus_Jakarta_Sans'] text-sm leading-relaxed w-full py-16 px-12">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-[1440px] mx-auto">
+<div class="font-['Noto_Serif'] text-xl font-bold text-[#2d1509] dark:text-[#fff8f6]">
+                Sweet Cake Shop
+            </div>
+<div class="flex flex-col space-y-4">
+<a class="text-[#2d1509]/60 dark:text-[#fff8f6]/50 hover:text-[#ac2a5d] hover:translate-x-1 transition-transform duration-200 cursor-pointer" href="#">Sitemap</a>
+<a class="text-[#2d1509]/60 dark:text-[#fff8f6]/50 hover:text-[#ac2a5d] hover:translate-x-1 transition-transform duration-200 cursor-pointer" href="#">About Us</a>
+<a class="text-[#2d1509]/60 dark:text-[#fff8f6]/50 hover:text-[#ac2a5d] hover:translate-x-1 transition-transform duration-200 cursor-pointer" href="#">Terms of Service</a>
+<a class="text-[#2d1509]/60 dark:text-[#fff8f6]/50 hover:text-[#ac2a5d] hover:translate-x-1 transition-transform duration-200 cursor-pointer" href="#">Privacy Policy</a>
+</div>
+<div class="text-[#2d1509]/60 dark:text-[#fff8f6]/50">
+                © 2024 Sweet Cake Shop. Crafting digital degustation.
+            </div>
+</div>
+<div class="bg-[#ffdbcc] dark:bg-[#2d1509] h-[1px] w-full my-8 opacity-20 max-w-[1440px] mx-auto"></div>
+</footer>
+</body></html>

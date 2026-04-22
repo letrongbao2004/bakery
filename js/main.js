@@ -3,18 +3,54 @@
 */
 
 $(document).ready(function () {
+    // [UI Tweak] Modernize cart icon to a shopping bag (popular on premium sites)
+    $('.bi-cart3').removeClass('bi-cart3').addClass('bi-bag');
 
-    // =====================
-    // SCROLL ANIMATIONS
-    // =====================
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) $(entry.target).addClass('visible');
-            else $(entry.target).removeClass('visible');
+    // Initialize AOS
+    if (typeof AOS !== 'undefined') {
+        AOS.init({
+            duration: 650,
+            easing: 'ease-in-out',
+            once: true,
+            mirror: false
         });
-    }, { threshold: 0.15 });
+    }
 
-    $('.fade-in').each(function () { observer.observe(this); });
+    // Navbar Scroll Effect (Optimized for hero sections)
+    $(window).scroll(function () {
+        // Trigger frosted glass effect after 80px scroll
+        if ($(this).scrollTop() > 80) {
+            $('.navbar-custom-v2').addClass('scrolled');
+        } else {
+            $('.navbar-custom-v2').removeClass('scrolled');
+        }
+    });
+
+    // Cart Badge Pulse Function
+    window.triggerCartPulse = function () {
+        const $badge = $('.cart-badge');
+        $badge.addClass('pulse');
+        setTimeout(() => $badge.removeClass('pulse'), 400);
+    };
+
+    // Add to Cart Bridge
+    $(document).on('click', '.btn-add-to-cart', function (e) {
+        e.preventDefault();
+        const productName = $(this).data('product');
+        const $card = $(this).closest('.bakery-card');
+        const priceText = $card.find('.price').text().replace(/[^0-9]/g, '');
+        const price = parseInt(priceText) || 0;
+        const img = $card.find('img').attr('src');
+
+        if (window.addToCart) {
+            window.addToCart({
+                id: productName.toLowerCase().replace(/\s+/g, '-'),
+                name: productName,
+                price: price,
+                img: img
+            });
+        }
+    });
 
     // Khai báo currentPath toàn file
     let currentPath = window.location.pathname.split('/').pop() || 'index.html';
@@ -53,7 +89,7 @@ $(document).ready(function () {
     window.updateNavbar = function () {
         let user = JSON.parse(localStorage.getItem('cakeShopUser'));
         if (user) {
-            $('#authNavContainer').hide();
+            $('#authNavContainer').removeClass('d-lg-block').hide();
             $('#avatarNavContainer').show();
             let avatar = localStorage.getItem('userAvatar');
             $('#avatarDropdown').html(avatar
@@ -61,7 +97,7 @@ $(document).ready(function () {
                 : `<i class="bi bi-person-circle fs-5"></i>`
             );
         } else {
-            $('#authNavContainer').show();
+            $('#authNavContainer').addClass('d-lg-block').show();
             $('#avatarNavContainer').hide();
         }
     };
@@ -89,6 +125,22 @@ $(document).ready(function () {
     function saveCart(cart) { localStorage.setItem(CART_KEY, JSON.stringify(cart)); }
 
     function formatVND(amount) { return amount.toLocaleString('vi-VN') + ' VNĐ'; }
+
+    // =====================
+    // GLOBAL addToCart (used by product detail pages)
+    // =====================
+    window.addToCart = function (item) {
+        let cart = getCart();
+        let existing = cart.find(i => i.id === item.id);
+        if (existing) {
+            existing.qty += 1;
+        } else {
+            cart.push({ id: item.id, name: item.name, price: item.price, img: item.img, qty: 1 });
+        }
+        saveCart(cart);
+        syncCartState();
+        showNotification('success', 'Đã Thêm Vào Giỏ! 🛒', `<strong>${item.name}</strong> đã được thêm vào giỏ hàng.`);
+    };
 
     window.syncCartState = function () {
         let cart = getCart();
@@ -245,6 +297,13 @@ $(document).ready(function () {
     }
 
     if (currentPath === 'checkout.html') {
+        // [BUG-05] Guard check empty cart when accessing checkout directly
+        if (getCart().length === 0) {
+            showNotification('warning', 'Giỏ Hàng Trống', 'Vui lòng thêm sản phẩm trước khi thanh toán.');
+            setTimeout(() => window.location.href = 'products.html', 1800);
+            return;
+        }
+
         // Pre-fill from logged-in user
         let user = JSON.parse(localStorage.getItem('cakeShopUser'));
         if (user) {
@@ -285,6 +344,10 @@ $(document).ready(function () {
             ['#checkoutStep1', '#checkoutStep2', '#checkoutStep3'].forEach((s, i) => $(s).toggle(i + 1 === step));
             ['#stepDot1', '#stepDot2', '#stepDot3'].forEach((d, i) => {
                 $(d).toggleClass('active', i + 1 === step).toggleClass('done', i + 1 < step);
+            });
+            // [BUG-06] Change step line color
+            ['#stepLine1', '#stepLine2'].forEach((l, i) => {
+                $(l).toggleClass('done', i + 1 < step);
             });
         }
 
@@ -327,10 +390,14 @@ $(document).ready(function () {
 
         // STEP 2 → Place Order
         $('#placeOrderBtn').click(function () {
-            localStorage.removeItem(CART_KEY);
-            syncCartState();
-            showNotification('success', 'Đặt Hàng Thành Công! 🎉', 'Cảm ơn bạn đã đặt hàng. Chúng tôi sẽ liên hệ sớm nhất. Hẹn gặp lại!');
-            setTimeout(() => { window.location.href = 'index.html'; }, 2500);
+            $(this).prop('disabled', true).html('<span class="spinner-border spinner-border-sm me-2"></span>Đang xử lý...');
+            setTimeout(function () {
+                localStorage.removeItem(CART_KEY);
+                syncCartState();
+                setStep(3);
+                $('html, body').animate({ scrollTop: 0 }, 400);
+                showNotification('success', 'Đặt Hàng Thành Công! 🎉', 'Cảm ơn bạn. Chúng tôi sẽ liên hệ xác nhận sớm nhất!');
+            }, 1500);
         });
     }
 
@@ -350,7 +417,8 @@ $(document).ready(function () {
     // CATEGORY FILTER (products.html)
     // =====================
     if (currentPath === 'products.html') {
-        $('#categoryMenu a').click(function (e) {
+        // [BUG-02] Fixed selector #categoryMenu -> #categoryFilter
+        $('#categoryFilter a').click(function (e) {
             e.preventDefault();
             const filter = $(this).data('filter');
             if (!filter) return;
@@ -358,19 +426,17 @@ $(document).ready(function () {
             // Ẩn banner khi click vào category pill
             $('#searchResultBanner').addClass('d-none');
 
-            // Active pill styling
-            $('#categoryMenu a').removeClass('category-pill-active').addClass('category-pill-outline');
-            $(this).removeClass('category-pill-outline').addClass('category-pill-active');
+            // Active sidebar styling
+            $('#categoryFilter a').removeClass('active');
+            $(this).addClass('active');
 
             // Show/hide cards
             if (filter === 'All') {
-                $('.cake-card').closest('[data-category]').fadeIn(300);
+                $('.product-item').fadeIn(300);
             } else {
-                $('.cake-card').closest('[data-category]').hide().each(function () {
-                    if ($(this).data('category') === filter) {
-                        $(this).fadeIn(300);
-                    }
-                });
+                $('.product-item').hide().filter(function () {
+                    return $(this).data('category') === filter;
+                }).fadeIn(300);
             }
         });
 
@@ -383,11 +449,15 @@ $(document).ready(function () {
             let count = 0;
 
             // Lọc sản phẩm
-            $('.cake-card').each(function () {
-                const title = $(this).find('.card-title').text().toLowerCase();
-                const category = $(this).find('.small.text-muted').text().toLowerCase();
-                const match = title.includes(keyword.toLowerCase()) || category.includes(keyword.toLowerCase());
-                $(this).closest('[class*="col-"]').toggle(match);
+            $('.product-item').each(function () {
+                const $col = $(this);
+                const titleEl = $col.find('.title, h3').first();
+                const title = titleEl.text().toLowerCase();
+                // Get category directly from data attribute
+                const cat = $col.data('category') ? $col.data('category').toLowerCase() : '';
+
+                const match = title.includes(keyword.toLowerCase()) || cat.includes(keyword.toLowerCase());
+                $col.toggle(match);
                 if (match) count++;
             });
 
@@ -410,20 +480,6 @@ $(document).ready(function () {
             }
         }
     }
-
-    // Fallback: local filter on index.html (instant keyup)
-    window.handleSearch = function () {
-        let query = $('#searchInput').val().toLowerCase().trim();
-        let found = false;
-        $('.product-item').each(function () {
-            let match = $(this).data('name').toLowerCase().includes(query);
-            $(this).toggle(match);
-            if (match) found = true;
-        });
-        $('#noResultMessage').toggleClass('d-none', found);
-        return false;
-    };
-    $('#searchInput').on('keyup', handleSearch);
 
     // =====================
     // REGISTRATION FORM
@@ -515,6 +571,12 @@ $(document).ready(function () {
         $('#profileName').val(user.name); $('#profileEmail').val(user.email);
         $('#profilePhone').val(user.phone || ''); $('#profileDob').val(user.dob || ''); $('#profileAddress').val(user.address || '');
         $('#displayUserName').text(user.name); $('#displayUserEmail').text(user.email);
+
+        // [BUG-07] Restore gender radio
+        if (user.gender) {
+            $(`input[name="profileGender"][value="${user.gender}"]`).prop('checked', true);
+        }
+
         let savedAvatar = localStorage.getItem('userAvatar');
         if (savedAvatar) $('#profileAvatarPreview').attr('src', savedAvatar);
 
@@ -532,6 +594,9 @@ $(document).ready(function () {
 
         window.handleProfileSave = function () {
             user.name = $('#profileName').val(); user.phone = $('#profilePhone').val(); user.dob = $('#profileDob').val(); user.address = $('#profileAddress').val();
+            // [BUG-07] Save gender radio
+            user.gender = $('input[name="profileGender"]:checked').val() || '';
+
             localStorage.setItem('cakeShopUser', JSON.stringify(user));
             $('#displayUserName').text(user.name);
             let users = JSON.parse(localStorage.getItem('cakeShopUsers')) || [];
@@ -601,20 +666,95 @@ $(document).ready(function () {
     // ACTIVE NAV LINK (auto-detect from pathname)
     // =====================
     (function setActiveNav() {
-        let page = window.location.pathname.split('/').pop() || 'index.html';
-        // Map product detail pages to products.html
-        let navMap = { 'index.html': 'index.html', 'about.html': 'about.html', 'products.html': 'products.html', 'news.html': 'news.html', 'contact.html': 'contact.html' };
-        let activeHref = navMap[page];
-        if (!activeHref && page.startsWith('sanpham')) activeHref = 'products.html';
-        if (!activeHref && page === 'cart.html') activeHref = null; // no highlight
-        if (!activeHref && page === 'checkout.html') activeHref = null;
+        let path = window.location.pathname;
+        let page = path.split('/').pop().split('?')[0].split('#')[0];
+        if (!page || page === '') page = 'index.html';
 
-        if (activeHref) {
-            $('.navbar-nav .nav-link').each(function () {
-                if ($(this).attr('href') === activeHref) {
-                    $(this).addClass('active fw-bold');
-                }
-            });
-        }
+        let pageNoExt = page.replace('.html', '');
+        let isSanpham = pageNoExt.startsWith('sanpham');
+
+        $('.nav-v2-link').each(function () {
+            let href = $(this).attr('href');
+            if (!href) return;
+
+            let hrefNoExt = href.split('?')[0].split('#')[0].replace('.html', '');
+
+            if (pageNoExt === hrefNoExt || (isSanpham && hrefNoExt === 'products')) {
+                $(this).addClass('active');
+            }
+        });
     })();
 });
+
+// =============================================================
+// PRODUCT DETAIL PAGE  (sanpham1.html – sanpham9.html)
+// Runs only when #addToCartBtn or #mainProductImg is present
+// =============================================================
+(function () {
+    if (!document.getElementById('addToCartBtn') && !document.getElementById('mainProductImg')) return;
+
+    /* --- Thumbnail gallery --- */
+    window.changeImg = function (src, el) {
+        $('#mainProductImg').attr('src', src);
+        $('[onclick*=changeImg]').css({ 'border-color': 'transparent', opacity: '0.7' });
+        $(el).css({ 'border-color': 'var(--clr-secondary)', opacity: '1' });
+    };
+
+    /* --- Quantity controls --- */
+    var qty = 1;
+    $('#productQtyMinus').on('click', function () {
+        if (qty > 1) { qty--; $('#productQtyNum').text(qty); }
+    });
+    $('#productQtyPlus').on('click', function () {
+        qty++;
+        $('#productQtyNum').text(qty);
+    });
+
+    /* --- Add to cart --- */
+    $('#addToCartBtn').on('click', function () {
+        var $btn = $(this);
+        var item = {
+            id:    $btn.data('id'),
+            name:  $btn.data('name'),
+            price: parseInt($btn.data('price')),
+            img:   $btn.data('img')
+        };
+        for (var i = 0; i < qty; i++) { addToCart(item); }
+        $('#cartNavContainer').addClass('animated-shake');
+        setTimeout(function () { $('#cartNavContainer').removeClass('animated-shake'); }, 700);
+    });
+
+    /* --- Review-form star hover (only if form exists) --- */
+    if ($('#reviewStars').length) {
+        $('#reviewStars i').on('mouseenter', function () {
+            var v = $(this).data('v');
+            $('#reviewStars i').each(function () {
+                var isActive = $(this).data('v') <= v;
+                $(this).toggleClass('bi-star-fill', isActive).toggleClass('bi-star', !isActive);
+            });
+        }).on('mouseleave', function () {
+            var selected = $('#reviewStars').data('selected') || 0;
+            $('#reviewStars i').each(function () {
+                var isActive = $(this).data('v') <= selected;
+                $(this).toggleClass('bi-star-fill', isActive).toggleClass('bi-star', !isActive);
+            });
+        }).on('click', function () {
+            var v = $(this).data('v');
+            $('#reviewStars').data('selected', v);
+            $('#reviewStars i').each(function () {
+                var isActive = $(this).data('v') <= v;
+                $(this).toggleClass('bi-star-fill', isActive).toggleClass('bi-star', !isActive);
+            });
+        });
+
+        $('#reviewForm').on('submit', function (e) {
+            e.preventDefault();
+            if (typeof showNotification === 'function') {
+                showNotification('success', 'Cảm Ơn!', 'Đánh giá của bạn đã được ghi nhận.');
+            }
+            this.reset();
+            $('#reviewStars').data('selected', 0);
+            $('#reviewStars i').removeClass('bi-star-fill').addClass('bi-star');
+        });
+    }
+})();

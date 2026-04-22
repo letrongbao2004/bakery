@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Products - Sweet Cake Shop</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400..900;1,400..900&amp;family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#ffd8e8",
+                        "inverse-on-surface": "#ffede6",
+                        "on-primary-fixed": "#3f001b",
+                        "on-secondary-container": "#7c3b5a",
+                        "on-tertiary-container": "#482d3a",
+                        "primary-fixed": "#ffd9e1",
+                        "on-primary": "#ffffff",
+                        "on-surface": "#2d1509",
+                        "on-error-container": "#93000a",
+                        "on-tertiary": "#ffffff",
+                        "surface-tint": "#ac2a5d",
+                        "on-primary-fixed-variant": "#8c0a46",
+                        "surface-dim": "#ffd0bb",
+                        "on-background": "#2d1509",
+                        "inverse-surface": "#452a1c",
+                        "tertiary-fixed-dim": "#e3bccc",
+                        "tertiary": "#755664",
+                        "on-primary-container": "#6e0035",
+                        "secondary-fixed-dim": "#ffafd1",
+                        "surface": "#fff8f6",
+                        "primary-fixed-dim": "#ffb1c5",
+                        "inverse-primary": "#ffb1c5",
+                        "on-secondary": "#ffffff",
+                        "primary-container": "#ff6b9d",
+                        "surface-container-low": "#fff1eb",
+                        "surface-container-highest": "#ffdbcc",
+                        "error-container": "#ffdad6",
+                        "outline-variant": "#ddbfc5",
+                        "on-secondary-fixed": "#3b0423",
+                        "background": "#fff8f6",
+                        "secondary": "#8c4868",
+                        "surface-variant": "#ffdbcc",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-container": "#b994a4",
+                        "surface-bright": "#fff8f6",
+                        "on-secondary-fixed-variant": "#703150",
+                        "surface-container-high": "#ffe2d6",
+                        "surface-container": "#ffeae1",
+                        "secondary-container": "#ffabcf",
+                        "error": "#ba1a1a",
+                        "primary": "#ac2a5d",
+                        "secondary-fixed": "#ffd8e6",
+                        "on-tertiary-fixed": "#2b1420",
+                        "on-surface-variant": "#574146",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed-variant": "#5b3e4c",
+                        "outline": "#8a7176"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {},
+                    "fontFamily": {
+                        "headline": ["Noto Serif"],
+                        "body": ["Plus Jakarta Sans"],
+                        "label": ["Plus Jakarta Sans"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #fff8f6; color: #2d1509; }
+        h1, h2, h3, h4, h5, h6, .font-headline { font-family: 'Noto Serif', serif; }
+        
+        /* Editorial adjustments */
+        .editorial-spacing { letter-spacing: -0.02em; }
+        .glass-nav { background: rgba(255, 248, 246, 0.8); backdrop-filter: blur(12px); }
+        .ghost-border { border: 1px solid rgba(221, 191, 197, 0.15); }
+        .ghost-border-focus:focus-within { border-color: #ac2a5d; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface antialiased pt-24 pb-0 min-h-screen flex flex-col">
+<!-- TopNavBar (Shared Component) -->
+<header class="fixed top-0 w-full z-50 bg-[#fff8f6]/80 backdrop-blur-xl dark:bg-[#2d1509]/80 shadow-[0_20px_40px_rgba(45,21,9,0.06)]">
+<div class="flex justify-between items-center px-12 py-6 max-w-[1440px] mx-auto">
+<div class="font-['Noto_Serif'] text-2xl font-black italic text-[#2d1509] dark:text-[#fff8f6]">
+                Sweet Cake Shop
+            </div>
+<nav class="hidden md:flex space-x-8">
+<a class="text-[#2d1509] dark:text-[#fff8f6]/70 font-medium hover:text-[#ac2a5d] hover:bg-[#fff1eb] dark:hover:bg-[#3d2317] transition-all duration-300 px-3 py-1 rounded-full active:scale-95" href="#">Home</a>
+<a class="text-[#ac2a5d] dark:text-[#ffb1c5] font-bold border-b-2 border-[#ac2a5d] pb-1 hover:bg-[#fff1eb] dark:hover:bg-[#3d2317] transition-all duration-300 px-3 active:scale-95" href="#">Products</a>
+<a class="text-[#2d1509] dark:text-[#fff8f6]/70 font-medium hover:text-[#ac2a5d] hover:bg-[#fff1eb] dark:hover:bg-[#3d2317] transition-all duration-300 px-3 py-1 rounded-full active:scale-95" href="#">About</a>
+<a class="text-[#2d1509] dark:text-[#fff8f6]/70 font-medium hover:text-[#ac2a5d] hover:bg-[#fff1eb] dark:hover:bg-[#3d2317] transition-all duration-300 px-3 py-1 rounded-full active:scale-95" href="#">News</a>
+<a class="text-[#2d1509] dark:text-[#fff8f6]/70 font-medium hover:text-[#ac2a5d] hover:bg-[#fff1eb] dark:hover:bg-[#3d2317] transition-all duration-300 px-3 py-1 rounded-full active:scale-95" href="#">Contact</a>
+</nav>
+<div class="flex items-center space-x-6">
+<button class="text-[#ac2a5d] dark:text-[#ffb1c5] hover:bg-[#fff1eb] dark:hover:bg-[#3d2317] p-2 rounded-full transition-all duration-300 active:scale-95 flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+<a class="text-[#ac2a5d] dark:text-[#ffb1c5] font-medium hover:bg-[#fff1eb] dark:hover:bg-[#3d2317] px-4 py-2 rounded-full transition-all duration-300 active:scale-95" href="#">Login</a>
+</div>
+</div>
+<div class="bg-[#fff1eb] dark:bg-[#3d2317] h-[2px] w-full absolute bottom-0"></div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow max-w-[1440px] w-full mx-auto px-5 lg:px-12 py-12">
+<!-- Breadcrumb & Header -->
+<div class="mb-12">
+<nav aria-label="Breadcrumb" class="flex text-sm font-body text-on-surface-variant mb-6">
+<ol class="inline-flex items-center space-x-1 md:space-x-3">
+<li class="inline-flex items-center">
+<a class="inline-flex items-center hover:text-primary transition-colors" href="#">
+                            Home
+                        </a>
+</li>
+<li>
+<div class="flex items-center">
+<span class="material-symbols-outlined text-sm mx-1">chevron_right</span>
+<span class="text-on-surface font-medium ml-1 md:ml-2">Products</span>
+</div>
+</li>
+</ol>
+</nav>
+<h1 class="font-headline text-5xl md:text-6xl text-on-surface editorial-spacing mb-4">Our Curated Collection</h1>
+<p class="font-body text-lg text-on-surface-variant max-w-2xl">A digital degustation of our finest creations, hand-crafted with precision and passion.</p>
+</div>
+<!-- Category Nav -->
+<div class="mb-16 pb-4 overflow-x-auto hide-scrollbar">
+<ul class="flex space-x-4 md:space-x-8 font-body text-lg whitespace-nowrap border-b border-outline-variant/20 pb-2">
+<li>
+<a class="text-primary font-bold border-b-2 border-primary pb-2 px-2 block" href="#">All</a>
+</li>
+<li>
+<a class="text-on-surface-variant hover:text-primary transition-colors pb-2 px-2 block" href="#">Bánh Kem</a>
+</li>
+<li>
+<a class="text-on-surface-variant hover:text-primary transition-colors pb-2 px-2 block" href="#">Cupcake</a>
+</li>
+<li>
+<a class="text-on-surface-variant hover:text-primary transition-colors pb-2 px-2 block" href="#">Macaron</a>
+</li>
+<li>
+<a class="text-on-surface-variant hover:text-primary transition-colors pb-2 px-2 block" href="#">Tiramisu</a>
+</li>
+<li>
+<a class="text-on-surface-variant hover:text-primary transition-colors pb-2 px-2 block" href="#">Mousse</a>
+</li>
+</ul>
+</div>
+<!-- 2-Column Layout -->
+<div class="flex flex-col md:flex-row gap-12">
+<!-- Sidebar (Filters & Most Viewed) -->
+<aside class="w-full md:w-1/4 flex flex-col space-y-12">
+<!-- Search -->
+<div class="bg-surface-container-low p-6 rounded-2xl">
+<h3 class="font-headline text-xl mb-4 text-on-surface">Search</h3>
+<div class="relative ghost-border-focus bg-surface-container-lowest rounded-full ghost-border flex items-center px-4 py-3 transition-colors">
+<span class="material-symbols-outlined text-outline mr-2">search</span>
+<input class="w-full bg-transparent border-none focus:ring-0 text-on-surface placeholder-outline font-body text-sm outline-none" placeholder="Find a flavor..." type="text"/>
+</div>
+</div>
+<!-- Price Range -->
+<div class="bg-surface-container-low p-6 rounded-2xl">
+<h3 class="font-headline text-xl mb-4 text-on-surface">Price Range</h3>
+<div class="space-y-4">
+<input class="w-full accent-primary h-1 bg-outline-variant/30 rounded-lg appearance-none cursor-pointer" max="100" min="0" type="range" value="50"/>
+<div class="flex justify-between text-sm font-headline text-on-surface-variant">
+<span>$10</span>
+<span>$150+</span>
+</div>
+</div>
+</div>
+<!-- Most Viewed -->
+<div class="bg-surface-container-low p-6 rounded-2xl">
+<h3 class="font-headline text-xl mb-6 text-on-surface">Most Viewed</h3>
+<div class="space-y-6">
+<!-- Small Item 1 -->
+<div class="flex items-center space-x-4 group cursor-pointer">
+<div class="w-16 h-16 rounded-lg overflow-hidden bg-surface-container-highest flex-shrink-0">
+<img alt="Small elegant chocolate tart" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="close-up of a small, elegant dark chocolate tart on a rustic ceramic plate with a dusting of cocoa powder, soft natural window light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAP81h6Xsefmx-Ie_No9qMisHFeAEcjww05hFph4C4jHUp8E1jqSwXMOUDDHr7ixQOfio80QnSxvP2NiIEPrbeJN3rBTBPKlhK-ZU0U1kmwthMfR5-7h5xxVZzBT4hDyKHw2IU4m_Z1DHIQmVubraZhn-UI6FHoOlf-GTXbs6bkc_dd854bV7EqSXumhRhsJEjEyNOFBUJOwGhlTht-9jxzY-47n39C6Cs9WEUc8eDfkSxkiVr0wkwadp7ZAURr3j8maUbh1nac__ic"/>
+</div>
+<div>
+<h4 class="font-body text-sm font-semibold text-on-surface group-hover:text-primary transition-colors">Dark Chocolate Tart</h4>
+<p class="font-headline text-sm text-primary-container">$35.00</p>
+</div>
+</div>
+<!-- Small Item 2 -->
+<div class="flex items-center space-x-4 group cursor-pointer">
+<div class="w-16 h-16 rounded-lg overflow-hidden bg-surface-container-highest flex-shrink-0">
+<img alt="Small colorful macaron selection" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="close-up of three pastel-colored macarons arranged neatly on a light marble surface, soft bright lighting, elegant mood" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxy8LAPdoYuIjPFK47bC95SLdBWHHVLg0bA8T-SxPL0LTNjXiaMQunJxg5DVrWlnLDQfxu4NpEpL0VShN7eRgW9nH5B-4owpJqRKBtcwgCGGnJLqgAZBpzuRXMi3Tcc0kKzJp7ZXS3qn9g1EusjDJ86dYtp-eXUj1RzbmK0O7lQcV4D8le9buiKCv02TSocE6bfuqk0lx-2mahIwtMC28Egqb1tzadtNpKNrwjqOlCUIvGYeQKLHRtTQN8T6gRPE1z92jFG28ZFZP0"/>
+</div>
+<div>
+<h4 class="font-body text-sm font-semibold text-on-surface group-hover:text-primary transition-colors">Signature Macarons</h4>
+<p class="font-headline text-sm text-primary-container">$24.00</p>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Grid -->
+<div class="w-full md:w-3/4">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 gap-y-16">
+<!-- Product Card 1 -->
+<div class="group relative flex flex-col cursor-pointer bg-surface-container-lowest rounded-2xl overflow-hidden hover:bg-surface-container-low transition-colors duration-300 pb-6">
+<div class="relative aspect-square w-full overflow-hidden bg-surface-container-high rounded-t-2xl mb-6">
+<img alt="Berry Layer Cake" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out" data-alt="a beautifully layered sponge cake topped with fresh strawberries and blackberries on a minimalist white pedestal, bright and airy lighting, editorial style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHYlMBqfrGxn_-84cGGxPTfNyGc2ePj0ELhvDHTQGOyZXOMcUA_b5Px5FG88gTSByg9u_NyhDX6I23x9TGwQLyk_mpFbpr2fz9S-cx2nVs414bp6lAUV8eqOBCZs79RNQsMLeFRUTRu5RL2zyouk2bkagVwm-QmPldzs_jK37BTLnubd95eu9ieNBGMkgJL5jR81HyObdQfUfPn2nvQEIk_PnhL_E5aKTra8v3ZTiJvtErNaup1NUiSOEPI94kzGxluFCQs-O7l_38"/>
+<!-- Overlay -->
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+<button class="bg-surface-container-lowest/90 backdrop-blur-sm text-on-surface rounded-full px-6 py-2 font-body text-sm font-semibold tracking-wide hover:bg-primary hover:text-on-primary transition-colors flex items-center gap-2 shadow-[0_10px_20px_rgba(45,21,9,0.06)] translate-y-4 group-hover:translate-y-0 duration-300">
+                                    View Details <span class="material-symbols-outlined text-sm">visibility</span>
+</button>
+</div>
+<!-- Badge -->
+<div class="absolute top-4 left-4 bg-secondary-container text-on-secondary-container text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                                New
+                            </div>
+</div>
+<div class="px-6 flex-grow flex flex-col">
+<h3 class="font-headline text-xl text-on-surface mb-2 leading-tight">Summer Berry Layer</h3>
+<div class="flex items-center mb-3 text-secondary space-x-1">
+<span class="material-symbols-outlined text-sm" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star_half</span>
+<span class="text-xs font-body text-outline ml-1">(24)</span>
+</div>
+<div class="mt-auto flex justify-between items-center pt-4">
+<span class="font-headline text-2xl font-bold text-[#FF6B9D]">$65.00</span>
+<button class="w-10 h-10 rounded-full bg-surface-container text-primary flex items-center justify-center hover:bg-primary hover:text-on-primary transition-colors shadow-sm">
+<span class="material-symbols-outlined text-lg">shopping_bag</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="group relative flex flex-col cursor-pointer bg-surface-container-lowest rounded-2xl overflow-hidden hover:bg-surface-container-low transition-colors duration-300 pb-6">
+<div class="relative aspect-square w-full overflow-hidden bg-surface-container-high rounded-t-2xl mb-6">
+<img alt="Classic Tiramisu" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out" data-alt="a slice of classic Italian tiramisu heavily dusted with cocoa powder on a fine bone china plate, warm ambient lighting, rich and decadent mood" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHLpayWfjPSgR4KTIoU2TUtG4TnfOPQmyT9o3v8mOHrzaqpqZQX7pLBJpk8Jdt-VjC_n3LLfKNjVocxqzR5ItI9m90136tDxElhS4LKnnmNSH8GO1hZxhhHxihfsroeJJ9ybw8ydX5_OjzwmdwPc0u4mr01avQH2MDk-odgaquSlpssdUgAvKQjBGm0yN88VFS2t0blu_mYJSoOkVl_RxSNxK3253KaAobZbjcL-OMUjaHGC6GEliFL-QqSVbW8_y-XyN85LCq9e-e"/>
+<!-- Overlay -->
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+<button class="bg-surface-container-lowest/90 backdrop-blur-sm text-on-surface rounded-full px-6 py-2 font-body text-sm font-semibold tracking-wide hover:bg-primary hover:text-on-primary transition-colors flex items-center gap-2 shadow-[0_10px_20px_rgba(45,21,9,0.06)] translate-y-4 group-hover:translate-y-0 duration-300">
+                                    View Details <span class="material-symbols-outlined text-sm">visibility</span>
+</button>
+</div>
+</div>
+<div class="px-6 flex-grow flex flex-col">
+<h3 class="font-headline text-xl text-on-surface mb-2 leading-tight">Venetian Tiramisu</h3>
+<div class="flex items-center mb-3 text-secondary space-x-1">
+<span class="material-symbols-outlined text-sm" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-xs font-body text-outline ml-1">(52)</span>
+</div>
+<div class="mt-auto flex justify-between items-center pt-4">
+<span class="font-headline text-2xl font-bold text-[#FF6B9D]">$45.00</span>
+<button class="w-10 h-10 rounded-full bg-surface-container text-primary flex items-center justify-center hover:bg-primary hover:text-on-primary transition-colors shadow-sm">
+<span class="material-symbols-outlined text-lg">shopping_bag</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="group relative flex flex-col cursor-pointer bg-surface-container-lowest rounded-2xl overflow-hidden hover:bg-surface-container-low transition-colors duration-300 pb-6">
+<div class="relative aspect-square w-full overflow-hidden bg-surface-container-high rounded-t-2xl mb-6">
+<img alt="Pistachio Macarons" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out" data-alt="a stack of delicate green pistachio macarons tied with a thin silk ribbon on a textured linen cloth, soft diffuse lighting, elegant patisserie setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBX_MzfcpEsQPjZq6e2mLZIvzWMq9LBTHRwKrTiFYpYZUpo___NgQv07hPFT7pIm5HcqU2Bq6tAgaEKjEk8mgy99_EIj9B-3buzqxNHnMJ3GY0Q0xfVkrbOubS1IMUuKV1pMG3_qK1Dfs_lbPlmOnAUuFTaP_GR5EAzWhQLAWe6_NnMbkuG1fi6-tkIeduaD2_KfPUrub-4GGrO37ojCek7YJrQvdjPajshu4-QyQ9CiJmTFKPGmzOhTSSmvamoXgacai1eyMWDklaA"/>
+<!-- Overlay -->
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+<button class="bg-surface-container-lowest/90 backdrop-blur-sm text-on-surface rounded-full px-6 py-2 font-body text-sm font-semibold tracking-wide hover:bg-primary hover:text-on-primary transition-colors flex items-center gap-2 shadow-[0_10px_20px_rgba(45,21,9,0.06)] translate-y-4 group-hover:translate-y-0 duration-300">
+                                    View Details <span class="material-symbols-outlined text-sm">visibility</span>
+</button>
+</div>
+</div>
+<div class="px-6 flex-grow flex flex-col">
+<h3 class="font-headline text-xl text-on-surface mb-2 leading-tight">Pistachio Dream Box</h3>
+<div class="flex items-center mb-3 text-secondary space-x-1">
+<span class="material-symbols-outlined text-sm" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm">star_outline</span>
+<span class="text-xs font-body text-outline ml-1">(18)</span>
+</div>
+<div class="mt-auto flex justify-between items-center pt-4">
+<span class="font-headline text-2xl font-bold text-[#FF6B9D]">$32.00</span>
+<button class="w-10 h-10 rounded-full bg-surface-container text-primary flex items-center justify-center hover:bg-primary hover:text-on-primary transition-colors shadow-sm">
+<span class="material-symbols-outlined text-lg">shopping_bag</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Card 4 -->
+<div class="group relative flex flex-col cursor-pointer bg-surface-container-lowest rounded-2xl overflow-hidden hover:bg-surface-container-low transition-colors duration-300 pb-6">
+<div class="relative aspect-square w-full overflow-hidden bg-surface-container-high rounded-t-2xl mb-6">
+<img alt="Vanilla Cupcakes" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out" data-alt="two elegant vanilla cupcakes with a perfect swirl of buttercream frosting and a single edible flower on top, presented on a pale pink surface, high-key lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0iae9Q16y7jVKiMi178mJykECWfWI_9tbI8QeMmM6w1z9XzmF5DkirFaecA7W1TH0_o6LruMV8c1_ajUU-a0io1jb0ZDstBckOj0ZTd_7B-tcvqTjtYM2arryzBrtuYtIHyf1Qh5FVoAgDfDNGHDyxte9NAfyGoA1G-vlGZ2FEGQq89oknFaeP6Gk5Kb7gSMqAbkzDEjq3RhW8vE2tHb9d4cocU_KOhQ5gP2e4Zav_7lcFg_HRIymnl1UCrfOJSHQ8GI8pU_ZMYIA"/>
+<!-- Overlay -->
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+<button class="bg-surface-container-lowest/90 backdrop-blur-sm text-on-surface rounded-full px-6 py-2 font-body text-sm font-semibold tracking-wide hover:bg-primary hover:text-on-primary transition-colors flex items-center gap-2 shadow-[0_10px_20px_rgba(45,21,9,0.06)] translate-y-4 group-hover:translate-y-0 duration-300">
+                                    View Details <span class="material-symbols-outlined text-sm">visibility</span>
+</button>
+</div>
+<!-- Badge -->
+<div class="absolute top-4 left-4 bg-secondary-container text-on-secondary-container text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                                New
+                            </div>
+</div>
+<div class="px-6 flex-grow flex flex-col">
+<h3 class="font-headline text-xl text-on-surface mb-2 leading-tight">Vanilla Bean Cupcakes</h3>
+<div class="flex items-center mb-3 text-secondary space-x-1">
+<span class="material-symbols-outlined text-sm" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-xs font-body text-outline ml-1">(41)</span>
+</div>
+<div class="mt-auto flex justify-between items-center pt-4">
+<span class="font-headline text-2xl font-bold text-[#FF6B9D]">$18.00</span>
+<button class="w-10 h-10 rounded-full bg-surface-container text-primary flex items-center justify-center hover:bg-primary hover:text-on-primary transition-colors shadow-sm">
+<span class="material-symbols-outlined text-lg">shopping_bag</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Card 5 -->
+<div class="group relative flex flex-col cursor-pointer bg-surface-container-lowest rounded-2xl overflow-hidden hover:bg-surface-container-low transition-colors duration-300 pb-6">
+<div class="relative aspect-square w-full overflow-hidden bg-surface-container-high rounded-t-2xl mb-6">
+<img alt="Lemon Mousse" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out" data-alt="a glossy, vibrant yellow lemon mousse dome dessert on a dark slate board, dramatic side lighting highlighting the smooth texture, sophisticated culinary presentation" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKFATbBkRNNWdPuMLgCIZJc0_AnR9udQsoXuGLauVg2TKuEzdQxeU65BLeYgyAEahfQh_KCDU8bDIlI-qbZf4rMa5pEEGHozLeEHEP-ODc_-z-ZiKoe4P9jUzLAkc3cHz8FDLn9HLJDPcli-fJxUl2x3Y0f1Xf9Gj4Fm86l0FX64UdIDUCuWBapEWu2TORAksK2NTCDBFhp7XF5Poph6VVmQI4M7muFdSqbIgsfK2MSKiINvePkRkHx_Aac0yLvQh6UxN36JyaBTVg"/>
+<!-- Overlay -->
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+<button class="bg-surface-container-lowest/90 backdrop-blur-sm text-on-surface rounded-full px-6 py-2 font-body text-sm font-semibold tracking-wide hover:bg-primary hover:text-on-primary transition-colors flex items-center gap-2 shadow-[0_10px_20px_rgba(45,21,9,0.06)] translate-y-4 group-hover:translate-y-0 duration-300">
+                                    View Details <span class="material-symbols-outlined text-sm">visibility</span>
+</button>
+</div>
+</div>
+<div class="px-6 flex-grow flex flex-col">
+<h3 class="font-headline text-xl text-on-surface mb-2 leading-tight">Zesty Lemon Mousse</h3>
+<div class="flex items-center mb-3 text-secondary space-x-1">
+<span class="material-symbols-outlined text-sm" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm">star_outline</span>
+<span class="text-xs font-body text-outline ml-1">(29)</span>
+</div>
+<div class="mt-auto flex justify-between items-center pt-4">
+<span class="font-headline text-2xl font-bold text-[#FF6B9D]">$28.00</span>
+<button class="w-10 h-10 rounded-full bg-surface-container text-primary flex items-center justify-center hover:bg-primary hover:text-on-primary transition-colors shadow-sm">
+<span class="material-symbols-outlined text-lg">shopping_bag</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Pagination (Editorial Style) -->
+<div class="mt-16 flex justify-center items-center space-x-4 font-headline text-lg">
+<button class="text-outline hover:text-primary transition-colors disabled:opacity-50"><span class="material-symbols-outlined">west</span></button>
+<span class="text-primary font-bold">01</span>
+<span class="text-outline-variant">/</span>
+<button class="text-on-surface-variant hover:text-primary transition-colors">02</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors">03</button>
+<button class="text-on-surface hover:text-primary transition-colors"><span class="material-symbols-outlined">east</span></button>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer (Shared Component) -->
+<footer class="w-full py-16 px-12 bg-[#fff1eb] dark:bg-[#1a0c05]">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-[1440px] mx-auto">
+<div class="flex flex-col space-y-4">
+<div class="font-['Noto_Serif'] text-xl font-bold text-[#2d1509] dark:text-[#fff8f6]">
+                    Sweet Cake Shop
+                </div>
+<p class="font-['Plus_Jakarta_Sans'] text-sm leading-relaxed text-[#ac2a5d] dark:text-[#ffb1c5]">
+                    © 2024 Sweet Cake Shop. Crafting digital degustation.
+                </p>
+</div>
+<div class="col-span-2 flex flex-wrap gap-8 justify-end">
+<a class="font-['Plus_Jakarta_Sans'] text-sm leading-relaxed text-[#2d1509]/60 dark:text-[#fff8f6]/50 hover:text-[#ac2a5d] hover:translate-x-1 transition-transform duration-200 cursor-pointer" href="#">Sitemap</a>
+<a class="font-['Plus_Jakarta_Sans'] text-sm leading-relaxed text-[#2d1509]/60 dark:text-[#fff8f6]/50 hover:text-[#ac2a5d] hover:translate-x-1 transition-transform duration-200 cursor-pointer" href="#">About Us</a>
+<a class="font-['Plus_Jakarta_Sans'] text-sm leading-relaxed text-[#2d1509]/60 dark:text-[#fff8f6]/50 hover:text-[#ac2a5d] hover:translate-x-1 transition-transform duration-200 cursor-pointer" href="#">Terms of Service</a>
+<a class="font-['Plus_Jakarta_Sans'] text-sm leading-relaxed text-[#2d1509]/60 dark:text-[#fff8f6]/50 hover:text-[#ac2a5d] hover:translate-x-1 transition-transform duration-200 cursor-pointer" href="#">Privacy Policy</a>
+</div>
+</div>
+<div class="bg-[#ffdbcc] dark:bg-[#2d1509] h-[1px] w-full my-8 opacity-20 max-w-[1440px] mx-auto"></div>
+</footer>
+</body></html>

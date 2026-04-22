@@ -1,509 +1,407 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="vi">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Bánh Su Kem Dâu - Vỏ su kem giòn rụm nhân dâu tươi Đà Lạt. Sweet Trio Bakery." />
     <link rel="icon" type="image/png" href="images/logo1.png" />
-    <title>Bánh Su Kem Dâu - Chi Tiết</title>
-    <!-- Local CSS -->
+    <title>Bánh Su Kem Dâu - Sweet Trio Bakery</title>
     <link rel="stylesheet" href="bootstrap/icons/bootstrap-icons.css" />
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/style.css" />
   </head>
-  <body class="d-flex flex-column min-vh-100">
-    <!-- Navigation Bar -->
+  <body>
+    <!-- NAVBAR -->
     <nav class="navbar-custom-v2 fixed-top">
       <div class="container navbar-v2-inner">
-        <!-- BÊN TRÁI: 3 links đầu -->
-        <ul class="navbar-v2-left">
-          <li><a href="index.html" class="nav-v2-link">Trang Chủ</a></li>
-          <li><a href="about.html" class="nav-v2-link">Giới Thiệu</a></li>
-          <li>
-            <a href="products.html" class="nav-v2-link active">Sản Phẩm</a>
-          </li>
-        </ul>
-
-        <!-- GIỮA: Logo cực to -->
-        <a href="index.html" class="navbar-v2-logo-wrap">
-          <img
-            src="images/logo1.png"
-            alt="Sweet Trio Bakery"
-            class="navbar-v2-logo"
-          />
+        <!-- Zone 1: Logo & Brand -->
+        <a href="index.html" class="navbar-v2-brand">
+          <img src="images/logo1.png" alt="Sweet House Logo" class="brand-icon" />
+          <span class="brand-text">Sweet House</span>
         </a>
 
-        <!-- BÊN PHẢI: 2 links + icon giỏ hàng + icon user -->
-        <ul class="navbar-v2-right">
+        <!-- Zone 2: Centered Links -->
+        <ul class="navbar-v2-nav d-none d-lg-flex">
+          <li><a href="index.html" class="nav-v2-link">Trang Chủ</a></li>
+          <li><a href="about.html" class="nav-v2-link">Giới Thiệu</a></li>
+          <li><a href="products.html" class="nav-v2-link">Sản Phẩm</a></li>
           <li><a href="news.html" class="nav-v2-link">Tin Tức</a></li>
           <li><a href="contact.html" class="nav-v2-link">Liên Hệ</a></li>
-
-          <!-- Giỏ hàng dropdown — giữ nguyên id để main.js hoạt động -->
-          <li class="nav-v2-icon-item dropdown" id="cartNavContainer">
-            <a
-              href="#"
-              class="nav-v2-icon-link position-relative dropdown-toggle"
-              id="cartDropdownToggle"
-              role="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              <i class="bi bi-cart3"></i>
-              <span
-                class="position-absolute translate-middle badge rounded-pill bg-danger"
-                id="cartBadgeCount"
-                >0</span
-              >
-            </a>
-            <div
-              class="dropdown-menu dropdown-menu-end shadow p-0"
-              id="miniCartDropdown"
-              aria-labelledby="cartDropdownToggle"
-            >
-              <div class="p-3 border-bottom">
-                <h6 class="mb-0 fw-bold">
-                  <i class="bi bi-cart3 me-2"></i>Giỏ Hàng Của Bạn
-                </h6>
-              </div>
-              <div
-                id="miniCartItems"
-                class="px-3 py-2 mini-cart-items-scroll"
-              ></div>
-              <div
-                class="p-3 border-top bg-light d-flex justify-content-between align-items-center"
-              >
-                <span class="fw-bold"
-                  >Tổng:
-                  <span id="miniCartTotal" class="text-accent"
-                    >0 VNĐ</span
-                  ></span
-                >
-                <a href="cart.html" class="btn btn-sm btn-primary-custom"
-                  >Xem Giỏ Hàng</a
-                >
-              </div>
-            </div>
-          </li>
-
-          <!-- Avatar dropdown — giữ nguyên id -->
-          <li class="nav-v2-icon-item dropdown" id="avatarNavContainer">
-            <a
-              href="#"
-              class="nav-v2-icon-link dropdown-toggle"
-              id="avatarDropdown"
-              role="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              <i class="bi bi-person-circle"></i>
-            </a>
-            <ul
-              class="dropdown-menu dropdown-menu-end shadow"
-              aria-labelledby="avatarDropdown"
-            >
-              <li>
-                <a class="dropdown-item" href="profile.html"
-                  ><i class="bi bi-person"></i> Xem Profile</a
-                >
-              </li>
-              <li><hr class="dropdown-divider" /></li>
-              <li>
-                <a class="dropdown-item" href="#" onclick="handleLogout(event)">
-                  <i class="bi bi-box-arrow-right"></i> Đăng xuất</a
-                >
-              </li>
-            </ul>
-          </li>
-
-          <!-- Đăng nhập — giữ nguyên id -->
-          <li class="nav-v2-icon-item" id="authNavContainer">
-            <a href="login.html" class="nav-v2-icon-link">
-              <i class="bi bi-box-arrow-in-right"></i>
-            </a>
-          </li>
         </ul>
 
-        <!-- Hamburger cho mobile -->
-        <button
-          class="navbar-v2-toggler d-lg-none"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarV2Mobile"
-        >
-          <i class="bi bi-list"></i>
-        </button>
+        <!-- Zone 3: Actions (Cart & Login) -->
+        <div class="navbar-v2-actions">
+          <!-- Cart -->
+          <div class="dropdown" id="cartNavContainer">
+            <a href="#" class="action-icon-wrap" id="cartDropdownToggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-cart3"></i>
+              <span class="cart-badge" id="cartBadgeCount">0</span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-end shadow p-0" id="miniCartDropdown">
+              <div class="p-3 border-bottom">
+                <h6 class="mb-0 fw-bold"><i class="bi bi-cart3 me-2"></i>Giỏ Hàng Của Bạn</h6>
+              </div>
+              <div id="miniCartItems" class="px-3 py-2 mini-cart-items-scroll"></div>
+              <div class="p-3 border-top bg-light d-flex justify-content-between align-items-center">
+                <span class="fw-bold">Tổng: <span id="miniCartTotal" class="text-accent">0 VNĐ</span></span>
+                <a href="cart.html" class="btn btn-sm btn-primary-custom">Xem Giỏ Hàng</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Avatar (Hidden initially) -->
+          <div class="dropdown" id="avatarNavContainer" style="display:none">
+            <a href="#" class="action-icon-wrap" id="avatarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-person-circle"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end shadow">
+              <li><a class="dropdown-item" href="profile.html"><i class="bi bi-person me-2"></i>Xem Profile</a></li>
+              <li><hr class="dropdown-divider" /></li>
+              <li><a class="dropdown-item text-danger" href="#" onclick="handleLogout(event)"><i class="bi bi-box-arrow-right me-2"></i>Đăng xuất</a></li>
+            </ul>
+          </div>
+
+          <!-- Login CTA -->
+          <a href="login.html" class="btn-login-pill d-none d-lg-block" id="authNavContainer">Đăng Nhập</a>
+
+          <!-- Mobile Toggler -->
+          <button class="navbar-v2-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarV2Mobile">
+            <i class="bi bi-list"></i>
+          </button>
+        </div>
       </div>
 
-      <!-- Mobile menu (collapse) -->
+      <!-- Mobile Menu -->
       <div class="collapse navbar-collapse" id="navbarV2Mobile">
-        <div class="navbar-v2-mobile">
-          <a href="index.html" class="nav-v2-link">Trang Chủ</a>
-          <a href="about.html" class="nav-v2-link">Giới Thiệu</a>
-          <a href="products.html" class="nav-v2-link active">Sản Phẩm</a>
-          <a href="news.html" class="nav-v2-link">Tin Tức</a>
-          <a href="contact.html" class="nav-v2-link">Liên Hệ</a>
-          <a href="login.html" class="nav-v2-link">Đăng Nhập / Đăng Ký</a>
+        <div class="navbar-v2-mobile p-4">
+          <ul class="list-unstyled">
+            <li><a href="index.html" class="nav-v2-link d-block py-2">Trang Chủ</a></li>
+            <li><a href="about.html" class="nav-v2-link d-block py-2">Giới Thiệu</a></li>
+            <li><a href="products.html" class="nav-v2-link d-block py-2">Sản Phẩm</a></li>
+            <li><a href="news.html" class="nav-v2-link d-block py-2">Tin Tức</a></li>
+            <li><a href="contact.html" class="nav-v2-link d-block py-2">Liên Hệ</a></li>
+            <li><hr class="my-3 opacity-25" /></li>
+            <li><a href="login.html" class="btn-login-pill w-100 text-center">Đăng Nhập</a></li>
+          </ul>
         </div>
       </div>
     </nav>
 
-    <main class="container my-5 flex-grow-1">
-      <!-- Breadcrumb -->
-      <nav class="navbar-custom-v2 fixed-top">
-        <div class="container navbar-v2-inner">
-          <!-- BÊN TRÁI: 3 links đầu -->
-          <ul class="navbar-v2-left">
-            <li><a href="index.html" class="nav-v2-link">Trang Chủ</a></li>
-            <li><a href="about.html" class="nav-v2-link">Giới Thiệu</a></li>
-            <li>
-              <a href="products.html" class="nav-v2-link active">Sản Phẩm</a>
-            </li>
-          </ul>
+    <main class="page-content-wrapper py-5">
+      <div class="container">
+        <!-- Breadcrumb -->
+        <nav aria-label="breadcrumb" class="mb-4">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Trang Chủ</a></li>
+            <li class="breadcrumb-item"><a href="products.html">Sản Phẩm</a></li>
+            <li class="breadcrumb-item active">Bánh Su Kem Dâu</li>
+          </ol>
+        </nav>
 
-          <!-- GIỮA: Logo cực to -->
-          <a href="index.html" class="navbar-v2-logo-wrap">
-            <img
-              src="images/logo1.png"
-              alt="Sweet Trio Bakery"
-              class="navbar-v2-logo"
-            />
-          </a>
+        <!-- PRODUCT DETAIL -->
+        <div class="row g-5 align-items-start">
+          <!-- Image Column -->
+          <div class="col-lg-5">
+            <div style="border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--shadow-xl);">
+              <img id="mainProductImg" src="images/cake4.jpg" alt="Bánh Su Kem Dâu" class="w-100" style="object-fit:cover; height:460px;" />
+            </div>
+            <!-- Thumbnail row -->
+            <div class="d-flex gap-3 mt-3">
+              <div class="thumbnail-img" onclick="changeImg('images/cake4.jpg', this)" style="width:80px; height:80px; border-radius:var(--radius-sm); overflow:hidden; cursor:pointer; border:3px solid var(--clr-secondary); flex-shrink:0;">
+                <img src="images/cake4.jpg" class="w-100 h-100" style="object-fit:cover;" />
+              </div>
+              <div class="thumbnail-img" onclick="changeImg('images/cake1.jpg', this)" style="width:80px; height:80px; border-radius:var(--radius-sm); overflow:hidden; cursor:pointer; border:3px solid transparent; flex-shrink:0; opacity:.7;">
+                <img src="images/cake1.jpg" class="w-100 h-100" style="object-fit:cover;" />
+              </div>
+              <div class="thumbnail-img" onclick="changeImg('images/cake6.jpg', this)" style="width:80px; height:80px; border-radius:var(--radius-sm); overflow:hidden; cursor:pointer; border:3px solid transparent; flex-shrink:0; opacity:.7;">
+                <img src="images/cake6.jpg" class="w-100 h-100" style="object-fit:cover;" />
+              </div>
+            </div>
+          </div>
 
-          <!-- BÊN PHẢI: 2 links + icon giỏ hàng + icon user -->
-          <ul class="navbar-v2-right">
-            <li><a href="news.html" class="nav-v2-link">Tin Tức</a></li>
-            <li><a href="contact.html" class="nav-v2-link">Liên Hệ</a></li>
+          <!-- Info Column -->
+          <div class="col-lg-7">
+            <span class="badge rounded-pill mb-3" style="background:var(--clr-primary-container); color:var(--clr-primary); font-size:.8rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em; padding:6px 16px;">🍰 Bánh Kem</span>
+            <h1 class="font-headline fw-black mb-2" style="font-size:clamp(1.8rem,4vw,2.8rem); color:var(--clr-on-surface); line-height:1.2;">Bánh Su Kem Dâu</h1>
 
-            <!-- Giỏ hàng dropdown — giữ nguyên id để main.js hoạt động -->
-            <li class="nav-v2-icon-item dropdown" id="cartNavContainer">
-              <a
-                href="#"
-                class="nav-v2-icon-link position-relative dropdown-toggle"
-                id="cartDropdownToggle"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                <i class="bi bi-cart3"></i>
-                <span
-                  class="position-absolute translate-middle badge rounded-pill bg-danger"
-                  id="cartBadgeCount"
-                  >0</span
-                >
-              </a>
-              <div
-                class="dropdown-menu dropdown-menu-end shadow p-0"
-                id="miniCartDropdown"
-                aria-labelledby="cartDropdownToggle"
-              >
-                <div class="p-3 border-bottom">
-                  <h6 class="mb-0 fw-bold">
-                    <i class="bi bi-cart3 me-2"></i>Giỏ Hàng Của Bạn
-                  </h6>
-                </div>
-                <div
-                  id="miniCartItems"
-                  class="px-3 py-2 mini-cart-items-scroll"
-                ></div>
-                <div
-                  class="p-3 border-top bg-light d-flex justify-content-between align-items-center"
-                >
-                  <span class="fw-bold"
-                    >Tổng:
-                    <span id="miniCartTotal" class="text-accent"
-                      >0 VNĐ</span
-                    ></span
-                  >
-                  <a href="cart.html" class="btn btn-sm btn-primary-custom"
-                    >Xem Giỏ Hàng</a
-                  >
+            <!-- Rating -->
+            <div class="d-flex align-items-center gap-2 mb-3">
+              <div class="d-flex align-items-center gap-1" id="starRating">
+                <i class="bi bi-star-fill star-interactive" data-val="1" style="font-size:1.3rem;"></i>
+                <i class="bi bi-star-fill star-interactive" data-val="2" style="font-size:1.3rem;"></i>
+                <i class="bi bi-star-fill star-interactive" data-val="3" style="font-size:1.3rem;"></i>
+                <i class="bi bi-star-fill star-interactive" data-val="4" style="font-size:1.3rem;"></i>
+                <i class="bi bi-star star-interactive" data-val="5" style="font-size:1.3rem;"></i>
+              </div>
+              <span style="color:var(--clr-on-surface-variant); font-size:.9rem;">(57 đánh giá)</span>
+            </div>
+
+            <!-- Price -->
+            <div class="product-detail-price mb-4">150.000đ <span style="font-size:.9rem; color:var(--clr-on-surface-variant); font-family:var(--font-body); font-weight:400;">/ phần</span></div>
+
+            <!-- Highlights -->
+            <div class="row g-3 mb-4">
+              <div class="col-6">
+                <div class="d-flex align-items-center gap-2 p-3 rounded-3" style="background:var(--clr-surface-low);">
+                  <i class="bi bi-flower1" style="color:var(--clr-secondary); font-size:1.2rem;"></i>
+                  <div>
+                    <div class="fw-bold" style="font-size:.85rem; color:var(--clr-on-surface);">Nguyên Liệu Tươi</div>
+                    <div style="font-size:.75rem; color:var(--clr-on-surface-variant);">100% tự nhiên</div>
+                  </div>
                 </div>
               </div>
-            </li>
-
-            <!-- Avatar dropdown — giữ nguyên id -->
-            <li class="nav-v2-icon-item dropdown" id="avatarNavContainer">
-              <a
-                href="#"
-                class="nav-v2-icon-link dropdown-toggle"
-                id="avatarDropdown"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                <i class="bi bi-person-circle"></i>
-              </a>
-              <ul
-                class="dropdown-menu dropdown-menu-end shadow"
-                aria-labelledby="avatarDropdown"
-              >
-                <li>
-                  <a class="dropdown-item" href="profile.html"
-                    ><i class="bi bi-person"></i> Xem Profile</a
-                  >
-                </li>
-                <li><hr class="dropdown-divider" /></li>
-                <li>
-                  <a
-                    class="dropdown-item"
-                    href="#"
-                    onclick="handleLogout(event)"
-                  >
-                    <i class="bi bi-box-arrow-right"></i> Đăng xuất</a
-                  >
-                </li>
-              </ul>
-            </li>
-
-            <!-- Đăng nhập — giữ nguyên id -->
-            <li class="nav-v2-icon-item" id="authNavContainer">
-              <a href="login.html" class="nav-v2-icon-link">
-                <i class="bi bi-box-arrow-in-right"></i>
-              </a>
-            </li>
-          </ul>
-
-          <!-- Hamburger cho mobile -->
-          <button
-            class="navbar-v2-toggler d-lg-none"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarV2Mobile"
-          >
-            <i class="bi bi-list"></i>
-          </button>
-        </div>
-
-        <!-- Mobile menu (collapse) -->
-        <div class="collapse navbar-collapse" id="navbarV2Mobile">
-          <div class="navbar-v2-mobile">
-            <a href="index.html" class="nav-v2-link">Trang Chủ</a>
-            <a href="about.html" class="nav-v2-link">Giới Thiệu</a>
-            <a href="products.html" class="nav-v2-link active">Sản Phẩm</a>
-            <a href="news.html" class="nav-v2-link">Tin Tức</a>
-            <a href="contact.html" class="nav-v2-link">Liên Hệ</a>
-            <a href="login.html" class="nav-v2-link">Đăng Nhập / Đăng Ký</a>
-          </div>
-        </div>
-      </nav>
-
-      <div
-        class="bg-white p-4 p-md-5 rounded shadow-sm border fade-in detail-card-border"
-      >
-        <div class="row">
-          <!-- Product Image -->
-          <div class="col-md-6 mb-4 mb-md-0">
-            <img
-              src="images/cake4.jpg"
-              alt="Bánh Su Kem Dâu"
-              class="img-fluid rounded border hover-scale product-detail-img-border"
-            />
-          </div>
-          <!-- Product Details -->
-          <div class="col-md-6 d-flex flex-column justify-content-center">
-            <h2 class="mb-2">Bánh Su Kem Dâu</h2>
-            <p class="text-muted mb-3">
-              Danh mục: <span class="badge bg-secondary">Bánh Kem</span>
-            </p>
-
-            <div class="mb-4 fs-4 border-bottom pb-3" id="interactiveRating">
-              <i
-                class="bi bi-star rating-star star-interactive"
-                data-value="1"
-              ></i>
-              <i
-                class="bi bi-star rating-star star-interactive"
-                data-value="2"
-              ></i>
-              <i
-                class="bi bi-star rating-star star-interactive"
-                data-value="3"
-              ></i>
-              <i
-                class="bi bi-star rating-star star-interactive"
-                data-value="4"
-              ></i>
-              <i
-                class="bi bi-star rating-star star-interactive"
-                data-value="5"
-              ></i>
-              <span class="ms-2 fs-6 text-muted" id="ratingText"
-                >Đánh giá bánh này!</span
-              >
+              <div class="col-6">
+                <div class="d-flex align-items-center gap-2 p-3 rounded-3" style="background:var(--clr-surface-low);">
+                  <i class="bi bi-clock" style="color:var(--clr-secondary); font-size:1.2rem;"></i>
+                  <div>
+                    <div class="fw-bold" style="font-size:.85rem; color:var(--clr-on-surface);">Giao Nhanh</div>
+                    <div style="font-size:.75rem; color:var(--clr-on-surface-variant);">Trong 2 giờ</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="d-flex align-items-center gap-2 p-3 rounded-3" style="background:var(--clr-surface-low);">
+                  <i class="bi bi-fire" style="color:var(--clr-secondary); font-size:1.2rem;"></i>
+                  <div>
+                    <div class="fw-bold" style="font-size:.85rem; color:var(--clr-on-surface);">Nướng Hôm Nay</div>
+                    <div style="font-size:.75rem; color:var(--clr-on-surface-variant);">Bánh tươi mỗi ngày</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="d-flex align-items-center gap-2 p-3 rounded-3" style="background:var(--clr-surface-low);">
+                  <i class="bi bi-gift" style="color:var(--clr-secondary); font-size:1.2rem;"></i>
+                  <div>
+                    <div class="fw-bold" style="font-size:.85rem; color:var(--clr-on-surface);">Hộp Quà Đẹp</div>
+                    <div style="font-size:.75rem; color:var(--clr-on-surface-variant);">Gói riêng theo yêu cầu</div>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <h3 class="fw-bold mb-4 product-detail-price">150.000 VNĐ</h3>
-
-            <p class="lead mb-4">
-              Chiếc bánh trứ danh với nhân kem dâu nguyên chất mát lạnh. Vẻ
-              ngoài tinh tế đi cùng lớp bánh xốp mềm hòa quyện với kem tươi đánh
-              bông hoàn hảo.
-            </p>
-
-            <ul class="list-unstyled mb-4">
-              <li class="mb-2"><strong>Khẩu phần:</strong> 2-3 người ăn</li>
-              <li class="mb-2"><strong>Dị ứng:</strong> Sữa, Dâu tây</li>
-              <li class="mb-2">
-                <strong>Tình trạng báo trước:</strong> Có sẵn
-              </li>
-            </ul>
-
-            <div class="d-flex align-items-center mb-4">
-              <label for="qty" class="fw-bold me-3">Số lượng:</label>
-              <input
-                type="number"
-                id="qty"
-                class="form-control"
-                style="width: 80px"
-                value="1"
-                min="1"
-                max="10"
-              />
+            <!-- Description -->
+            <div class="mb-4">
+              <h2 class="fw-bold mb-2" style="font-size:1rem; color:var(--clr-on-surface);">Mô Tả Sản Phẩm</h2>
+              <p style="color:var(--clr-on-surface-variant); line-height:1.8;">Vỏ su kem giòn rụm, phần kem dâu tươi bên trong tan chảy ngay khi chạm miệng. Dâu tây Đà Lạt được chọn lọc kỹ càng, kết hợp cùng kem tươi Anchor béo ngậy tạo nên hương vị tinh tế không thể quên.</p>
             </div>
 
-            <div class="mt-auto">
-              <button
-                class="btn btn-primary-custom btn-lg w-100 add-to-cart-btn"
-              >
-                Thêm vào giỏ hàng 🛒
+            <!-- Quantity + Add to Cart -->
+            <div class="d-flex align-items-center gap-3 mb-4 flex-wrap">
+              <div class="qty-control">
+                <button class="qty-btn" id="productQtyMinus">−</button>
+                <span class="qty-num" id="productQtyNum">1</span>
+                <button class="qty-btn" id="productQtyPlus">+</button>
+              </div>
+              <button class="btn btn-primary-custom flex-grow-1 py-3" id="addToCartBtn"
+                data-id="sp2"
+                data-name="Bánh Su Kem Dâu"
+                data-price="150000"
+                data-img="images/cake4.jpg">
+                <i class="bi bi-cart-plus me-2"></i>Thêm Vào Giỏ Hàng
               </button>
             </div>
+
+            <!-- SKU -->
+            <p style="font-size:.8rem; color:var(--clr-on-surface-variant);">STB-SKD-002 &nbsp;·&nbsp; Bảo quản: 2–8°C, dùng trong 2 ngày</p>
           </div>
         </div>
-      </div>
 
-      <!-- Reviews Section -->
-      <div
-        class="bg-white p-4 p-md-5 rounded shadow-sm border mt-4 fade-in delay-1 detail-card-border"
-      >
-        <h3 class="mb-4">Đánh Giá & Nhận Xét</h3>
+        <!-- TABS: Details / Reviews -->
+        <div class="mt-5">
+          <ul class="nav nav-tabs mb-4" id="productTabNav" role="tablist">
+            <li class="nav-item">
+              <button class="nav-link active fw-bold" id="tab-desc-tab" data-bs-toggle="tab" data-bs-target="#tabDesc" type="button">Thông Tin Thêm</button>
+            </li>
+            <li class="nav-item">
+              <button class="nav-link fw-bold" id="tab-review-tab" data-bs-toggle="tab" data-bs-target="#tabReview" type="button">Đánh Giá (57)</button>
+            </li>
+          </ul>
+          <div class="tab-content">
+            <div class="tab-pane fade show active" id="tabDesc">
+              <div class="row g-4">
+                <div class="col-md-6">
+                  <h3 class="fw-bold mb-3" style="font-size:1rem; color:var(--clr-primary);">Thành Phần</h3>
+                  <ul style="color:var(--clr-on-surface-variant); line-height:2;">
+                    <li>Bột mì đa dụng cao cấp</li>
+                    <li>Bơ Pháp Elle & Vire (82% béo)</li>
+                    <li>Trứng gà tươi từ trang trại hữu cơ</li>
+                    <li>Đường mía tinh khiết</li>
+                    <li>Nhân kem tươi whipping cream Anchor</li>
+                    <li>Màu thực phẩm an toàn, không chứa phẩm màu nhân tạo</li>
+                    <li>Hoa ăn được trang trí</li>
+                  </ul>
+                </div>
+                <div class="col-md-6">
+                  <h3 class="fw-bold mb-3" style="font-size:1rem; color:var(--clr-primary);">Thông Tin Dinh Dưỡng</h3>
+                  <table class="table table-sm" style="font-size:.9rem;">
+                    <tbody>
+                      <tr><td style="color:var(--clr-on-surface-variant);">Calo:</td><td class="fw-bold">~280 kcal / cái</td></tr>
+                      <tr><td style="color:var(--clr-on-surface-variant);">Carbohydrates:</td><td class="fw-bold">38g</td></tr>
+                      <tr><td style="color:var(--clr-on-surface-variant);">Chất béo:</td><td class="fw-bold">12g</td></tr>
+                      <tr><td style="color:var(--clr-on-surface-variant);">Protein:</td><td class="fw-bold">4g</td></tr>
+                      <tr><td style="color:var(--clr-on-surface-variant);">Đường:</td><td class="fw-bold">22g</td></tr>
+                    </tbody>
+                  </table>
+                  <p style="font-size:.8rem; color:var(--clr-on-surface-variant);">* Giá trị dinh dưỡng ước tính, có thể thay đổi theo mùa.</p>
+                </div>
+              </div>
+            </div>
 
-        <form id="reviewForm" class="mb-5 border-bottom pb-4">
-          <h5 class="mb-3">Thêm Đánh Giá</h5>
-          <div class="mb-3">
-            <label class="form-label fw-bold">Đánh Giá Của Bạn</label>
-            <div class="fs-4 mb-2" id="reviewRatingStars">
-              <i
-                class="bi bi-star form-star star-interactive"
-                data-value="1"
-              ></i>
-              <i
-                class="bi bi-star form-star star-interactive"
-                data-value="2"
-              ></i>
-              <i
-                class="bi bi-star form-star star-interactive"
-                data-value="3"
-              ></i>
-              <i
-                class="bi bi-star form-star star-interactive"
-                data-value="4"
-              ></i>
-              <i
-                class="bi bi-star form-star star-interactive"
-                data-value="5"
-              ></i>
-              <input
-                type="text"
-                id="reviewRatingInput"
-                value=""
-                required
-                class="sr-only-input"
-              />
+            <div class="tab-pane fade" id="tabReview">
+              <div class="row g-4 mb-4">
+                <div class="col-md-4 col-lg-3">
+                  <div class="text-center p-4" style="background:var(--clr-surface-low); border-radius:var(--radius-md);">
+                    <div class="fw-black mb-1" style="font-size:4rem; color:var(--clr-secondary); font-family:var(--font-headline); line-height:1;">4.8</div>
+                    <div class="text-warning mb-1">★★★★★</div>
+                    <p style="font-size:.85rem; color:var(--clr-on-surface-variant);">57 đánh giá</p>
+                  </div>
+                </div>
+                <div class="col-md-8 col-lg-9">
+                  <div class="row g-3">
+                    <div class="col-md-6">
+                      <div class="stb-testimonial-card">
+                        <div class="stb-stars">★★★★★</div>
+                        <p>"Cupcake đẹp quá! Màu pastel nhẹ nhàng, kem tươi ngon không quá ngọt. Mua làm quà cho bạn gái thì hoàn hảo!"</p>
+                        <div class="stb-reviewer">
+                          <div class="stb-reviewer-avatar">👨</div>
+                          <div><strong>Minh Châu</strong><span>Quận 3, TP.HCM</span></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="stb-testimonial-card">
+                        <div class="stb-stars">★★★★★</div>
+                        <p>"Đặt 12 cái cho tiệc sinh nhật, giao đúng giờ, bánh còn tươi, trang trí y như hình. Sẽ ủng hộ lần nữa!"</p>
+                        <div class="stb-reviewer">
+                          <div class="stb-reviewer-avatar">👩</div>
+                          <div><strong>Thu Linh</strong><span>Quận 7, TP.HCM</span></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Write review -->
+              <div style="background:var(--clr-surface-low); border-radius:var(--radius-md); padding:1.75rem;">
+                <h3 class="fw-bold mb-3" style="font-size:1rem; color:var(--clr-on-surface);">Viết Đánh Giá Của Bạn</h3>
+                <form id="reviewForm">
+                  <div class="mb-3">
+                    <label class="form-label">Đánh Giá Sao</label>
+                    <div class="d-flex gap-2" style="font-size:1.5rem; color:var(--clr-secondary);" id="reviewStars">
+                      <i class="bi bi-star" data-v="1" style="cursor:pointer;"></i>
+                      <i class="bi bi-star" data-v="2" style="cursor:pointer;"></i>
+                      <i class="bi bi-star" data-v="3" style="cursor:pointer;"></i>
+                      <i class="bi bi-star" data-v="4" style="cursor:pointer;"></i>
+                      <i class="bi bi-star" data-v="5" style="cursor:pointer;"></i>
+                    </div>
+                  </div>
+                  <div class="row g-3">
+                    <div class="col-md-6">
+                      <label for="reviewName" class="form-label">Họ Tên</label>
+                      <input type="text" id="reviewName" class="form-control" placeholder="Nguyễn Văn A" />
+                    </div>
+                    <div class="col-md-6">
+                      <label for="reviewEmail" class="form-label">Email</label>
+                      <input type="email" id="reviewEmail" class="form-control" placeholder="you@email.com" />
+                    </div>
+                    <div class="col-12">
+                      <textarea id="reviewContent" class="form-control" rows="4" placeholder="Chia sẻ cảm nhận của bạn về sản phẩm..."></textarea>
+                    </div>
+                    <div class="col-12">
+                      <button type="submit" class="btn btn-primary-custom"><i class="bi bi-send me-2"></i>Gửi Đánh Giá</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
-          <div class="row mb-3">
-            <div class="col-md-6">
-              <label for="reviewerName" class="form-label fw-bold"
-                >Tên của bạn</label
-              >
-              <input
-                type="text"
-                class="form-control"
-                id="reviewerName"
-                placeholder="VD: Nguyễn Văn A"
-                required
-              />
-            </div>
-          </div>
-          <div class="mb-3">
-            <label for="reviewComment" class="form-label fw-bold"
-              >Bình Luận</label
-            >
-            <textarea
-              class="form-control"
-              id="reviewComment"
-              rows="3"
-              placeholder="Chia sẻ cảm nhận của bạn về sản phẩm..."
-              required
-            ></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary-custom">
-            Gửi Đánh Giá
-          </button>
-        </form>
-
-        <div id="reviewsList" class="d-flex flex-column gap-3">
-          <p class="text-muted" id="noReviewsMsg">
-            Chưa có đánh giá nào. Hãy là người đầu tiên đánh giá sản phẩm này!
-          </p>
         </div>
+
+        <!-- RELATED PRODUCTS -->
+        <section class="mt-5">
+          <h2 class="font-headline fw-black mb-4" style="color:var(--clr-on-background);">Sản Phẩm Liên Quan</h2>
+          <div class="row g-4">
+            <div class="col-6 col-md-3">
+              <div class="cake-card text-center p-3">
+                <div style="height:180px; overflow:hidden; border-radius:var(--radius-sm); margin-bottom:1rem;">
+                  <img src="images/cake3.jpg" class="w-100 h-100" style="object-fit:cover;" />
+                </div>
+                <h3 class="font-headline fw-bold mb-1" style="font-size:.95rem;">Cupcake Pastel</h3>
+                <div class="fw-black mb-2" style="color:var(--clr-secondary);">90.000đ</div>
+                <a href="sanpham1.html" class="btn btn-secondary-custom w-100" style="font-size:.85rem;">Xem Chi Tiết</a>
+              </div>
+            </div>
+            <div class="col-6 col-md-3">
+              <div class="cake-card text-center p-3">
+                <div style="height:180px; overflow:hidden; border-radius:var(--radius-sm); margin-bottom:1rem;">
+                  <img src="images/cake5.jpg" class="w-100 h-100" style="object-fit:cover;" />
+                </div>
+                <h3 class="font-headline fw-bold mb-1" style="font-size:.95rem;">Bánh Sinh Nhật</h3>
+                <div class="fw-black mb-2" style="color:var(--clr-secondary);">850.000đ</div>
+                <a href="sanpham3.html" class="btn btn-secondary-custom w-100" style="font-size:.85rem;">Xem Chi Tiết</a>
+              </div>
+            </div>
+            <div class="col-6 col-md-3">
+              <div class="cake-card text-center p-3">
+                <div style="height:180px; overflow:hidden; border-radius:var(--radius-sm); margin-bottom:1rem;">
+                  <img src="images/cake2.jpg" class="w-100 h-100" style="object-fit:cover;" />
+                </div>
+                <h3 class="font-headline fw-bold mb-1" style="font-size:.95rem;">Midnight Ganache</h3>
+                <div class="fw-black mb-2" style="color:var(--clr-secondary);">520.000đ</div>
+                <a href="sanpham4.html" class="btn btn-secondary-custom w-100" style="font-size:.85rem;">Xem Chi Tiết</a>
+              </div>
+            </div>
+            <div class="col-6 col-md-3">
+              <div class="cake-card text-center p-3">
+                <div style="height:180px; overflow:hidden; border-radius:var(--radius-sm); margin-bottom:1rem;">
+                  <img src="images/cake1.jpg" class="w-100 h-100" style="object-fit:cover;" />
+                </div>
+                <h3 class="font-headline fw-bold mb-1" style="font-size:.95rem;">Bánh Kem Dâu Tây</h3>
+                <div class="fw-black mb-2" style="color:var(--clr-secondary);">850.000đ</div>
+                <a href="sanpham5.html" class="btn btn-secondary-custom w-100" style="font-size:.85rem;">Xem Chi Tiết</a>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="footer text-center mt-auto">
+    <!-- FOOTER -->
+    <footer class="footer">
       <div class="container">
-        <div class="row">
-          <div class="col-md-4 mb-3">
-            <img
-              src="images/logo1.png"
-              alt="Sweet Trio Bakery Logo"
-              class="footer-logo mb-2"
-            />
-            <h5 class="font-weight-bold">Tiệm Bánh Ngọt</h5>
-            <p>Nướng bánh bằng niềm vui mỗi ngày từ 2026.</p>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <img src="images/logo1.png" alt="Sweet Trio Bakery" class="footer-logo mb-3" />
+            <p style="color:rgba(252,237,242,0.8); font-size:.9rem; line-height:1.7; max-width:280px;">Tiệm bánh artisanal thủ công với tình yêu và nguyên liệu tự nhiên nhất.</p>
+            <div class="footer-social-icons">
+              <a href="https://www.facebook.com/Bapsxinkiu" class="footer-social-link"><i class="bi bi-facebook"></i></a>
+              <a href="https://www.instagram.com/nqoc.nahzz/" class="footer-social-link"><i class="bi bi-instagram"></i></a>
+              <a href="https://www.tiktok.com/@nacileng" class="footer-social-link"><i class="bi bi-tiktok"></i></a>
+            </div>
           </div>
-          <div class="col-md-4 mb-3">
-            <h5>Liên Kết Nhanh</h5>
-            <ul class="list-unstyled">
-              <li><a href="sitemap.html">Sitemap</a></li>
+          <div class="col-6 col-md-4">
+            <h5 class="mb-3">Khám Phá</h5>
+            <ul class="list-unstyled" style="line-height:2;">
+              <li><a href="index.html">Trang Chủ</a></li>
+              <li><a href="products.html">Sản Phẩm</a></li>
+              <li><a href="news.html">Tin Tức</a></li>
               <li><a href="contact.html">Liên Hệ</a></li>
-              <li><a href="about.html">Giới Thiệu</a></li>
             </ul>
           </div>
-          <div class="col-md-4 mb-3">
-            <h5>Theo Dõi Chúng Tôi</h5>
-            <p>Luôn cập nhật những thay đổi ngọt ngào mới nhất!</p>
-            <div class="footer-social-icons mt-2">
-              <a
-                href="https://www.facebook.com/Bapsxinkiu"
-                class="footer-social-link"
-                title="Facebook"
-                ><i class="bi bi-facebook"></i
-              ></a>
-              <a
-                href="https://www.instagram.com/nqoc.nahzz/"
-                class="footer-social-link"
-                title="Instagram"
-                ><i class="bi bi-instagram"></i
-              ></a>
-              <a
-                href="https://www.tiktok.com/@nacileng?is_from_webapp=1&sender_device=pc"
-                class="footer-social-link"
-                title="TikTok"
-                ><i class="bi bi-tiktok"></i
-              ></a>
+          <div class="col-md-4">
+            <h5 class="mb-3">Bản Tin Ngọt Ngào</h5>
+            <div class="footer-newsletter">
+              <input type="email" placeholder="Email của bạn..." />
+              <button type="button">Gửi</button>
             </div>
           </div>
         </div>
-        <hr class="mt-4 mb-3 footer-divider" />
-        <p class="mb-0">
-          &copy; 2026 Tiệm Bánh Ngọt. Bản quyền thuộc về chúng tôi. (Trang demo)
-        </p>
+        <hr class="mt-5 footer-divider" />
+        <p class="text-center mb-0" style="color:rgba(252,237,242,0.4); font-size:.8rem;">© 2026 Sweet Trio Bakery. Crafted with artisanal love.</p>
       </div>
     </footer>
 
-    <!-- Local JS Scripts -->
     <script src="jquery/jquery.min.js"></script>
     <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="js/main.js"></script>

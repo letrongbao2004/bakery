@@ -3,396 +3,210 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Thanh toán đơn hàng Sweet Trio Bakery - Điền thông tin giao hàng và xác nhận đơn." />
     <link rel="icon" type="image/png" href="images/logo1.png" />
     <title>Thanh Toán - Sweet Trio Bakery</title>
-    <!-- Local CSS -->
     <link rel="stylesheet" href="bootstrap/icons/bootstrap-icons.css" />
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/style.css" />
-    <style>
-      .step-indicator {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: 2rem;
-      }
-      .step {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        position: relative;
-        flex: 1;
-        max-width: 180px;
-      }
-      .step::after {
-        content: "";
-        position: absolute;
-        top: 18px;
-        left: 50%;
-        width: 100%;
-        height: 2px;
-        background-color: #dee2e6;
-        z-index: 0;
-      }
-      .step:last-child::after {
-        display: none;
-      }
-      .step-circle {
-        width: 36px;
-        height: 36px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: bold;
-        font-size: 0.9rem;
-        z-index: 1;
-        border: 2px solid #dee2e6;
-        background: white;
-        color: #adb5bd;
-        transition: all 0.3s;
-      }
-      .step.active .step-circle {
-        background-color: var(--accent-color);
-        border-color: var(--accent-color);
-        color: white;
-      }
-      .step.done .step-circle {
-        background-color: #28a745;
-        border-color: #28a745;
-        color: white;
-      }
-      .step-circle::after {
-        display: none;
-      }
-      .step.done::after,
-      .step.active::after {
-        background-color: var(--accent-color);
-      }
-      .step-label {
-        font-size: 0.75rem;
-        margin-top: 0.5rem;
-        color: #adb5bd;
-        text-align: center;
-      }
-      .step.active .step-label,
-      .step.done .step-label {
-        color: var(--accent-color);
-        font-weight: 600;
-      }
-      #checkoutStep2,
-      #checkoutStep3 {
-        display: none;
-      }
-    </style>
   </head>
-  <body class="d-flex flex-column min-vh-100 bg-light">
-    <!-- Navigation Bar -->
+  <body>
+    <!-- NAVBAR (simplified for checkout) -->
     <nav class="navbar-custom-v2 fixed-top">
       <div class="container navbar-v2-inner">
-        <!-- BÊN TRÁI: 3 links đầu -->
-        <ul class="navbar-v2-left">
+        <!-- Zone 1: Logo & Brand -->
+        <a href="index.html" class="navbar-v2-brand">
+          <img src="images/logo1.png" alt="Sweet House Logo" class="brand-icon" />
+        </a>
+
+        <!-- Zone 2: Centered Links -->
+        <ul class="navbar-v2-nav d-none d-lg-flex">
           <li><a href="index.html" class="nav-v2-link">Trang Chủ</a></li>
           <li><a href="about.html" class="nav-v2-link">Giới Thiệu</a></li>
           <li><a href="products.html" class="nav-v2-link">Sản Phẩm</a></li>
-        </ul>
-
-        <!-- GIỮA: Logo cực to -->
-        <a href="index.html" class="navbar-v2-logo-wrap">
-          <img
-            src="images/logo1.png"
-            alt="Sweet Trio Bakery"
-            class="navbar-v2-logo"
-          />
-        </a>
-
-        <!-- BÊN PHẢI: 2 links + icon giỏ hàng + icon user -->
-        <ul class="navbar-v2-right">
           <li><a href="news.html" class="nav-v2-link">Tin Tức</a></li>
           <li><a href="contact.html" class="nav-v2-link">Liên Hệ</a></li>
-
-          <!-- Giỏ hàng dropdown — giữ nguyên id để main.js hoạt động -->
-          <li class="nav-v2-icon-item dropdown" id="cartNavContainer">
-            <a
-              href="#"
-              class="nav-v2-icon-link position-relative dropdown-toggle"
-              id="cartDropdownToggle"
-              role="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              <i class="bi bi-cart3"></i>
-              <span
-                class="position-absolute translate-middle badge rounded-pill bg-danger"
-                id="cartBadgeCount"
-                >0</span
-              >
-            </a>
-            <div
-              class="dropdown-menu dropdown-menu-end shadow p-0"
-              id="miniCartDropdown"
-              aria-labelledby="cartDropdownToggle"
-            >
-              <div class="p-3 border-bottom">
-                <h6 class="mb-0 fw-bold">
-                  <i class="bi bi-cart3 me-2"></i>Giỏ Hàng Của Bạn
-                </h6>
-              </div>
-              <div
-                id="miniCartItems"
-                class="px-3 py-2 mini-cart-items-scroll"
-              ></div>
-              <div
-                class="p-3 border-top bg-light d-flex justify-content-between align-items-center"
-              >
-                <span class="fw-bold"
-                  >Tổng:
-                  <span id="miniCartTotal" class="text-accent"
-                    >0 VNĐ</span
-                  ></span
-                >
-                <a href="cart.html" class="btn btn-sm btn-primary-custom"
-                  >Xem Giỏ Hàng</a
-                >
-              </div>
-            </div>
-          </li>
-
-          <!-- Avatar dropdown — giữ nguyên id -->
-          <li class="nav-v2-icon-item dropdown" id="avatarNavContainer">
-            <a
-              href="#"
-              class="nav-v2-icon-link dropdown-toggle"
-              id="avatarDropdown"
-              role="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              <i class="bi bi-person-circle"></i>
-            </a>
-            <ul
-              class="dropdown-menu dropdown-menu-end shadow"
-              aria-labelledby="avatarDropdown"
-            >
-              <li>
-                <a class="dropdown-item" href="profile.html"
-                  ><i class="bi bi-person"></i> Xem Profile</a
-                >
-              </li>
-              <li><hr class="dropdown-divider" /></li>
-              <li>
-                <a class="dropdown-item" href="#" onclick="handleLogout(event)">
-                  <i class="bi bi-box-arrow-right"></i> Đăng xuất</a
-                >
-              </li>
-            </ul>
-          </li>
-
-          <!-- Đăng nhập — giữ nguyên id -->
-          <li class="nav-v2-icon-item" id="authNavContainer">
-            <a href="login.html" class="nav-v2-icon-link">
-              <i class="bi bi-box-arrow-in-right"></i>
-            </a>
-          </li>
         </ul>
 
-        <!-- Hamburger cho mobile -->
-        <button
-          class="navbar-v2-toggler d-lg-none"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarV2Mobile"
-        >
-          <i class="bi bi-list"></i>
-        </button>
+        <!-- Zone 3: Actions -->
+        <div class="navbar-v2-actions">
+          <!-- Simplified actions for checkout: Just Cart -->
+          <a href="cart.html" class="action-icon-wrap" title="Quay lại giỏ hàng">
+            <i class="bi bi-cart3"></i>
+            <span class="cart-badge" id="cartBadgeCount">0</span>
+          </a>
+          
+          <!-- Mobile Toggler -->
+          <button class="navbar-v2-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarV2Mobile">
+            <i class="bi bi-list"></i>
+          </button>
+        </div>
       </div>
 
-      <!-- Mobile menu (collapse) -->
+      <!-- Mobile Menu -->
       <div class="collapse navbar-collapse" id="navbarV2Mobile">
-        <div class="navbar-v2-mobile">
-          <a href="index.html" class="nav-v2-link">Trang Chủ</a>
-          <a href="about.html" class="nav-v2-link">Giới Thiệu</a>
-          <a href="products.html" class="nav-v2-link">Sản Phẩm</a>
-          <a href="news.html" class="nav-v2-link">Tin Tức</a>
-          <a href="contact.html" class="nav-v2-link">Liên Hệ</a>
-          <a href="login.html" class="nav-v2-link">Đăng Nhập / Đăng Ký</a>
+        <div class="navbar-v2-mobile p-4">
+          <ul class="list-unstyled">
+            <li><a href="index.html" class="nav-v2-link d-block py-2">Trang Chủ</a></li>
+            <li><a href="about.html" class="nav-v2-link d-block py-2">Giới Thiệu</a></li>
+            <li><a href="products.html" class="nav-v2-link d-block py-2">Sản Phẩm</a></li>
+            <li><a href="news.html" class="nav-v2-link d-block py-2">Tin Tức</a></li>
+            <li><a href="contact.html" class="nav-v2-link d-block py-2">Liên Hệ</a></li>
+          </ul>
         </div>
       </div>
     </nav>
 
-    <main class="container my-5 flex-grow-1">
-      <h2 class="section-title fade-in mb-2">Thanh Toán</h2>
+    <main class="page-content-wrapper py-5">
+      <div class="container" style="max-width:1100px;">
+        <!-- Breadcrumb -->
+        <nav aria-label="breadcrumb" class="mb-4">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Trang Chủ</a></li>
+            <li class="breadcrumb-item"><a href="cart.html">Giỏ Hàng</a></li>
+            <li class="breadcrumb-item active">Thanh Toán</li>
+          </ol>
+        </nav>
 
-      <!-- Step Indicator -->
-      <div class="step-indicator py-3 mb-4">
-        <div class="step active" id="stepDot1">
-          <div class="step-circle">1</div>
-          <span class="step-label">Thông Tin</span>
-        </div>
-        <div class="step" id="stepDot2">
-          <div class="step-circle">2</div>
-          <span class="step-label">Xác Nhận</span>
-        </div>
-        <div class="step" id="stepDot3">
-          <div class="step-circle"><i class="bi bi-check"></i></div>
-          <span class="step-label">Hoàn tất</span>
-        </div>
-      </div>
+        <h1 class="font-headline fw-black mb-5" style="font-size:2rem; color:var(--clr-on-background);">
+          <i class="bi bi-credit-card me-2" style="color:var(--clr-secondary);"></i>Thanh Toán
+        </h1>
 
-      <div class="row g-4">
-        <!-- LEFT: Steps -->
-        <div class="col-lg-7">
-          <!-- STEP 1: Customer Info -->
-          <div id="checkoutStep1" class="card shadow-sm border-0 fade-in">
-            <div class="card-body p-4">
-              <h5 class="card-title mb-4 border-bottom pb-3">
-                <i
-                  class="bi bi-person-lines-fill me-2"
-                  style="color: var(--accent-color)"
-                ></i
-                >Thông Tin Giao Hàng
-              </h5>
-              <form id="checkoutInfoForm">
-                <div class="row g-3">
-                  <div class="col-md-6">
-                    <label for="coName" class="form-label fw-bold"
-                      >Họ và Tên <span class="text-danger">*</span></label
-                    >
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="coName"
-                      placeholder="Nguyễn Văn A"
-                      required
-                    />
+        <!-- STEP BAR -->
+        <div class="checkout-step-bar mb-5" style="position:relative; padding-bottom:2rem;">
+          <div class="step-dot active" id="stepDot1">
+            <span>1</span>
+            <span class="step-label">Thông Tin</span>
+          </div>
+          <div class="step-line" id="stepLine1"></div>
+          <div class="step-dot" id="stepDot2">
+            <span>2</span>
+            <span class="step-label">Xác Nhận</span>
+          </div>
+          <div class="step-line" id="stepLine2"></div>
+          <div class="step-dot" id="stepDot3">
+            <span>3</span>
+            <span class="step-label">Hoàn Tất</span>
+          </div>
+        </div>
+
+        <div class="row g-5">
+          <!-- LEFT: Form Steps -->
+          <div class="col-lg-7">
+            <!-- STEP 1: Info Form -->
+            <div id="checkoutStep1">
+              <div style="background:var(--clr-surface-lowest); border-radius:var(--radius-md); padding:2rem; box-shadow:var(--shadow-sm);">
+                <h2 class="font-headline fw-bold mb-4" style="font-size:1.3rem; color:var(--clr-primary);">
+                  <i class="bi bi-person-lines-fill me-2"></i>Thông Tin Giao Hàng
+                </h2>
+                <form id="checkoutInfoForm">
+                  <div class="row g-3">
+                    <div class="col-md-6">
+                      <label for="coName" class="form-label">Họ và Tên <span class="text-danger">*</span></label>
+                      <input type="text" id="coName" class="form-control" placeholder="Nguyễn Văn A" required />
+                    </div>
+                    <div class="col-md-6">
+                      <label for="coEmail" class="form-label">Email <span class="text-danger">*</span></label>
+                      <input type="email" id="coEmail" class="form-control" placeholder="you@email.com" required />
+                    </div>
+                    <div class="col-md-6">
+                      <label for="coPhone" class="form-label">Số Điện Thoại <span class="text-danger">*</span></label>
+                      <input type="tel" id="coPhone" class="form-control" placeholder="0901 234 567" required />
+                    </div>
+                    <div class="col-12">
+                      <label for="coAddress" class="form-label">Địa Chỉ Giao Hàng <span class="text-danger">*</span></label>
+                      <input type="text" id="coAddress" class="form-control" placeholder="Số nhà, đường, phường/xã, quận, tỉnh/thành..." required />
+                    </div>
+                    <div class="col-12">
+                      <label for="coNote" class="form-label">Ghi Chú Đơn Hàng</label>
+                      <textarea id="coNote" class="form-control" rows="3" placeholder="VD: Giao trước 14h, để tại bảo vệ, không gõ chuông..."></textarea>
+                    </div>
+                    <!-- Payment method -->
+                    <div class="col-12">
+                      <label class="form-label">Phương Thức Thanh Toán</label>
+                      <div class="row g-2">
+                        <div class="col-6">
+                          <label class="d-flex align-items-center gap-2 p-3 rounded-3 cursor-pointer" style="border:2px solid var(--clr-secondary); background:rgba(255,182,193,.1);">
+                            <input type="radio" name="payMethod" value="cod" checked class="form-check-input mt-0" />
+                            <span><i class="bi bi-cash-stack me-1" style="color:var(--clr-secondary);"></i>Tiền mặt (COD)</span>
+                          </label>
+                        </div>
+                        <div class="col-6">
+                          <label class="d-flex align-items-center gap-2 p-3 rounded-3 cursor-pointer" style="border:2px solid var(--clr-outline-variant);">
+                            <input type="radio" name="payMethod" value="transfer" class="form-check-input mt-0" />
+                            <span><i class="bi bi-qr-code-scan me-1" style="color:var(--clr-primary);"></i>Chuyển khoản</span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12 mt-2">
+                      <button type="submit" class="btn btn-primary-custom w-100 py-3">
+                        Tiếp Tục Xác Nhận <i class="bi bi-arrow-right ms-2"></i>
+                      </button>
+                    </div>
                   </div>
-                  <div class="col-md-6">
-                    <label for="coEmail" class="form-label fw-bold"
-                      >Email <span class="text-danger">*</span></label
-                    >
-                    <input
-                      type="email"
-                      class="form-control"
-                      id="coEmail"
-                      placeholder="email@example.com"
-                      required
-                    />
-                  </div>
-                  <div class="col-md-6">
-                    <label for="coPhone" class="form-label fw-bold"
-                      >Số Điện Thoại <span class="text-danger">*</span></label
-                    >
-                    <input
-                      type="tel"
-                      class="form-control"
-                      id="coPhone"
-                      placeholder="09xxxxxxxx"
-                      required
-                    />
-                  </div>
-                  <div class="col-12">
-                    <label for="coAddress" class="form-label fw-bold"
-                      >Địa Chỉ Nhận Hàng
-                      <span class="text-danger">*</span></label
-                    >
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="coAddress"
-                      placeholder="Số nhà, Đường, Phường/Xã, Quận/Huyện, Tỉnh/Thành phố"
-                      required
-                    />
-                  </div>
-                  <div class="col-12">
-                    <label for="coNote" class="form-label fw-bold"
-                      >Ghi Chú
-                      <span class="text-muted fw-normal"
-                        >(tuỳ chọn)</span
-                      ></label
-                    >
-                    <textarea
-                      class="form-control"
-                      id="coNote"
-                      rows="2"
-                      placeholder="Ví dụ: Giao trước 5PM, gọi trước khi giao..."
-                    ></textarea>
-                  </div>
-                </div>
-                <div class="d-grid mt-4">
-                  <button type="submit" class="btn btn-primary-custom btn-lg">
-                    Tiếp Tục <i class="bi bi-arrow-right"></i>
+                </form>
+              </div>
+            </div>
+
+            <!-- STEP 2: Confirm -->
+            <div id="checkoutStep2" style="display:none;">
+              <div style="background:var(--clr-surface-lowest); border-radius:var(--radius-md); padding:2rem; box-shadow:var(--shadow-sm);">
+                <h2 class="font-headline fw-bold mb-4" style="font-size:1.3rem; color:var(--clr-primary);">
+                  <i class="bi bi-clipboard-check me-2"></i>Xác Nhận Đơn Hàng
+                </h2>
+                <div id="confirmCustomerInfo" class="mb-4 p-4 rounded-3" style="background:var(--clr-surface-low);"></div>
+                <div id="confirmOrderItems"></div>
+                <div class="d-flex gap-3 mt-4">
+                  <button class="btn btn-secondary-custom" id="backToStep1Btn">
+                    <i class="bi bi-arrow-left me-1"></i>Sửa Thông Tin
+                  </button>
+                  <button class="btn btn-primary-custom flex-grow-1 py-3" id="placeOrderBtn">
+                    <i class="bi bi-bag-check me-2"></i>Đặt Hàng Ngay
                   </button>
                 </div>
-              </form>
+              </div>
             </div>
-          </div>
 
-          <!-- STEP 2: Order Summary Confirmation -->
-          <div id="checkoutStep2" class="card shadow-sm border-0">
-            <div class="card-body p-4">
-              <h5 class="card-title mb-4 border-bottom pb-3">
-                <i
-                  class="bi bi-receipt me-2"
-                  style="color: var(--accent-color)"
-                ></i
-                >Xác Nhận Đơn Hàng
-              </h5>
-              <div id="confirmOrderItems" class="mb-4"></div>
-              <div
-                id="confirmCustomerInfo"
-                class="p-3 bg-light rounded mb-4"
-              ></div>
-              <div class="d-flex gap-3">
-                <button class="btn btn-outline-secondary" id="backToStep1Btn">
-                  <i class="bi bi-arrow-left"></i> Sửa Thông Tin
-                </button>
-                <button
-                  class="btn btn-primary-custom flex-grow-1 btn-lg"
-                  id="placeOrderBtn"
-                >
-                  <i class="bi bi-bag-check me-2"></i>Mua Hàng Ngay!
-                </button>
+            <!-- STEP 3: Success -->
+            <div id="checkoutStep3" style="display:none;">
+              <div style="background:var(--clr-surface-lowest); border-radius:var(--radius-md); padding:3rem; box-shadow:var(--shadow-sm); text-align:center;">
+                <div style="width:80px; height:80px; border-radius:50%; background:rgba(40,167,69,.1); display:flex; align-items:center; justify-content:center; margin:0 auto 1.5rem;">
+                  <i class="bi bi-check-circle-fill" style="font-size:3rem; color:#28a745;"></i>
+                </div>
+                <h2 class="font-headline fw-black mb-2" style="color:var(--clr-on-surface);">Đặt Hàng Thành Công!</h2>
+                <p style="color:var(--clr-on-surface-variant); margin-bottom:2rem;">Cảm ơn bạn đã đặt hàng tại Sweet Trio Bakery. Chúng tôi sẽ liên hệ xác nhận đơn sớm nhất!</p>
+                <a href="index.html" class="btn btn-primary-custom">
+                  <i class="bi bi-house me-2"></i>Về Trang Chủ
+                </a>
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- RIGHT: Cart Summary (always visible) -->
-        <div class="col-lg-5">
-          <div
-            class="card shadow-sm border-0"
-            style="position: sticky; top: 90px"
-          >
-            <div class="card-body p-4">
-              <h5 class="card-title mb-3 border-bottom pb-3">
-                <i
-                  class="bi bi-cart2 me-2"
-                  style="color: var(--accent-color)"
-                ></i
-                >Giỏ Hàng Của Bạn
-              </h5>
-              <div
-                id="checkoutCartItems"
-                class="mb-3"
-                style="max-height: 350px; overflow-y: auto"
-              ></div>
-              <hr />
+          <!-- RIGHT: Order Summary -->
+          <div class="col-lg-5">
+            <div class="order-summary-card" style="top:calc(60px + 1.5rem);">
+              <h2 class="font-headline fw-bold mb-4" style="font-size:1.2rem; color:var(--clr-on-surface);">
+                <i class="bi bi-receipt me-2" style="color:var(--clr-secondary);"></i>Đơn Hàng Của Bạn
+              </h2>
+              <div id="checkoutCartItems" class="mb-3" style="max-height:300px; overflow-y:auto;"></div>
+              <hr style="border-color:var(--clr-outline-variant);" />
               <div class="d-flex justify-content-between mb-2">
-                <span>Tạm tính:</span>
-                <span id="checkoutSubtotal" class="fw-bold">0 VNĐ</span>
+                <span style="color:var(--clr-on-surface-variant);">Tạm tính</span>
+                <span class="fw-bold" id="checkoutSubtotal">0 VNĐ</span>
               </div>
-              <div class="d-flex justify-content-between mb-2 text-muted">
-                <span>Phí vận chuyển:</span>
-                <span class="text-success fw-bold">Miễn phí</span>
+              <div class="d-flex justify-content-between mb-3">
+                <span style="color:var(--clr-on-surface-variant);">Phí ship</span>
+                <span class="fw-bold" style="color:#28a745;">Miễn phí</span>
               </div>
-              <div class="d-flex justify-content-between mt-3">
-                <span class="fs-5 fw-bold">Tổng cộng:</span>
-                <span
-                  class="fs-5 fw-bold"
-                  style="color: var(--accent-color)"
-                  id="checkoutTotal"
-                  >0 VNĐ</span
-                >
+              <hr style="border-color:var(--clr-outline-variant);" />
+              <div class="d-flex justify-content-between">
+                <span class="fw-black">Tổng Cộng</span>
+                <span class="fw-black" style="color:var(--clr-secondary); font-size:1.2rem;" id="checkoutTotal">0 VNĐ</span>
+              </div>
+              <div class="mt-4 p-3 rounded-3 d-flex gap-2 align-items-center" style="background:rgba(40,167,69,.06);">
+                <i class="bi bi-shield-lock-fill" style="color:#28a745; font-size:1.2rem;"></i>
+                <span style="font-size:.8rem; color:var(--clr-on-surface-variant);">Thông tin của bạn được bảo mật tuyệt đối.</span>
               </div>
             </div>
           </div>
@@ -400,56 +214,6 @@
       </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="footer text-center mt-auto">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4 mb-3">
-            <h5 class="font-weight-bold">Sweet Trio Bakery</h5>
-            <p>Nướng bánh bằng niềm vui mỗi ngày từ 2026.</p>
-          </div>
-          <div class="col-md-4 mb-3">
-            <h5>Liên Kết Nhanh</h5>
-            <ul class="list-unstyled">
-              <li><a href="sitemap.html">Sitemap</a></li>
-              <li><a href="contact.html">Liên Hệ</a></li>
-              <li><a href="about.html">Giới Thiệu</a></li>
-            </ul>
-          </div>
-          <div class="col-md-4 mb-3">
-            <h5>Theo Dõi Chúng Tôi</h5>
-            <p>Luôn cập nhật những thay đổi ngọt ngào mới nhất!</p>
-            <div class="footer-social-icons mt-2">
-              <a
-                href="https://www.facebook.com/Bapsxinkiu"
-                class="footer-social-link"
-                title="Facebook"
-                ><i class="bi bi-facebook"></i
-              ></a>
-              <a
-                href="https://www.instagram.com/nqoc.nahzz/"
-                class="footer-social-link"
-                title="Instagram"
-                ><i class="bi bi-instagram"></i
-              ></a>
-              <a
-                href="https://www.tiktok.com/@nacileng?is_from_webapp=1&sender_device=pc"
-                class="footer-social-link"
-                title="TikTok"
-                ><i class="bi bi-tiktok"></i
-              ></a>
-            </div>
-          </div>
-        </div>
-        <hr class="mt-4 mb-3 footer-divider" />
-        <p class="mb-0">
-          &copy; 2026 Sweet Trio Bakery. Bản quyền thuộc về chúng tôi. (Trang
-          demo)
-        </p>
-      </div>
-    </footer>
-
-    <!-- Local JS Scripts -->
     <script src="jquery/jquery.min.js"></script>
     <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="js/main.js"></script>

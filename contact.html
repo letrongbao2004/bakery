@@ -3,309 +3,265 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Liên hệ Sweet Trio Bakery - đặt bánh, hỏi thăm giá cả, và tìm đường đến cửa hàng của chúng tôi." />
     <link rel="icon" type="image/png" href="images/logo1.png" />
-    <title>Contact Us - Sweet Trio Bakery</title>
-    <!-- Local CSS -->
+    <title>Liên Hệ - Sweet Trio Bakery</title>
     <link rel="stylesheet" href="bootstrap/icons/bootstrap-icons.css" />
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/style.css" />
   </head>
-  <body class="d-flex flex-column min-vh-100">
-    <!-- Navigation Bar -->
+  <body>
+    <!-- ===== NAVBAR ===== -->
     <nav class="navbar-custom-v2 fixed-top">
       <div class="container navbar-v2-inner">
-        <!-- BÊN TRÁI: 3 links đầu -->
-        <ul class="navbar-v2-left">
+        <!-- Zone 1: Logo & Brand -->
+        <a href="index.html" class="navbar-v2-brand">
+          <img src="images/logo1.png" alt="Sweet House Logo" class="brand-icon" />
+        </a>
+
+        <!-- Zone 2: Centered Links -->
+        <ul class="navbar-v2-nav d-none d-lg-flex">
           <li><a href="index.html" class="nav-v2-link">Trang Chủ</a></li>
           <li><a href="about.html" class="nav-v2-link">Giới Thiệu</a></li>
           <li><a href="products.html" class="nav-v2-link">Sản Phẩm</a></li>
+          <li><a href="news.html" class="nav-v2-link">Tin Tức</a></li>
+          <li><a href="contact.html" class="nav-v2-link">Liên Hệ</a></li>
         </ul>
 
-        <!-- GIỮA: Logo cực to -->
-        <a href="index.html" class="navbar-v2-logo-wrap">
-          <img
-            src="images/logo1.png"
-            alt="Sweet Trio Bakery"
-            class="navbar-v2-logo"
-          />
-        </a>
-
-        <!-- BÊN PHẢI: 2 links + icon giỏ hàng + icon user -->
-        <ul class="navbar-v2-right">
-          <li><a href="news.html" class="nav-v2-link">Tin Tức</a></li>
-          <li><a href="contact.html" class="nav-v2-link active">Liên Hệ</a></li>
-
-          <!-- Giỏ hàng dropdown — giữ nguyên id để main.js hoạt động -->
-          <li class="nav-v2-icon-item dropdown" id="cartNavContainer">
-            <a
-              href="#"
-              class="nav-v2-icon-link position-relative dropdown-toggle"
-              id="cartDropdownToggle"
-              role="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
+        <!-- Zone 3: Actions (Cart & Login) -->
+        <div class="navbar-v2-actions">
+          <!-- Cart -->
+          <div class="dropdown" id="cartNavContainer">
+            <a href="#" class="action-icon-wrap" id="cartDropdownToggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               <i class="bi bi-cart3"></i>
-              <span
-                class="position-absolute translate-middle badge rounded-pill bg-danger"
-                id="cartBadgeCount"
-                >0</span
-              >
+              <span class="cart-badge" id="cartBadgeCount">0</span>
             </a>
-            <div
-              class="dropdown-menu dropdown-menu-end shadow p-0"
-              id="miniCartDropdown"
-              aria-labelledby="cartDropdownToggle"
-            >
+            <div class="dropdown-menu dropdown-menu-end shadow p-0" id="miniCartDropdown">
               <div class="p-3 border-bottom">
-                <h6 class="mb-0 fw-bold">
-                  <i class="bi bi-cart3 me-2"></i>Giỏ Hàng Của Bạn
-                </h6>
+                <h6 class="mb-0 fw-bold"><i class="bi bi-cart3 me-2"></i>Giỏ Hàng Của Bạn</h6>
               </div>
-              <div
-                id="miniCartItems"
-                class="px-3 py-2 mini-cart-items-scroll"
-              ></div>
-              <div
-                class="p-3 border-top bg-light d-flex justify-content-between align-items-center"
-              >
-                <span class="fw-bold"
-                  >Tổng:
-                  <span id="miniCartTotal" class="text-accent"
-                    >0 VNĐ</span
-                  ></span
-                >
-                <a href="cart.html" class="btn btn-sm btn-primary-custom"
-                  >Xem Giỏ Hàng</a
-                >
+              <div id="miniCartItems" class="px-3 py-2 mini-cart-items-scroll"></div>
+              <div class="p-3 border-top bg-light d-flex justify-content-between align-items-center">
+                <span class="fw-bold">Tổng: <span id="miniCartTotal" class="text-accent">0 VNĐ</span></span>
+                <a href="cart.html" class="btn btn-sm btn-primary-custom">Xem Giỏ Hàng</a>
               </div>
             </div>
-          </li>
+          </div>
 
-          <!-- Avatar dropdown — giữ nguyên id -->
-          <li class="nav-v2-icon-item dropdown" id="avatarNavContainer">
-            <a
-              href="#"
-              class="nav-v2-icon-link dropdown-toggle"
-              id="avatarDropdown"
-              role="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
+          <!-- Avatar (Hidden initially) -->
+          <div class="dropdown" id="avatarNavContainer" style="display:none">
+            <a href="#" class="action-icon-wrap" id="avatarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               <i class="bi bi-person-circle"></i>
             </a>
-            <ul
-              class="dropdown-menu dropdown-menu-end shadow"
-              aria-labelledby="avatarDropdown"
-            >
-              <li>
-                <a class="dropdown-item" href="profile.html"
-                  ><i class="bi bi-person"></i> Xem Profile</a
-                >
-              </li>
+            <ul class="dropdown-menu dropdown-menu-end shadow">
+              <li><a class="dropdown-item" href="profile.html"><i class="bi bi-person me-2"></i>Xem Profile</a></li>
               <li><hr class="dropdown-divider" /></li>
-              <li>
-                <a class="dropdown-item" href="#" onclick="handleLogout(event)">
-                  <i class="bi bi-box-arrow-right"></i> Đăng xuất</a
-                >
-              </li>
+              <li><a class="dropdown-item text-danger" href="#" onclick="handleLogout(event)"><i class="bi bi-box-arrow-right me-2"></i>Đăng xuất</a></li>
             </ul>
-          </li>
+          </div>
 
-          <!-- Đăng nhập — giữ nguyên id -->
-          <li class="nav-v2-icon-item" id="authNavContainer">
-            <a href="login.html" class="nav-v2-icon-link">
-              <i class="bi bi-box-arrow-in-right"></i>
-            </a>
-          </li>
-        </ul>
+          <!-- Login CTA -->
+          <a href="login.html" class="btn-login-pill d-none d-lg-block" id="authNavContainer">Đăng Nhập</a>
 
-        <!-- Hamburger cho mobile -->
-        <button
-          class="navbar-v2-toggler d-lg-none"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarV2Mobile"
-        >
-          <i class="bi bi-list"></i>
-        </button>
+          <!-- Mobile Toggler -->
+          <button class="navbar-v2-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarV2Mobile">
+            <i class="bi bi-list"></i>
+          </button>
+        </div>
       </div>
 
-      <!-- Mobile menu (collapse) -->
+      <!-- Mobile Menu -->
       <div class="collapse navbar-collapse" id="navbarV2Mobile">
-        <div class="navbar-v2-mobile">
-          <a href="index.html" class="nav-v2-link">Trang Chủ</a>
-          <a href="about.html" class="nav-v2-link">Giới Thiệu</a>
-          <a href="products.html" class="nav-v2-link">Sản Phẩm</a>
-          <a href="news.html" class="nav-v2-link">Tin Tức</a>
-          <a href="contact.html" class="nav-v2-link active">Liên Hệ</a>
-          <a href="login.html" class="nav-v2-link">Đăng Nhập / Đăng Ký</a>
+        <div class="navbar-v2-mobile p-4">
+          <ul class="list-unstyled">
+            <li><a href="index.html" class="nav-v2-link d-block py-2">Trang Chủ</a></li>
+            <li><a href="about.html" class="nav-v2-link d-block py-2">Giới Thiệu</a></li>
+            <li><a href="products.html" class="nav-v2-link d-block py-2">Sản Phẩm</a></li>
+            <li><a href="news.html" class="nav-v2-link d-block py-2">Tin Tức</a></li>
+            <li><a href="contact.html" class="nav-v2-link d-block py-2">Liên Hệ</a></li>
+            <li><hr class="my-3 opacity-25" /></li>
+            <li><a href="login.html" class="btn-login-pill w-100 text-center">Đăng Nhập</a></li>
+          </ul>
         </div>
       </div>
     </nav>
 
-    <main class="container my-5 flex-grow-1">
-      <h2 class="section-title fade-in">Liên Hệ</h2>
-
-      <div class="row g-5 mt-2">
-        <!-- Contact Form -->
-        <div class="col-lg-6">
-          <h3 class="mb-4" style="color: var(--accent-color)">
-            Hãy Liên Hệ Với Chúng Tôi
-          </h3>
-          <div
-            class="bg-white p-4 p-md-5 rounded shadow-sm border"
-            style="border-color: var(--border-color) !important"
-          >
-            <form
-              onsubmit="
-                event.preventDefault();
-                alert('Thử nghiệm: Lời nhắn đã được gửi thành công!');
-                this.reset();
-              "
-            >
-              <div class="mb-3">
-                <label for="contactName" class="form-label fw-bold"
-                  >Tên Của Bạn</label
-                >
-                <input
-                  type="text"
-                  class="form-control"
-                  id="contactName"
-                  placeholder="VD: Nguyễn Văn A"
-                  required
-                />
-              </div>
-              <div class="mb-3">
-                <label for="contactEmail" class="form-label fw-bold"
-                  >Địa Chỉ Email</label
-                >
-                <input
-                  type="email"
-                  class="form-control"
-                  id="contactEmail"
-                  placeholder="name@example.com"
-                  required
-                />
-              </div>
-              <div class="mb-4">
-                <label for="contactMessage" class="form-label fw-bold"
-                  >Lời Nhắn Của Bạn</label
-                >
-                <textarea
-                  class="form-control"
-                  id="contactMessage"
-                  rows="6"
-                  placeholder="Chúng tôi có thể giúp phần làm ngày của bạn ngọt ngào hơn như thế nào?"
-                  required
-                ></textarea>
-              </div>
-              <button type="submit" class="btn btn-primary-custom btn-lg w-100">
-                Gửi Lời Nhắn
-              </button>
-            </form>
-          </div>
+    <main class="page-content-wrapper">
+      <!-- ===== PAGE HEADER ===== -->
+      <section class="py-5 text-center" style="background:var(--clr-surface-low);">
+        <div class="container">
+          <span class="stb-tag">Kết Nối Với Chúng Tôi</span>
+          <h1 class="font-headline fw-black mb-2" style="font-size:clamp(2rem,5vw,3rem); color:var(--clr-on-background);">Hãy Nói Cho Chúng Tôi Biết</h1>
+          <div style="width:4rem; height:3px; background:var(--clr-secondary); border-radius:99px; margin:1rem auto 1.5rem;"></div>
+          <p style="color:var(--clr-on-surface-variant); max-width:480px; margin:0 auto;">Chúng tôi luôn sẵn sàng lắng nghe và hỗ trợ bạn. Hãy để lại tin nhắn hoặc ghé thăm trực tiếp tiệm bánh.</p>
         </div>
+      </section>
 
-        <!-- Store Info and Map -->
-        <div class="col-lg-6">
-          <h3 class="mb-4" style="color: var(--accent-color)">
-            Thông Tin Cửa Hàng
-          </h3>
-          <div
-            class="bg-white p-4 rounded shadow-sm mb-4 border"
-            style="
-              border-color: var(--border-color) !important;
-              font-size: 1.1rem;
-            "
-          >
-            <p class="mb-3">
-              <strong>📍 Địa chỉ:</strong> 123 Đường Ngọc Trinh, Quận X, TP HCM
-            </p>
-            <p class="mb-3"><strong>📞 Điện thoại:</strong> 0123 456 789</p>
-            <p class="mb-3">
-              <strong>📧 Email:</strong> hello@tiembanhngot.com
-            </p>
-            <hr />
-            <p class="mb-2 fw-bold" style="color: var(--accent-color)">
-              Giờ Mở Cửa:
-            </p>
-            <p class="mb-1">Thứ Hai - Thứ Sáu: 8:00 Sáng - 6:00 Chiều</p>
-            <p class="mb-0">Thứ Bảy - Chủ Nhật: 9:00 Sáng - 4:00 Chiều</p>
-          </div>
+      <!-- ===== CONTACT BODY ===== -->
+      <section class="py-5">
+        <div class="container">
+          <div class="row g-5">
+            <!-- LEFT: Contact Info -->
+            <div class="col-lg-5">
+              <h2 class="font-headline fw-black mb-4" style="color:var(--clr-primary);">Thông Tin Liên Hệ</h2>
 
-          <!-- Google Maps iframe -->
-          <div class="map-responsive shadow-sm border rounded">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.2712605375887!2d106.61303318604654!3d10.866960929910872!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752a1094db353d%3A0x580ce254dd601dfd!2sUniversity%20of%20Labour%20and%20Social%20Affairs!5e0!3m2!1sen!2sus!4v1774160697723!5m2!1sen!2sus"
-              width="600"
-              height="450"
-              style="border: 0"
-              allowfullscreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-            ></iframe>
-          </div>
-        </div>
-      </div>
-    </main>
+              <div class="contact-info-item">
+                <div class="contact-info-icon"><i class="bi bi-geo-alt-fill"></i></div>
+                <div>
+                  <h5 class="mb-1 fw-bold" style="color:var(--clr-on-surface);">Địa Chỉ Cửa Hàng</h5>
+                  <p class="mb-0" style="color:var(--clr-on-surface-variant);">123 Đường Lê Lợi, Phường Bến Thành<br>Quận 1, TP. Hồ Chí Minh</p>
+                </div>
+              </div>
 
-    <!-- Footer -->
-    <footer class="footer text-center mt-auto">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4 mb-3">
-            <img
-              src="images/logo1.png"
-              alt="Sweet Trio Bakery Logo"
-              class="footer-logo mb-2"
-            />
-            <h5 class="font-weight-bold">Tiệm Bánh Ngọt</h5>
-            <p>Nướng bánh bằng niềm vui mỗi ngày từ 2026.</p>
-          </div>
-          <div class="col-md-4 mb-3">
-            <h5>Liên Kết Nhanh</h5>
-            <ul class="list-unstyled">
-              <li><a href="sitemap.html">Sitemap</a></li>
-              <li><a href="contact.html">Liên Hệ</a></li>
-              <li><a href="about.html">Giới Thiệu</a></li>
-            </ul>
-          </div>
-          <div class="col-md-4 mb-3">
-            <h5>Theo Dõi Chúng Tôi</h5>
-            <p>Luôn cập nhật những thay đổi ngọt ngào mới nhất!</p>
-            <div class="footer-social-icons mt-2">
-              <a
-                href="https://www.facebook.com/Bapsxinkiu"
-                class="footer-social-link"
-                title="Facebook"
-                ><i class="bi bi-facebook"></i
-              ></a>
-              <a
-                href="https://www.instagram.com/nqoc.nahzz/"
-                class="footer-social-link"
-                title="Instagram"
-                ><i class="bi bi-instagram"></i
-              ></a>
-              <a
-                href="https://www.tiktok.com/@nacileng?is_from_webapp=1&sender_device=pc"
-                class="footer-social-link"
-                title="TikTok"
-                ><i class="bi bi-tiktok"></i
-              ></a>
+              <div class="contact-info-item">
+                <div class="contact-info-icon"><i class="bi bi-telephone-fill"></i></div>
+                <div>
+                  <h5 class="mb-1 fw-bold" style="color:var(--clr-on-surface);">Điện Thoại</h5>
+                  <p class="mb-0" style="color:var(--clr-on-surface-variant);">(028) 3823 xxxx<br>0901 234 567 (Zalo/WhatsApp)</p>
+                </div>
+              </div>
+
+              <div class="contact-info-item">
+                <div class="contact-info-icon"><i class="bi bi-envelope-fill"></i></div>
+                <div>
+                  <h5 class="mb-1 fw-bold" style="color:var(--clr-on-surface);">Email</h5>
+                  <p class="mb-0" style="color:var(--clr-on-surface-variant);">hello@sweettriobakery.vn<br>order@sweettriobakery.vn</p>
+                </div>
+              </div>
+
+              <div class="contact-info-item">
+                <div class="contact-info-icon"><i class="bi bi-clock-fill"></i></div>
+                <div>
+                  <h5 class="mb-1 fw-bold" style="color:var(--clr-on-surface);">Giờ Mở Cửa</h5>
+                  <p class="mb-0" style="color:var(--clr-on-surface-variant);">Thứ 2 – Thứ 7: 7:00 – 21:00<br>Chủ nhật: 8:00 – 18:00</p>
+                </div>
+              </div>
+
+              <!-- Map -->
+              <div class="map-placeholder mt-4" style="height:280px; border-radius:var(--radius-md); background:var(--clr-surface-high); display:flex; align-items:center; justify-content:center; color:rgba(135,78,88,.35); flex-direction:column; gap:.5rem; font-size:.9rem;">
+                <i class="bi bi-map" style="font-size:3rem;"></i>
+                <span>Bản đồ Google Maps</span>
+                <span style="font-size:.75rem;">123 Lê Lợi, Q.1, TP.HCM</span>
+              </div>
+
+              <!-- Socials -->
+              <div class="mt-4">
+                <h5 class="fw-bold mb-3" style="color:var(--clr-primary);">Theo Dõi Chúng Tôi</h5>
+                <div class="footer-social-icons" style="justify-content:flex-start;">
+                  <a href="https://www.facebook.com/Bapsxinkiu" class="footer-social-link" style="background:var(--clr-surface-low); color:var(--clr-primary) !important;"><i class="bi bi-facebook"></i></a>
+                  <a href="https://www.instagram.com/nqoc.nahzz/" class="footer-social-link" style="background:var(--clr-surface-low); color:var(--clr-primary) !important;"><i class="bi bi-instagram"></i></a>
+                  <a href="https://www.tiktok.com/@nacileng" class="footer-social-link" style="background:var(--clr-surface-low); color:var(--clr-primary) !important;"><i class="bi bi-tiktok"></i></a>
+                </div>
+              </div>
+            </div>
+
+            <!-- RIGHT: Contact Form -->
+            <div class="col-lg-7">
+              <div class="p-4 p-lg-5" style="background:var(--clr-surface-lowest); border-radius:var(--radius-lg); box-shadow:var(--shadow-md);">
+                <h2 class="font-headline fw-black mb-1" style="color:var(--clr-on-surface);">Gửi Tin Nhắn</h2>
+                <p class="mb-4" style="color:var(--clr-on-surface-variant);">Chúng tôi sẽ phản hồi trong vòng 24 giờ.</p>
+
+                <form id="contactForm">
+                  <div class="row g-4">
+                    <div class="col-sm-6">
+                      <label for="contactName" class="form-label">Họ và Tên *</label>
+                      <input type="text" id="contactName" class="form-control" placeholder="Nguyễn Văn A" required />
+                    </div>
+                    <div class="col-sm-6">
+                      <label for="contactEmail" class="form-label">Email *</label>
+                      <input type="email" id="contactEmail" class="form-control" placeholder="you@email.com" required />
+                    </div>
+                    <div class="col-sm-6">
+                      <label for="contactPhone" class="form-label">Số Điện Thoại</label>
+                      <input type="tel" id="contactPhone" class="form-control" placeholder="0901 234 567" />
+                    </div>
+                    <div class="col-sm-6">
+                      <label for="contactSubject" class="form-label">Chủ Đề</label>
+                      <select id="contactSubject" class="form-select">
+                        <option value="">-- Chọn chủ đề --</option>
+                        <option>Đặt bánh theo yêu cầu</option>
+                        <option>Hỏi giá cả & menu</option>
+                        <option>Phản hồi sản phẩm</option>
+                        <option>Hợp tác kinh doanh</option>
+                        <option>Khác</option>
+                      </select>
+                    </div>
+                    <div class="col-12">
+                      <label for="contactMessage" class="form-label">Nội Dung *</label>
+                      <textarea id="contactMessage" class="form-control" rows="5" placeholder="Mô tả yêu cầu của bạn..." required></textarea>
+                    </div>
+                    <div class="col-12">
+                      <button type="submit" class="btn btn-primary-custom w-100 py-3" id="contactSubmitBtn">
+                        <i class="bi bi-send me-2"></i>Gửi Tin Nhắn
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
         </div>
-        <hr class="mt-4 mb-3 footer-divider" />
-        <p class="mb-0">
-          &copy; 2026 Tiệm Bánh Ngọt. Bản quyền thuộc về chúng tôi. (Trang demo)
-        </p>
+      </section>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-md-4">
+            <img src="images/logo1.png" alt="Sweet Trio Bakery" class="footer-logo mb-3" />
+            <p style="color:rgba(252,237,242,0.8); font-size:.9rem; line-height:1.7; max-width:280px;">Tiệm bánh artisanal thủ công với tình yêu và nguyên liệu tự nhiên nhất.</p>
+            <div class="footer-social-icons">
+              <a href="https://www.facebook.com/Bapsxinkiu" class="footer-social-link"><i class="bi bi-facebook"></i></a>
+              <a href="https://www.instagram.com/nqoc.nahzz/" class="footer-social-link"><i class="bi bi-instagram"></i></a>
+              <a href="https://www.tiktok.com/@nacileng" class="footer-social-link"><i class="bi bi-tiktok"></i></a>
+            </div>
+          </div>
+          <div class="col-6 col-md-2">
+            <h5 class="mb-3">Khám Phá</h5>
+            <ul class="list-unstyled" style="line-height:2;">
+              <li><a href="index.html">Trang Chủ</a></li>
+              <li><a href="about.html">Giới Thiệu</a></li>
+              <li><a href="products.html">Sản Phẩm</a></li>
+              <li><a href="news.html">Tin Tức</a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-md-2">
+            <h5 class="mb-3">Hỗ Trợ</h5>
+            <ul class="list-unstyled" style="line-height:2;">
+              <li><a href="contact.html">Liên Hệ</a></li>
+              <li><a href="sitemap.html">Sitemap</a></li>
+              <li><a href="login.html">Đăng Nhập</a></li>
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <h5 class="mb-3">Bản Tin Ngọt Ngào</h5>
+            <p style="color:rgba(252,237,242,0.8); font-size:.9rem; margin-bottom:1rem;">Nhận thông tin về bánh mới và ưu đãi đặc biệt.</p>
+            <div class="footer-newsletter">
+              <input type="email" placeholder="Email của bạn..." />
+              <button type="button">Gửi</button>
+            </div>
+          </div>
+        </div>
+        <hr class="mt-5 footer-divider" />
+        <p class="text-center mb-0" style="color:rgba(252,237,242,0.4); font-size:.8rem;">© 2026 Sweet Trio Bakery. Crafted with artisanal love.</p>
       </div>
     </footer>
 
-    <!-- Local JS Scripts -->
     <script src="jquery/jquery.min.js"></script>
     <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="js/main.js"></script>
+    <script>
+      $('#contactForm').submit(function(e) {
+        e.preventDefault();
+        var btn = $('#contactSubmitBtn');
+        btn.prop('disabled', true).html('<span class="spinner-border spinner-border-sm me-2"></span>Đang gửi...');
+        setTimeout(function() {
+          showNotification('success', 'Gửi Thành Công! 🎉', 'Cảm ơn bạn đã liên hệ. Chúng tôi sẽ phản hồi sớm nhất!');
+          $('#contactForm')[0].reset();
+          btn.prop('disabled', false).html('<i class="bi bi-send me-2"></i>Gửi Tin Nhắn');
+        }, 1500);
+      });
+    </script>
   </body>
 </html>

@@ -3,403 +3,400 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Sweet Trio Bakery - Tiệm bánh artisanal thủ công với những chiếc bánh được nướng tươi mỗi ngày từ nguyên liệu tự nhiên thượng hạng." />
     <link rel="icon" type="image/png" sizes="32x32" href="images/logo1.png" />
     <title>Trang Chủ - Sweet Trio Bakery</title>
     <!-- Local CSS -->
     <link rel="stylesheet" href="bootstrap/icons/bootstrap-icons.css" />
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <!-- Navigation Bar -->
-    <nav class="navbar-custom-v2 fixed-top">
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar-custom-v2 navbar-transparent fixed-top">
       <div class="container navbar-v2-inner">
-        <!-- BÊN TRÁI: 3 links đầu -->
-        <ul class="navbar-v2-left">
-          <li><a href="index.html" class="nav-v2-link active">Trang Chủ</a></li>
-          <li><a href="about.html" class="nav-v2-link">Giới Thiệu</a></li>
-          <li><a href="products.html" class="nav-v2-link">Sản Phẩm</a></li>
-        </ul>
-
-        <!-- GIỮA: Logo cực to -->
-        <a href="index.html" class="navbar-v2-logo-wrap">
-          <img
-            src="images/logo1.png"
-            alt="Sweet Trio Bakery"
-            class="navbar-v2-logo"
-          />
+        <!-- Zone 1: Logo & Brand -->
+        <a href="index.html" class="navbar-v2-brand">
+          <img src="images/logo1.png" alt="Sweet House Logo" class="brand-icon" />
         </a>
 
-        <!-- BÊN PHẢI: 2 links + icon giỏ hàng + icon user -->
-        <ul class="navbar-v2-right">
+        <!-- Zone 2: Centered Links -->
+        <ul class="navbar-v2-nav d-none d-lg-flex">
+          <li><a href="index.html" class="nav-v2-link">Trang Chủ</a></li>
+          <li><a href="about.html" class="nav-v2-link">Giới Thiệu</a></li>
+          <li><a href="products.html" class="nav-v2-link">Sản Phẩm</a></li>
           <li><a href="news.html" class="nav-v2-link">Tin Tức</a></li>
           <li><a href="contact.html" class="nav-v2-link">Liên Hệ</a></li>
-
-          <!-- Giỏ hàng dropdown — giữ nguyên id để main.js hoạt động -->
-          <li class="nav-v2-icon-item dropdown" id="cartNavContainer">
-            <a
-              href="#"
-              class="nav-v2-icon-link position-relative dropdown-toggle"
-              id="cartDropdownToggle"
-              role="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              <i class="bi bi-cart3"></i>
-              <span
-                class="position-absolute translate-middle badge rounded-pill bg-danger"
-                id="cartBadgeCount"
-                >0</span
-              >
-            </a>
-            <div
-              class="dropdown-menu dropdown-menu-end shadow p-0"
-              id="miniCartDropdown"
-              aria-labelledby="cartDropdownToggle"
-            >
-              <div class="p-3 border-bottom">
-                <h6 class="mb-0 fw-bold">
-                  <i class="bi bi-cart3 me-2"></i>Giỏ Hàng Của Bạn
-                </h6>
-              </div>
-              <div
-                id="miniCartItems"
-                class="px-3 py-2 mini-cart-items-scroll"
-              ></div>
-              <div
-                class="p-3 border-top bg-light d-flex justify-content-between align-items-center"
-              >
-                <span class="fw-bold"
-                  >Tổng:
-                  <span id="miniCartTotal" class="text-accent"
-                    >0 VNĐ</span
-                  ></span
-                >
-                <a href="cart.html" class="btn btn-sm btn-primary-custom"
-                  >Xem Giỏ Hàng</a
-                >
-              </div>
-            </div>
-          </li>
-
-          <!-- Avatar dropdown — giữ nguyên id -->
-          <li class="nav-v2-icon-item dropdown" id="avatarNavContainer">
-            <a
-              href="#"
-              class="nav-v2-icon-link dropdown-toggle"
-              id="avatarDropdown"
-              role="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              <i class="bi bi-person-circle"></i>
-            </a>
-            <ul
-              class="dropdown-menu dropdown-menu-end shadow"
-              aria-labelledby="avatarDropdown"
-            >
-              <li>
-                <a class="dropdown-item" href="profile.html"
-                  ><i class="bi bi-person"></i> Xem Profile</a
-                >
-              </li>
-              <li><hr class="dropdown-divider" /></li>
-              <li>
-                <a class="dropdown-item" href="#" onclick="handleLogout(event)">
-                  <i class="bi bi-box-arrow-right"></i> Đăng xuất</a
-                >
-              </li>
-            </ul>
-          </li>
-
-          <!-- Đăng nhập — giữ nguyên id -->
-          <li class="nav-v2-icon-item" id="authNavContainer">
-            <a href="login.html" class="nav-v2-icon-link">
-              <i class="bi bi-box-arrow-in-right"></i>
-            </a>
-          </li>
         </ul>
 
-        <!-- Hamburger cho mobile -->
-        <button
-          class="navbar-v2-toggler d-lg-none"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarV2Mobile"
-        >
-          <i class="bi bi-list"></i>
-        </button>
+        <!-- Zone 3: Actions (Cart & Login) -->
+        <div class="navbar-v2-actions">
+          <!-- Cart -->
+          <div class="dropdown" id="cartNavContainer">
+            <a href="#" class="action-icon-wrap" id="cartDropdownToggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-cart3"></i>
+              <span class="cart-badge" id="cartBadgeCount">0</span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-end shadow p-0" id="miniCartDropdown">
+              <div class="p-3 border-bottom">
+                <h6 class="mb-0 fw-bold"><i class="bi bi-cart3 me-2"></i>Giỏ Hàng Của Bạn</h6>
+              </div>
+              <div id="miniCartItems" class="px-3 py-2 mini-cart-items-scroll"></div>
+              <div class="p-3 border-top bg-light d-flex justify-content-between align-items-center">
+                <span class="fw-bold">Tổng: <span id="miniCartTotal" class="text-accent">0 VNĐ</span></span>
+                <a href="cart.html" class="btn btn-sm btn-primary-custom">Xem Giỏ Hàng</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Avatar (Hidden initially) -->
+          <div class="dropdown" id="avatarNavContainer" style="display:none">
+            <a href="#" class="action-icon-wrap" id="avatarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-person-circle"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end shadow">
+              <li><a class="dropdown-item" href="profile.html"><i class="bi bi-person me-2"></i>Xem Profile</a></li>
+              <li><hr class="dropdown-divider" /></li>
+              <li><a class="dropdown-item text-danger" href="#" onclick="handleLogout(event)"><i class="bi bi-box-arrow-right me-2"></i>Đăng xuất</a></li>
+            </ul>
+          </div>
+
+          <!-- Login CTA -->
+          <a href="login.html" class="btn-login-pill d-none d-lg-block" id="authNavContainer">Đăng Nhập</a>
+
+          <!-- Mobile Toggler -->
+          <button class="navbar-v2-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarV2Mobile">
+            <i class="bi bi-list"></i>
+          </button>
+        </div>
       </div>
 
-      <!-- Mobile menu (collapse) -->
+      <!-- Mobile Menu -->
       <div class="collapse navbar-collapse" id="navbarV2Mobile">
-        <div class="navbar-v2-mobile">
-          <a href="index.html" class="nav-v2-link active">Trang Chủ</a>
-          <a href="about.html" class="nav-v2-link">Giới Thiệu</a>
-          <a href="products.html" class="nav-v2-link">Sản Phẩm</a>
-          <a href="news.html" class="nav-v2-link">Tin Tức</a>
-          <a href="contact.html" class="nav-v2-link">Liên Hệ</a>
-          <a href="login.html" class="nav-v2-link">Đăng Nhập / Đăng Ký</a>
+        <div class="navbar-v2-mobile p-4">
+          <ul class="list-unstyled">
+            <li><a href="index.html" class="nav-v2-link d-block py-2">Trang Chủ</a></li>
+            <li><a href="about.html" class="nav-v2-link d-block py-2">Giới Thiệu</a></li>
+            <li><a href="products.html" class="nav-v2-link d-block py-2">Sản Phẩm</a></li>
+            <li><a href="news.html" class="nav-v2-link d-block py-2">Tin Tức</a></li>
+            <li><a href="contact.html" class="nav-v2-link d-block py-2">Liên Hệ</a></li>
+            <li><hr class="my-3 opacity-25" /></li>
+            <li><a href="login.html" class="btn-login-pill w-100 text-center">Đăng Nhập</a></li>
+          </ul>
         </div>
       </div>
     </nav>
 
-    <!-- Banner Slider -->
-    <header
-      id="mainSlider"
-      class="carousel slide carousel-fade mb-5"
-      data-bs-ride="carousel"
-      data-bs-interval="4000"
-    >
-      <!-- Indicators -->
-      <div class="carousel-indicators">
-        <button
-          type="button"
-          data-bs-target="#mainSlider"
-          data-bs-slide-to="0"
-          class="active"
-          aria-current="true"
-          aria-label="Slide 1"
-        ></button>
-        <button
-          type="button"
-          data-bs-target="#mainSlider"
-          data-bs-slide-to="1"
-          aria-label="Slide 2"
-        ></button>
-        <button
-          type="button"
-          data-bs-target="#mainSlider"
-          data-bs-slide-to="2"
-          aria-label="Slide 3"
-        ></button>
-      </div>
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img
-            src="images/cake1.jpg"
-            class="d-block w-100"
-            alt="Bánh Dâu Tây"
-          />
-          <div class="carousel-caption carousel-caption-overlay">
-            <h2 class="display-4 fw-bold carousel-heading">
-              Dâu Tây Thơm Ngon
-            </h2>
-            <p class="lead">Tuyệt vời cho những khoảnh khắc đặc biệt.</p>
-            <a href="products.html" class="btn btn-primary-custom shadow mt-2"
-              >Mua Ngay</a
-            >
-          </div>
-        </div>
-        <div class="carousel-item">
-          <img src="images/cake2.jpg" class="d-block w-100" alt="Bánh Socola" />
-          <div class="carousel-caption carousel-caption-overlay">
-            <h2 class="display-4 fw-bold carousel-heading">Socola Đậm Vị</h2>
-            <p class="lead">Đắm chìm trong sự hoàn hảo ngọt ngào của socola.</p>
-            <a href="products.html" class="btn btn-primary-custom shadow mt-2"
-              >Mua Ngay</a
-            >
-          </div>
-        </div>
-        <div class="carousel-item">
-          <img
-            src="images/cake5.jpg"
-            class="d-block w-100"
-            alt="Bánh Sinh Nhật"
-          />
-          <div class="carousel-caption carousel-caption-overlay">
-            <h2 class="display-4 fw-bold carousel-heading">Hãy Ước Một Điều</h2>
-            <p class="lead">
-              Bánh sinh nhật tùy chỉnh làm cho ngày của bạn khó quên.
-            </p>
-            <a href="contact.html" class="btn btn-primary-custom shadow mt-2"
-              >Đặt Bánh Theo Yêu Cầu</a
-            >
-          </div>
+    <!-- ===== HERO SECTION ===== -->
+    <header class="hero-wrapper" style="background-image: url('images/hero_pink_cake.png');">
+      <div class="hero-overlay"></div>
+      <div class="hero-content container text-center">
+        <span class="stb-tag" data-aos="fade-down" data-aos-delay="200">Thưởng thức tinh hoa Bánh Pháp</span>
+        <h1 class="hero-title" data-aos="zoom-in" data-aos-delay="400">Vị Ngọt Chạm Đến Trái Tim</h1>
+        <p class="lead mb-4 mx-auto" style="max-width: 600px; color: rgba(255,255,255,0.9);" data-aos="fade-up" data-aos-delay="600">
+          Mỗi chiếc bánh tại Sweet Trio là một tác phẩm nghệ thuật thủ công, mang đậm hương vị tình yêu và sự tinh tế.
+        </p>
+        <div class="mt-4" data-aos="fade-up" data-aos-delay="800">
+          <a href="products.html" class="btn btn-primary-custom btn-lg px-5">Khám Phá Ngay</a>
         </div>
       </div>
-      <button
-        class="carousel-control-prev"
-        type="button"
-        data-bs-target="#mainSlider"
-        data-bs-slide="prev"
-      >
-        <span
-          class="carousel-control-prev-icon"
-          aria-hidden="true"
-          class="carousel-arrow-icon"
-        ></span>
-        <span class="visually-hidden">Trước</span>
-      </button>
-      <button
-        class="carousel-control-next"
-        type="button"
-        data-bs-target="#mainSlider"
-        data-bs-slide="next"
-      >
-        <span
-          class="carousel-control-next-icon"
-          aria-hidden="true"
-          class="carousel-arrow-icon"
-        ></span>
-        <span class="visually-hidden">Sau</span>
-      </button>
+      <div class="scroll-indicator position-absolute bottom-0 start-50 translate-middle-x mb-4">
+        <i class="bi bi-chevron-down text-white fs-2 animate-bounce"></i>
+      </div>
     </header>
 
-    <main class="container mb-5">
-      <!-- Search Form -->
-      <section class="mb-5 bg-white p-4 rounded shadow-sm text-center">
-        <h3 class="mb-4 text-accent">Tìm Chiếc Bánh Hoàn Hảo Của Bạn</h3>
-        <form
-          class="row g-3 justify-content-center"
-          onsubmit="return handleSearchRedirect();"
-        >
-          <div class="col-md-7">
-            <input
-              type="text"
-              id="searchInput"
-              class="form-control form-control-lg"
-              placeholder="Tìm kiếm (VD: Sinh nhật, Kem, Cupcake)..."
-            />
-          </div>
-          <div class="col-md-3">
-            <button type="submit" class="btn btn-primary-custom btn-lg w-100">
-              Tìm kiếm
-            </button>
-          </div>
-        </form>
-      </section>
-
-      <!-- Featured Products -->
-      <section class="mb-5">
-        <h2 class="section-title fade-in">Bánh Nổi Bật</h2>
-        <div class="row g-4 fade-in" id="productList">
-          <div class="col-md-4 product-item" data-name="Bánh Cupcake Pastel">
-            <div class="card fade-in delay-1 cake-card text-center">
-              <img
-                src="images/cake3.jpg"
-                class="card-img-top"
-                alt="Bánh Cupcake Pastel"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Bánh Cupcake Pastel</h5>
-                <p class="card-text text-muted">90.000 VNĐ / cái</p>
-                <a href="sanpham1.html" class="btn btn-secondary-custom"
-                  >Xem Chi Tiết</a
-                >
+    <main>
+      <!-- ===== FEATURES STRIP ===== -->
+      <section class="stb-features-strip">
+        <div class="container">
+          <div class="row g-3 justify-content-center">
+            <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="100">
+              <div class="stb-strip-card">
+                <span class="stb-strip-icon">🌸</span>
+                <h5>Nguyên Liệu Tươi</h5>
+                <p>100% tự nhiên, không chất bảo quản.</p>
               </div>
             </div>
-          </div>
-          <div class="col-md-4 product-item" data-name="Bánh Su Kem Dâu">
-            <div class="card fade-in delay-1 cake-card text-center">
-              <img
-                src="images/cake4.jpg"
-                class="card-img-top"
-                alt="Bánh Su Kem Dâu"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Bánh Su Kem Dâu</h5>
-                <p class="card-text text-muted">150.000 VNĐ / phần</p>
-                <a href="sanpham2.html" class="btn btn-secondary-custom"
-                  >Xem Chi Tiết</a
-                >
+            <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="200">
+              <div class="stb-strip-card">
+                <span class="stb-strip-icon">🔥</span>
+                <h5>Nướng Mỗi Ngày</h5>
+                <p>Nướng theo từng đơn, đảm bảo tươi.</p>
               </div>
             </div>
-          </div>
-          <div class="col-md-4 product-item" data-name="Bánh Sinh Nhật Cổ Điển">
-            <div class="card fade-in delay-1 cake-card text-center">
-              <img
-                src="images/cake5.jpg"
-                class="card-img-top"
-                alt="Bánh Sinh Nhật Cổ Điển"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Bánh Sinh Nhật Cổ Điển</h5>
-                <p class="card-text text-muted">850.000 VNĐ / nguyên ổ</p>
-                <a href="sanpham3.html" class="btn btn-secondary-custom"
-                  >Xem Chi Tiết</a
-                >
+            <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="300">
+              <div class="stb-strip-card">
+                <span class="stb-strip-icon">🚴</span>
+                <h5>Giao Nhanh 2h</h5>
+                <p>Giao tận nơi, bánh tươi tới tay bạn.</p>
+              </div>
+            </div>
+            <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="400">
+              <div class="stb-strip-card">
+                <span class="stb-strip-icon">🎁</span>
+                <h5>Đặt Theo Yêu Cầu</h5>
+                <p>Tùy chỉnh hương vị cho dịp đặc biệt.</p>
               </div>
             </div>
           </div>
         </div>
+      </section>
+
+      <!-- ===== SEARCH SECTION ===== -->
+      <section class="py-5" style="background: var(--clr-surface-low);">
+        <div class="container">
+          <div class="bg-white p-4 p-md-5 rounded-3 shadow-sm text-center stb-section-card" data-aos="zoom-in">
+            <h2 class="font-headline fw-black mb-2" style="color: var(--clr-primary);">Tìm Chiếc Bánh Hoàn Hảo</h2>
+            <p class="text-muted mb-4">Hơn 50 loại bánh thủ công đang chờ bạn khám phá</p>
+            <form class="row g-3 justify-content-center" onsubmit="return handleSearchRedirect();">
+              <div class="col-md-7">
+                <div class="position-relative" data-aos="fade-right" data-aos-delay="200">
+                  <i class="bi bi-search position-absolute" style="left:1.2rem; top:50%; transform:translateY(-50%); color:var(--clr-outline); pointer-events:none;"></i>
+                  <input type="text" id="searchInput" class="form-control form-control-lg ps-5 stb-input-rounded" placeholder="Tìm kiếm (VD: Sinh nhật, Socola, Cupcake)..." />
+                </div>
+              </div>
+              <div class="col-md-3" data-aos="fade-left" data-aos-delay="200">
+                <button type="submit" class="btn btn-primary-custom btn-lg w-100">
+                  <i class="bi bi-search me-2"></i>Tìm Kiếm
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== FEATURED PRODUCTS ===== -->
+      <section class="py-5 container">
+        <div class="d-flex justify-content-between align-items-end mb-4">
+          <div>
+            <span class="stb-tag">Bestsellers</span>
+            <h2 class="font-headline fw-black mb-0" style="color: var(--clr-on-background);">Sản Phẩm Nổi Bật</h2>
+          </div>
+          <a href="products.html" class="btn btn-secondary-custom d-none d-md-inline-flex">Xem Tất Cả <i class="bi bi-arrow-right ms-1"></i></a>
+        </div>
+
+        <div class="row g-4" id="productList">
+          <div class="col-md-4 product-item" data-name="Bánh Cupcake Pastel" data-aos="fade-up" data-aos-delay="100">
+            <div class="cake-card text-center p-3">
+              <div style="height:240px; overflow:hidden; border-radius:var(--radius-sm); margin-bottom:1.25rem;">
+                <img src="images/cake3.jpg" class="w-100 h-100" style="object-fit:cover;" alt="Bánh Cupcake Pastel" />
+              </div>
+              <a href="products.html?search=Cupcake" class="badge rounded-pill mb-2 text-decoration-none" style="background:var(--clr-primary-container); color:var(--clr-primary); font-size:.75rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase;">Cupcake</a>
+              <h3 class="font-headline fw-bold fs-5" style="color:var(--clr-on-surface);">Bánh Cupcake Pastel</h3>
+              <div class="d-flex justify-content-between align-items-center my-2">
+                <span class="fw-black fs-5" style="color:var(--clr-secondary);">90.000đ</span>
+                <div class="text-warning small">★★★★★</div>
+              </div>
+              <a href="sanpham1.html" class="btn btn-secondary-custom w-100 mt-2">Xem Chi Tiết</a>
+            </div>
+          </div>
+
+          <div class="col-md-4 product-item" data-name="Bánh Su Kem Dâu" data-aos="fade-up" data-aos-delay="200">
+            <div class="cake-card text-center p-3">
+              <div style="height:240px; overflow:hidden; border-radius:var(--radius-sm); margin-bottom:1.25rem;">
+                <img src="images/cake4.jpg" class="w-100 h-100" style="object-fit:cover;" alt="Bánh Su Kem Dâu" />
+              </div>
+              <a href="products.html?search=Bánh Kem" class="badge rounded-pill mb-2 text-decoration-none" style="background:var(--clr-primary-container); color:var(--clr-primary); font-size:.75rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase;">Bánh Kem</a>
+              <h3 class="font-headline fw-bold fs-5" style="color:var(--clr-on-surface);">Bánh Su Kem Dâu</h3>
+              <div class="d-flex justify-content-between align-items-center my-2">
+                <span class="fw-black fs-5" style="color:var(--clr-secondary);">150.000đ</span>
+                <div class="text-warning small">★★★★★</div>
+              </div>
+              <a href="sanpham2.html" class="btn btn-secondary-custom w-100 mt-2">Xem Chi Tiết</a>
+            </div>
+          </div>
+
+          <div class="col-md-4 product-item" data-name="Bánh Sinh Nhật Cổ Điển" data-aos="fade-up" data-aos-delay="300">
+            <div class="cake-card text-center p-3">
+              <div style="height:240px; overflow:hidden; border-radius:var(--radius-sm); margin-bottom:1.25rem;">
+                <img src="images/cake5.jpg" class="w-100 h-100" style="object-fit:cover;" alt="Bánh Sinh Nhật Cổ Điển" />
+              </div>
+              <a href="products.html?search=Bánh Sinh Nhật" class="badge rounded-pill mb-2 text-decoration-none" style="background:var(--clr-primary-container); color:var(--clr-primary); font-size:.75rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase;">Bánh Sinh Nhật</a>
+              <h3 class="font-headline fw-bold fs-5" style="color:var(--clr-on-surface);">Bánh Sinh Nhật Cổ Điển</h3>
+              <div class="d-flex justify-content-between align-items-center my-2">
+                <span class="fw-black fs-5" style="color:var(--clr-secondary);">850.000đ</span>
+                <div class="text-warning small">★★★★☆</div>
+              </div>
+              <a href="sanpham3.html" class="btn btn-secondary-custom w-100 mt-2">Xem Chi Tiết</a>
+            </div>
+          </div>
+        </div>
+
         <div id="noResultMessage" class="text-center d-none mt-4">
-          <h4 class="text-muted">Không tìm thấy sản phẩm nào!</h4>
+          <i class="bi bi-search fs-1 text-muted d-block mb-3"></i>
+          <h4 class="text-muted">Không tìm thấy sản phẩm phù hợp!</h4>
+        </div>
+
+        <div class="text-center mt-4 d-md-none">
+          <a href="products.html" class="btn btn-primary-custom">Xem Tất Cả Sản Phẩm <i class="bi bi-arrow-right ms-1"></i></a>
         </div>
       </section>
 
-      <!-- Intro Video -->
-      <section class="mb-5 bg-white p-5 rounded shadow-sm text-center">
-        <h2 class="section-title fade-in">Phía Sau Hậu Trường</h2>
-        <p class="mb-4">
-          Xem cách chúng tôi tạo ra những khoảnh khắc ngọt ngào qua từng chiếc
-          bánh.
-        </p>
-        <div class="ratio ratio-16x9 w-75 mx-auto">
-          <video controls poster="images/cake6.jpg" class="rounded">
-            <source src="media/cake-video.mp4" type="video/mp4" />
-            Trình duyệt của bạn không hỗ trợ thẻ video.
-          </video>
+      <!-- ===== VIDEO / BRAND STORY ===== -->
+      <section class="stb-video-section" data-aos="fade-up">
+        <div class="container">
+          <div class="row align-items-center g-5">
+            <div class="col-lg-6 order-2 order-lg-1" data-aos="fade-right" data-aos-delay="200">
+              <div class="stb-video-player">
+                <video controls poster="images/cake6.jpg" class="stb-video-elem">
+                  <source src="media/cake-video.mp4" type="video/mp4" />
+                  Trình duyệt của bạn không hỗ trợ thẻ video.
+                </video>
+                <div class="stb-play-overlay" onclick="this.closest('.stb-video-player').querySelector('video').play(); this.style.display='none';">
+                  <div class="stb-play-circle">▶</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="200">
+              <span class="stb-tag">📽 Câu Chuyện Của Chúng Tôi</span>
+              <h2 class="stb-video-heading">Nơi Những Chiếc Bánh<br><em>Được Sinh Ra</em></h2>
+              <p class="stb-video-desc">Khám phá quy trình thủ công tỉ mỉ tại xưởng bánh Sweet Trio. Mỗi chiếc bánh đều mang trong mình một tâm hồn, được nuôi dưỡng từ sự kiên nhẫn, đam mê và những nguyên liệu thuần khiết nhất.</p>
+              <div class="d-flex align-items-center gap-3 mb-4">
+                <div style="width:40px; height:40px; border-radius:50%; background:var(--clr-tertiary-container); display:flex; align-items:center; justify-content:center; color:var(--clr-primary); font-size:1.2rem; flex-shrink:0;">✨</div>
+                <span class="fw-bold">Công thức bí truyền từ 1985</span>
+              </div>
+              <div class="stb-stats-row text-center">
+                <div class="stb-stat" data-aos="zoom-in" data-aos-delay="400">
+                  <strong>10+</strong>
+                  <span>Năm Kinh Nghiệm</span>
+                </div>
+                <div class="stb-stat" data-aos="zoom-in" data-aos-delay="500">
+                  <strong>5000+</strong>
+                  <span>Khách Hàng Tin Yêu</span>
+                </div>
+                <div class="stb-stat" data-aos="zoom-in" data-aos-delay="600">
+                  <strong>50+</strong>
+                  <span>Loại Bánh</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== TESTIMONIALS ===== -->
+      <section class="stb-testimonials-section">
+        <div class="container">
+          <span class="text-center d-block font-headline fw-bold" style="color:var(--clr-secondary); font-size:.85rem; text-transform:uppercase; letter-spacing:.12em; margin-bottom:.5rem;" data-aos="fade-down">Đánh giá</span>
+          <h2 class="section-title" data-aos="fade-up">Khách Hàng Nói Gì</h2>
+          <p class="text-center mb-5" style="color:var(--clr-on-surface-variant);" data-aos="fade-up" data-aos-delay="100">Hơn 5.000 khách hàng đã tin tưởng chọn Sweet Trio Bakery</p>
+          <div class="row g-4">
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+              <div class="stb-testimonial-card shadow-sm">
+                <div class="stb-stars">★★★★★</div>
+                <p>"Bánh kem sinh nhật ngon tuyệt! Kem không quá ngọt, trang trí đẹp mắt, giao đúng giờ. Cả nhà ai cũng khen!"</p>
+                <div class="stb-reviewer">
+                  <div class="stb-reviewer-avatar">👩</div>
+                  <div>
+                    <strong>Nguyễn Thị Mai</strong>
+                    <span>Khách hàng thân thiết · TP.HCM</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+              <div class="stb-testimonial-card shadow-sm">
+                <div class="stb-stars">★★★★★</div>
+                <p>"Đặt hộp quà tặng đối tác, ai cũng khen bao bì sang trọng và bánh thơm ngon. Dịch vụ tư vấn rất nhiệt tình!"</p>
+                <div class="stb-reviewer">
+                  <div class="stb-reviewer-avatar">👨</div>
+                  <div>
+                    <strong>Trần Văn Khoa</strong>
+                    <span>Doanh nghiệp · Quận 1</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+              <div class="stb-testimonial-card shadow-sm">
+                <div class="stb-stars">★★★★★</div>
+                <p>"Cupcake pastel đẹp như tranh, ăn vào thơm ngon không ngờ. Mình hay mua làm quà, bạn bè ai cũng thích!"</p>
+                <div class="stb-reviewer">
+                  <div class="stb-reviewer-avatar">👩‍🦱</div>
+                  <div>
+                    <strong>Lê Thu Hà</strong>
+                    <span>Food Blogger · Thủ Đức</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== CTA BANNER ===== -->
+      <section class="py-5" style="background: linear-gradient(135deg, var(--clr-primary) 0%, var(--clr-secondary) 100%);">
+        <div class="container text-center text-white">
+          <h2 class="font-headline fw-black fs-1 mb-3" data-aos="fade-down">Sẵn Sàng Thử Một Điều Gì Đó Ngọt Ngào?</h2>
+          <p class="mb-4 fs-5" style="opacity:.9;" data-aos="fade-up" data-aos-delay="100">Đặt bánh online ngay hôm nay và nhận giao hàng trong 2 giờ!</p>
+          <div class="d-flex gap-3 justify-content-center flex-wrap" data-aos="zoom-in" data-aos-delay="200">
+            <a href="products.html" class="btn btn-light fw-bold px-4 py-3 rounded-pill" style="color:var(--clr-secondary);">
+              <i class="bi bi-shop me-2"></i>Xem Thực Đơn
+            </a>
+            <a href="contact.html" class="btn btn-outline-light fw-bold px-4 py-3 rounded-pill">
+              <i class="bi bi-telephone me-2"></i>Đặt Hàng Ngay
+            </a>
+          </div>
         </div>
       </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="footer text-center mt-auto">
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
       <div class="container">
-        <div class="row">
-          <div class="col-md-4 mb-3">
-            <img
-              src="images/logo1.png"
-              alt="Sweet Trio Bakery Logo"
-              class="footer-logo mb-2"
-            />
-            <h5 class="font-weight-bold">Tiệm Bánh Ngọt</h5>
-            <p>Nướng bánh bằng niềm vui mỗi ngày từ 2026.</p>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <img src="images/logo1.png" alt="Sweet Trio Bakery Logo" class="footer-logo mb-3" />
+            <p>Nơi những giấc mơ ngọt ngào trở thành hiện thực qua từng chiếc bánh artisanal được nướng tươi mỗi ngày.</p>
+            <div class="footer-social-icons">
+              <a href="https://www.facebook.com/Bapsxinkiu" class="footer-social-link" title="Facebook"><i class="bi bi-facebook"></i></a>
+              <a href="https://www.instagram.com/nqoc.nahzz/" class="footer-social-link" title="Instagram"><i class="bi bi-instagram"></i></a>
+              <a href="https://www.tiktok.com/@nacileng" class="footer-social-link" title="TikTok"><i class="bi bi-tiktok"></i></a>
+            </div>
           </div>
-          <div class="col-md-4 mb-3">
-            <h5>Liên Kết Nhanh</h5>
-            <ul class="list-unstyled">
-              <li><a href="sitemap.html">Sitemap</a></li>
-              <li><a href="contact.html">Liên Hệ</a></li>
+
+          <div class="col-6 col-md-2">
+            <h5 class="mb-3">Khám Phá</h5>
+            <ul class="list-unstyled" style="line-height:2;">
+              <li><a href="index.html">Trang Chủ</a></li>
               <li><a href="about.html">Giới Thiệu</a></li>
+              <li><a href="products.html">Sản Phẩm</a></li>
+              <li><a href="news.html">Tin Tức</a></li>
             </ul>
           </div>
-          <div class="col-md-4 mb-3">
-            <h5>Theo Dõi Chúng Tôi</h5>
-            <p>Luôn cập nhật những thay đổi ngọt ngào mới nhất!</p>
-            <div class="footer-social-icons mt-2">
-              <a
-                href="https://www.facebook.com/Bapsxinkiu"
-                class="footer-social-link"
-                title="Facebook"
-                ><i class="bi bi-facebook"></i
-              ></a>
-              <a
-                href="https://www.instagram.com/nqoc.nahzz/"
-                class="footer-social-link"
-                title="Instagram"
-                ><i class="bi bi-instagram"></i
-              ></a>
-              <a
-                href="https://www.tiktok.com/@nacileng?is_from_webapp=1&sender_device=pc"
-                class="footer-social-link"
-                title="TikTok"
-                ><i class="bi bi-tiktok"></i
-              ></a>
+
+          <div class="col-6 col-md-2">
+            <h5 class="mb-3">Hỗ Trợ</h5>
+            <ul class="list-unstyled" style="line-height:2;">
+              <li><a href="contact.html">Liên Hệ</a></li>
+              <li><a href="sitemap.html">Sitemap</a></li>
+              <li><a href="cart.html">Giỏ Hàng</a></li>
+              <li><a href="login.html">Đăng Nhập</a></li>
+            </ul>
+          </div>
+
+          <div class="col-md-4">
+            <h5 class="mb-3">Bản Tin Ngọt Ngào</h5>
+            <p>Đăng ký để nhận tin về bánh mới và ưu đãi đặc biệt.</p>
+            <div class="footer-newsletter">
+              <input type="email" placeholder="Email của bạn..." aria-label="Email đăng ký nhận tin" />
+              <button type="button">Gửi</button>
             </div>
           </div>
         </div>
-        <hr class="mt-4 mb-3 footer-divider" />
-        <p class="mb-0">
-          &copy; 2026 Tiệm Bánh Ngọt. Bản quyền thuộc về chúng tôi. (Trang demo)
-        </p>
+
+        <hr class="mt-5 footer-divider" />
+        <div class="text-center opacity-75 small">
+          <p class="mb-0">© 2026 Sweet Trio Bakery. Crafted with artisanal love. — Website Demo</p>
+        </div>
       </div>
     </footer>
 
     <!-- Local JS Scripts -->
     <script src="jquery/jquery.min.js"></script>
     <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>

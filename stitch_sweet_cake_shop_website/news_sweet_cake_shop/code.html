@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>News - Sweet Cake Shop</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#ffd8e8",
+                        "inverse-on-surface": "#ffede6",
+                        "on-primary-fixed": "#3f001b",
+                        "on-secondary-container": "#7c3b5a",
+                        "on-tertiary-container": "#482d3a",
+                        "primary-fixed": "#ffd9e1",
+                        "on-primary": "#ffffff",
+                        "on-surface": "#2d1509",
+                        "on-error-container": "#93000a",
+                        "on-tertiary": "#ffffff",
+                        "surface-tint": "#ac2a5d",
+                        "on-primary-fixed-variant": "#8c0a46",
+                        "surface-dim": "#ffd0bb",
+                        "on-background": "#2d1509",
+                        "inverse-surface": "#452a1c",
+                        "tertiary-fixed-dim": "#e3bccc",
+                        "tertiary": "#755664",
+                        "on-primary-container": "#6e0035",
+                        "secondary-fixed-dim": "#ffafd1",
+                        "surface": "#fff8f6",
+                        "primary-fixed-dim": "#ffb1c5",
+                        "inverse-primary": "#ffb1c5",
+                        "on-secondary": "#ffffff",
+                        "primary-container": "#ff6b9d",
+                        "surface-container-low": "#fff1eb",
+                        "surface-container-highest": "#ffdbcc",
+                        "error-container": "#ffdad6",
+                        "outline-variant": "#ddbfc5",
+                        "on-secondary-fixed": "#3b0423",
+                        "background": "#fff8f6",
+                        "secondary": "#8c4868",
+                        "surface-variant": "#ffdbcc",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-container": "#b994a4",
+                        "surface-bright": "#fff8f6",
+                        "on-secondary-fixed-variant": "#703150",
+                        "surface-container-high": "#ffe2d6",
+                        "surface-container": "#ffeae1",
+                        "secondary-container": "#ffabcf",
+                        "error": "#ba1a1a",
+                        "primary": "#ac2a5d",
+                        "secondary-fixed": "#ffd8e6",
+                        "on-tertiary-fixed": "#2b1420",
+                        "on-surface-variant": "#574146",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed-variant": "#5b3e4c",
+                        "outline": "#8a7176"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Noto Serif", "serif"],
+                        "body": ["Plus Jakarta Sans", "sans-serif"],
+                        "label": ["Plus Jakarta Sans", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body antialiased min-h-screen flex flex-col">
+<!-- TopNavBar Shared Component -->
+<nav class="fixed top-0 w-full z-50 bg-[#fff8f6]/80 backdrop-blur-xl dark:bg-[#2d1509]/80 shadow-[0_20px_40px_rgba(45,21,9,0.06)]">
+<div class="flex justify-between items-center px-12 py-6 max-w-[1440px] mx-auto relative">
+<a class="font-headline text-2xl font-black italic text-[#2d1509] dark:text-[#fff8f6]" href="#">Sweet Cake Shop</a>
+<div class="hidden md:flex space-x-8 items-center font-headline text-lg tracking-tight dark:text-white">
+<a class="text-[#2d1509] dark:text-[#fff8f6]/70 font-medium hover:text-[#ac2a5d] hover:bg-[#fff1eb] dark:hover:bg-[#3d2317] transition-all duration-300 px-4 py-2 rounded-full active:scale-95" href="#">Home</a>
+<a class="text-[#2d1509] dark:text-[#fff8f6]/70 font-medium hover:text-[#ac2a5d] hover:bg-[#fff1eb] dark:hover:bg-[#3d2317] transition-all duration-300 px-4 py-2 rounded-full active:scale-95" href="#">Products</a>
+<a class="text-[#2d1509] dark:text-[#fff8f6]/70 font-medium hover:text-[#ac2a5d] hover:bg-[#fff1eb] dark:hover:bg-[#3d2317] transition-all duration-300 px-4 py-2 rounded-full active:scale-95" href="#">About</a>
+<a class="text-[#ac2a5d] dark:text-[#ffb1c5] font-bold border-b-2 border-[#ac2a5d] pb-1 hover:bg-[#fff1eb] dark:hover:bg-[#3d2317] transition-all duration-300 px-4 pt-2 active:scale-95" href="#">News</a>
+<a class="text-[#2d1509] dark:text-[#fff8f6]/70 font-medium hover:text-[#ac2a5d] hover:bg-[#fff1eb] dark:hover:bg-[#3d2317] transition-all duration-300 px-4 py-2 rounded-full active:scale-95" href="#">Contact</a>
+</div>
+<div class="flex items-center space-x-6">
+<button class="text-[#ac2a5d] dark:text-[#ffb1c5] hover:bg-[#fff1eb] dark:hover:bg-[#3d2317] transition-all duration-300 p-2 rounded-full active:scale-95">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+<a class="font-headline text-lg tracking-tight dark:text-white text-[#2d1509] dark:text-[#fff8f6]/70 font-medium hover:text-[#ac2a5d] hover:bg-[#fff1eb] dark:hover:bg-[#3d2317] transition-all duration-300 px-4 py-2 rounded-full active:scale-95" href="#">Login</a>
+</div>
+<div class="bg-[#fff1eb] dark:bg-[#3d2317] h-[2px] w-full absolute bottom-0 left-0"></div>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="flex-grow pt-32 pb-24 px-5 md:px-12 max-w-[1440px] mx-auto w-full">
+<!-- Breadcrumbs & Header -->
+<div class="mb-16 md:mb-24 text-center md:text-left">
+<nav class="flex items-center justify-center md:justify-start space-x-2 text-sm text-on-surface-variant mb-6 font-body">
+<a class="hover:text-primary transition-colors" href="#">Home</a>
+<span class="material-symbols-outlined text-[16px]" data-icon="chevron_right">chevron_right</span>
+<span class="text-on-surface font-medium">News</span>
+</nav>
+<h1 class="font-headline text-4xl md:text-5xl lg:text-6xl tracking-tight text-on-surface mb-4">Latest Sweets &amp; Stories</h1>
+<p class="font-body text-lg text-on-surface-variant max-w-2xl mx-auto md:mx-0">Delve into the artistry of our patisserie, discover new flavors, and catch up on the latest culinary trends from our kitchen to your table.</p>
+</div>
+<div class="flex flex-col lg:flex-row gap-16 lg:gap-24 relative">
+<!-- Main Content Area (News List) -->
+<div class="lg:w-2/3 flex flex-col gap-16">
+<!-- Article Card 1 -->
+<article class="flex flex-col md:flex-row gap-8 items-center bg-surface-container-low rounded-xl p-6 group hover:bg-surface-container-high transition-colors duration-300">
+<div class="w-full md:w-2/5 aspect-[4/3] rounded-lg overflow-hidden flex-shrink-0 relative">
+<img alt="News Image" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="close-up of elegant chocolate raspberry tart with glossy mirror glaze and fresh raspberries on top, soft dark background, natural window light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAo_fI4vAahPaVXCBbwtlMKYmQeZPndWn39FATbPdB-wdzDS0X_f1atm7SP8wkPSEZ42nApxUHFTigKerST5BZCO3m25vJo8saM9J4RBFQyAwD4FlCENvuJVI92j6kDxccOotqxlG9rvZJVFLVyDyGEPtBHT-DMcDehH5-KU8n_mAAF4nqhX__-lzqHVD98-iLfxEz0i_3yyrj7UoxBxwcWLyAEELdwDMqvzIfYHXgx1StPGEPJF65Vd8XteCWyBR8vpe5fEjmA4_OM"/>
+<span class="absolute top-4 left-4 bg-secondary-container text-on-secondary-container text-xs font-bold uppercase tracking-wider py-1.5 px-3 rounded-full font-label z-10">Recipe</span>
+</div>
+<div class="w-full md:w-3/5 flex flex-col justify-center">
+<div class="flex items-center space-x-4 text-sm text-on-surface-variant mb-3 font-body">
+<time datetime="2024-05-15">May 15, 2024</time>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span>5 min read</span>
+</div>
+<h2 class="font-headline text-2xl lg:text-3xl font-bold text-on-surface mb-4 leading-tight group-hover:text-primary transition-colors">The Secret to the Perfect Mirror Glaze</h2>
+<p class="font-body text-on-surface-variant line-clamp-3 mb-6">Mastering the mirror glaze requires precision and patience. Our head pastry chef reveals the essential techniques to achieve that flawless, reflective finish on your homemade entremets.</p>
+<a class="inline-flex items-center text-primary font-bold font-body uppercase text-sm tracking-wider hover:text-on-primary-container transition-colors w-max" href="#">
+                            Read Article 
+                            <span class="material-symbols-outlined ml-2 text-[18px]" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</article>
+<!-- Article Card 2 -->
+<article class="flex flex-col md:flex-row gap-8 items-center bg-surface-container-low rounded-xl p-6 group hover:bg-surface-container-high transition-colors duration-300">
+<div class="w-full md:w-2/5 aspect-[4/3] rounded-lg overflow-hidden flex-shrink-0 relative">
+<img alt="News Image" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="assortment of pastel colored french macarons beautifully arranged on a light pink marble surface, bright and airy lighting, editorial style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC34U3M1a9xAiNN0aKzuW7908ayceko43G70BtlaA_TxH9W5FBMNhG3jtxpAYBL7awXNpuVypOhgisF67L30ILDRyC-SNXLwjm-cNraQG2lzbOsAsKz8FdrlH2xBCBBj0GyHAQEmBys23CkF7B1q48J018BttdPzyyzLLerW1Qur4tiwphEB6zZs2pcKNijVYK4wf5C5pHtxWNg8UC2Dd-buWwv7V8zJG_ocx-apy7N-fUSkUixATL5GDsyeLKHap_QPgJfRFk4yGrz"/>
+<span class="absolute top-4 left-4 bg-tertiary-container text-on-tertiary-container text-xs font-bold uppercase tracking-wider py-1.5 px-3 rounded-full font-label z-10">Trends</span>
+</div>
+<div class="w-full md:w-3/5 flex flex-col justify-center">
+<div class="flex items-center space-x-4 text-sm text-on-surface-variant mb-3 font-body">
+<time datetime="2024-05-02">May 02, 2024</time>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span>3 min read</span>
+</div>
+<h2 class="font-headline text-2xl lg:text-3xl font-bold text-on-surface mb-4 leading-tight group-hover:text-primary transition-colors">Spring Flavor Profiles: Floral &amp; Citrus</h2>
+<p class="font-body text-on-surface-variant line-clamp-3 mb-6">This season, we are embracing the delicate balance of floral notes and bright citrus. Discover how lavender, elderflower, and yuzu are transforming our spring pastry collection.</p>
+<a class="inline-flex items-center text-primary font-bold font-body uppercase text-sm tracking-wider hover:text-on-primary-container transition-colors w-max" href="#">
+                            Read Article 
+                            <span class="material-symbols-outlined ml-2 text-[18px]" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</article>
+<!-- Article Card 3 -->
+<article class="flex flex-col md:flex-row gap-8 items-center bg-surface-container-low rounded-xl p-6 group hover:bg-surface-container-high transition-colors duration-300">
+<div class="w-full md:w-2/5 aspect-[4/3] rounded-lg overflow-hidden flex-shrink-0 relative">
+<img alt="News Image" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="artisan sourdough bread loaves and fresh croissants displayed in a rustic wooden bakery setting, warm morning light streaming through window" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCueGX4txSRgSj9tcI3myswlBkmEBOP_S97H2EfjSU5vtZY_eVunWov5j_gAQ25_F6opc-5Dsz___-CViO_8kldAo0E8qpmZ9Ng510f-sWRy0lF4NpI3LPtM1yyC3zSD9yAg1JS0iS_qWVJFwvkIx1aJ0AZ9suezstxB9OHevXVkCjTVFQMphLD_3wpg5_SNMZobp4kfogj_01Pr-DURjoeu-9rDxUqM5Jdqjs8J4erzwMkFSMWS7dacevXGF_6rNpZeEMn-11WJK42"/>
+<span class="absolute top-4 left-4 bg-surface-variant text-on-surface text-xs font-bold uppercase tracking-wider py-1.5 px-3 rounded-full font-label z-10">Promos</span>
+</div>
+<div class="w-full md:w-3/5 flex flex-col justify-center">
+<div class="flex items-center space-x-4 text-sm text-on-surface-variant mb-3 font-body">
+<time datetime="2024-04-28">Apr 28, 2024</time>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span>2 min read</span>
+</div>
+<h2 class="font-headline text-2xl lg:text-3xl font-bold text-on-surface mb-4 leading-tight group-hover:text-primary transition-colors">Weekend Morning Rituals: Half-Price Croissants</h2>
+<p class="font-body text-on-surface-variant line-clamp-3 mb-6">Join us every Saturday morning this month to celebrate the art of Viennoiserie. Enjoy our signature butter croissants at half price when paired with any artisanal coffee.</p>
+<a class="inline-flex items-center text-primary font-bold font-body uppercase text-sm tracking-wider hover:text-on-primary-container transition-colors w-max" href="#">
+                            Read Article 
+                            <span class="material-symbols-outlined ml-2 text-[18px]" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</article>
+<!-- Pagination -->
+<nav class="flex justify-center items-center space-x-4 mt-8 font-body">
+<button class="w-10 h-10 flex items-center justify-center rounded-full bg-surface-container-low text-on-surface-variant hover:bg-primary-container hover:text-on-primary-container transition-colors disabled:opacity-50 disabled:cursor-not-allowed" disabled="">
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+</button>
+<div class="flex space-x-2">
+<button class="w-10 h-10 flex items-center justify-center rounded-full bg-primary text-on-primary font-medium shadow-[0_4px_14px_rgba(172,42,93,0.3)]">1</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full bg-surface-container-low text-on-surface hover:bg-surface-container-high transition-colors font-medium">2</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full bg-surface-container-low text-on-surface hover:bg-surface-container-high transition-colors font-medium">3</button>
+<span class="w-10 h-10 flex items-center justify-center text-on-surface-variant">...</span>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full bg-surface-container-low text-on-surface-variant hover:bg-primary-container hover:text-on-primary-container transition-colors">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</nav>
+</div>
+<!-- Sidebar -->
+<aside class="lg:w-1/3 flex flex-col gap-12 sticky top-32 self-start">
+<!-- Search Box -->
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-[0_20px_40px_rgba(45,21,9,0.03)] border border-outline-variant/15">
+<h3 class="font-headline text-xl font-bold text-on-surface mb-6">Search Archives</h3>
+<div class="relative">
+<input class="w-full bg-surface-container-low border-none rounded-full py-3 pl-5 pr-12 text-on-surface font-body focus:ring-2 focus:ring-primary focus:bg-surface-container-lowest transition-all placeholder:text-on-surface-variant/60" placeholder="Search recipes, news..." type="text"/>
+<button class="absolute right-3 top-1/2 -translate-y-1/2 text-primary hover:text-on-primary-container transition-colors">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+</div>
+</div>
+<!-- Popular News List -->
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-[0_20px_40px_rgba(45,21,9,0.03)] border border-outline-variant/15">
+<h3 class="font-headline text-xl font-bold text-on-surface mb-6">Popular Reads</h3>
+<ul class="flex flex-col gap-6">
+<li class="flex items-start gap-4 group cursor-pointer">
+<span class="font-headline text-2xl font-black italic text-outline-variant group-hover:text-primary transition-colors">01</span>
+<div>
+<h4 class="font-headline text-lg font-bold text-on-surface leading-snug group-hover:text-primary transition-colors mb-1">The History of the Mille-Feuille</h4>
+<time class="font-body text-xs text-on-surface-variant" datetime="2024-03-12">March 12, 2024</time>
+</div>
+</li>
+<li class="flex items-start gap-4 group cursor-pointer">
+<span class="font-headline text-2xl font-black italic text-outline-variant group-hover:text-primary transition-colors">02</span>
+<div>
+<h4 class="font-headline text-lg font-bold text-on-surface leading-snug group-hover:text-primary transition-colors mb-1">Vegan Pastry: Compromising Nothing</h4>
+<time class="font-body text-xs text-on-surface-variant" datetime="2024-04-05">April 05, 2024</time>
+</div>
+</li>
+<li class="flex items-start gap-4 group cursor-pointer">
+<span class="font-headline text-2xl font-black italic text-outline-variant group-hover:text-primary transition-colors">03</span>
+<div>
+<h4 class="font-headline text-lg font-bold text-on-surface leading-snug group-hover:text-primary transition-colors mb-1">Pairing Tea with Delicate Sponges</h4>
+<time class="font-body text-xs text-on-surface-variant" datetime="2024-02-28">February 28, 2024</time>
+</div>
+</li>
+</ul>
+</div>
+<!-- Tag Cloud -->
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-[0_20px_40px_rgba(45,21,9,0.03)] border border-outline-variant/15">
+<h3 class="font-headline text-xl font-bold text-on-surface mb-6">Discover Topics</h3>
+<div class="flex flex-wrap gap-3">
+<a class="bg-secondary-container text-on-secondary-container hover:bg-primary-container hover:text-on-primary-container font-label text-sm font-medium py-2 px-4 rounded-full transition-colors" href="#">Recipe</a>
+<a class="bg-secondary-container text-on-secondary-container hover:bg-primary-container hover:text-on-primary-container font-label text-sm font-medium py-2 px-4 rounded-full transition-colors" href="#">Chocolate</a>
+<a class="bg-secondary-container text-on-secondary-container hover:bg-primary-container hover:text-on-primary-container font-label text-sm font-medium py-2 px-4 rounded-full transition-colors" href="#">Gluten-Free</a>
+<a class="bg-secondary-container text-on-secondary-container hover:bg-primary-container hover:text-on-primary-container font-label text-sm font-medium py-2 px-4 rounded-full transition-colors" href="#">Events</a>
+<a class="bg-secondary-container text-on-secondary-container hover:bg-primary-container hover:text-on-primary-container font-label text-sm font-medium py-2 px-4 rounded-full transition-colors" href="#">Technique</a>
+<a class="bg-secondary-container text-on-secondary-container hover:bg-primary-container hover:text-on-primary-container font-label text-sm font-medium py-2 px-4 rounded-full transition-colors" href="#">Seasonal</a>
+<a class="bg-secondary-container text-on-secondary-container hover:bg-primary-container hover:text-on-primary-container font-label text-sm font-medium py-2 px-4 rounded-full transition-colors" href="#">Promos</a>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- Footer Shared Component -->
+<footer class="w-full py-16 px-12 bg-[#fff1eb] dark:bg-[#1a0c05]">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-[1440px] mx-auto text-[#ac2a5d] dark:text-[#ffb1c5] font-['Plus_Jakarta_Sans'] text-sm leading-relaxed">
+<!-- Brand Column -->
+<div class="flex flex-col items-start space-y-4">
+<span class="font-['Noto_Serif'] text-xl font-bold text-[#2d1509] dark:text-[#fff8f6]">Sweet Cake Shop</span>
+<p class="text-[#2d1509]/70 dark:text-[#fff8f6]/70 max-w-xs mt-2">Elevating everyday moments with extraordinary pastries, crafted with passion and precision.</p>
+</div>
+<!-- Links Column -->
+<div class="flex flex-col space-y-3">
+<a class="text-[#2d1509]/60 dark:text-[#fff8f6]/50 hover:text-[#ac2a5d] hover:translate-x-1 transition-transform duration-200 cursor-pointer w-max" href="#">Sitemap</a>
+<a class="text-[#2d1509]/60 dark:text-[#fff8f6]/50 hover:text-[#ac2a5d] hover:translate-x-1 transition-transform duration-200 cursor-pointer w-max" href="#">About Us</a>
+<a class="text-[#2d1509]/60 dark:text-[#fff8f6]/50 hover:text-[#ac2a5d] hover:translate-x-1 transition-transform duration-200 cursor-pointer w-max" href="#">Terms of Service</a>
+<a class="text-[#2d1509]/60 dark:text-[#fff8f6]/50 hover:text-[#ac2a5d] hover:translate-x-1 transition-transform duration-200 cursor-pointer w-max" href="#">Privacy Policy</a>
+</div>
+<!-- Contact/Social Column -->
+<div class="flex flex-col space-y-4 md:items-end">
+<div class="flex space-x-4">
+<a class="w-10 h-10 flex items-center justify-center rounded-xl bg-secondary-fixed text-on-surface hover:bg-primary hover:text-on-primary transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="mail">mail</span>
+</a>
+<a class="w-10 h-10 flex items-center justify-center rounded-xl bg-secondary-fixed text-on-surface hover:bg-primary hover:text-on-primary transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="share">share</span>
+</a>
+</div>
+</div>
+</div>
+<div class="max-w-[1440px] mx-auto">
+<div class="bg-[#ffdbcc] dark:bg-[#2d1509] h-[1px] w-full my-8 opacity-20"></div>
+<p class="text-center text-[#2d1509]/60 dark:text-[#fff8f6]/50">© 2024 Sweet Cake Shop. Crafting digital degustation.</p>
+</div>
+</footer>
+</body></html>
