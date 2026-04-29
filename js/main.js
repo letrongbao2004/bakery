@@ -26,31 +26,9 @@ $(document).ready(function () {
         }
     });
 
-    // Cart Badge Pulse Function
-    window.triggerCartPulse = function () {
-        const $badge = $('.cart-badge');
-        $badge.addClass('pulse');
-        setTimeout(() => $badge.removeClass('pulse'), 400);
-    };
 
-    // Add to Cart Bridge
-    $(document).on('click', '.btn-add-to-cart', function (e) {
-        e.preventDefault();
-        const productName = $(this).data('product');
-        const $card = $(this).closest('.bakery-card');
-        const priceText = $card.find('.price').text().replace(/[^0-9]/g, '');
-        const price = parseInt(priceText) || 0;
-        const img = $card.find('img').attr('src');
 
-        if (window.addToCart) {
-            window.addToCart({
-                id: productName.toLowerCase().replace(/\s+/g, '-'),
-                name: productName,
-                price: price,
-                img: img
-            });
-        }
-    });
+
 
     // Khai báo currentPath toàn file
     let currentPath = window.location.pathname.split('/').pop() || 'index.html';
@@ -194,26 +172,7 @@ $(document).ready(function () {
         renderMiniCart(getCart());
     });
 
-    // =====================
-    // ADD TO CART
-    // =====================
-    $('.add-to-cart-btn').click(function (e) {
-        e.preventDefault();
-        let name = $('.breadcrumb-item.active').text().trim() || $('h2').first().text().trim() || 'Bánh Ngọt';
-        let priceText = $('h3.product-detail-price').text().trim() || '0';
-        let price = parseInt(priceText.replace(/\D/g, '')) || 0;
-        let qty = parseInt($('#qty').val()) || 1;
-        let img = $('.img-fluid.rounded').first().attr('src') || 'images/cake1.jpg';
 
-        let cart = getCart();
-        let existing = cart.find(i => i.name === name);
-        if (existing) existing.qty += qty;
-        else cart.push({ id: Date.now(), name, price, qty, img });
-
-        saveCart(cart);
-        syncCartState();
-        showNotification('success', 'Thêm Thành Công! 🛒', `Đã thêm <strong>${qty}x ${name}</strong> vào giỏ hàng!`);
-    });
 
     // =====================
     // CART PAGE
@@ -695,7 +654,13 @@ $(document).ready(function () {
 
     /* --- Thumbnail gallery --- */
     window.changeImg = function (src, el) {
-        $('#mainProductImg').attr('src', src);
+        const is3D = src === '3d';
+        if (is3D) {
+            $('.stb-main-view-wrapper').addClass('stb-3d-mode-active');
+        } else {
+            $('.stb-main-view-wrapper').removeClass('stb-3d-mode-active');
+            $('#mainProductImg').attr('src', src);
+        }
         $('[onclick*=changeImg]').css({ 'border-color': 'transparent', opacity: '0.7' });
         $(el).css({ 'border-color': 'var(--clr-secondary)', opacity: '1' });
     };
@@ -741,20 +706,11 @@ $(document).ready(function () {
         }).on('click', function () {
             var v = $(this).data('v');
             $('#reviewStars').data('selected', v);
+            $('#reviewRatingInput').val(v); // Sync with the hidden input used in the main handler
             $('#reviewStars i').each(function () {
                 var isActive = $(this).data('v') <= v;
                 $(this).toggleClass('bi-star-fill', isActive).toggleClass('bi-star', !isActive);
             });
-        });
-
-        $('#reviewForm').on('submit', function (e) {
-            e.preventDefault();
-            if (typeof showNotification === 'function') {
-                showNotification('success', 'Cảm Ơn!', 'Đánh giá của bạn đã được ghi nhận.');
-            }
-            this.reset();
-            $('#reviewStars').data('selected', 0);
-            $('#reviewStars i').removeClass('bi-star-fill').addClass('bi-star');
         });
     }
 })();

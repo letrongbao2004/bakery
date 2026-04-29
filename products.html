@@ -46,7 +46,7 @@
               <div id="miniCartItems" class="px-3 py-2 mini-cart-items-scroll"></div>
               <div class="p-3 border-top bg-light d-flex justify-content-between align-items-center">
                 <span class="fw-bold">Tổng: <span id="miniCartTotal" class="text-accent">0 VNĐ</span></span>
-                <a href="cart.html" class="btn btn-sm btn-primary-custom">Xem Giỏ Hàng</a>
+                <a href="cart.html" class="btn btn-sm stb-btn stb-btn-secondary">Xem Giỏ Hàng</a>
               </div>
             </div>
           </div>
@@ -64,7 +64,7 @@
           </div>
 
           <!-- Login CTA -->
-          <a href="login.html" class="btn-login-pill d-none d-lg-block" id="authNavContainer">Đăng Nhập</a>
+          <a href="login.html" class="stb-btn stb-btn-primary stb-btn-pill d-none d-lg-block" id="authNavContainer">Đăng Nhập</a>
 
           <!-- Mobile Toggler -->
           <button class="navbar-v2-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarV2Mobile">
@@ -83,7 +83,7 @@
             <li><a href="news.html" class="nav-v2-link d-block py-2">Tin Tức</a></li>
             <li><a href="contact.html" class="nav-v2-link d-block py-2">Liên Hệ</a></li>
             <li><hr class="my-3 opacity-25" /></li>
-            <li><a href="login.html" class="btn-login-pill w-100 text-center">Đăng Nhập</a></li>
+            <li><a href="login.html" class="stb-btn stb-btn-primary stb-btn-pill w-100 text-center">Đăng Nhập</a></li>
           </ul>
         </div>
       </div>
@@ -131,94 +131,143 @@
                     <div class="row g-4" id="productList">
                         <!-- Product 1 -->
                         <div class="col-md-4 col-sm-6 product-item" data-category="Cupcake" data-aos="fade-up">
-                            <div class="bakery-card">
-                                <img src="images/cake3.jpg" alt="Bánh Cupcake Pastel">
-                                <a href="products.html?search=Cupcake" class="badge rounded-pill mt-3 mb-2 text-decoration-none" style="background:var(--clr-primary-container); color:var(--clr-primary); font-size:.75rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase;">Cupcake</a>
-                                <div class="title">Bánh Cupcake Pastel</div>
-                                <span class="price">90.000đ</span>
-                                <a href="sanpham1.html" class="btn btn-sweet w-100 mt-3">Xem chi tiết</a>
-                            </div>
+                            <a href="sanpham1.html" class="text-decoration-none">
+                                <div class="stb-product-card">
+                                    <div class="card__img" style="background-image: url('images/cake3.jpg');"></div>
+                                    <div class="card__img--hover" style="background-image: url('images/cake3.jpg');"></div>
+                                    <div class="card__info">
+                                        <span class="badge rounded-pill mb-2" style="background:var(--clr-primary-container); color:var(--clr-primary); font-size:.75rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase;">Cupcake</span>
+                                        <span class="stb-card-title">Bánh Cupcake Pastel</span>
+                                        <span class="stb-card-price">90.000đ</span>
+                                        <span class="btn stb-btn stb-btn-primary stb-btn-pill w-100 mt-3">Xem chi tiết</span>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
                         <!-- Product 2 -->
                         <div class="col-md-4 col-sm-6 product-item" data-category="Bánh Kem" data-aos="fade-up" data-aos-delay="100">
-                            <div class="bakery-card">
-                                <img src="images/cake4.jpg" alt="Bánh Su Kem Dâu">
-                                <a href="products.html?search=Bánh Kem" class="badge rounded-pill mt-3 mb-2 text-decoration-none" style="background:var(--clr-primary-container); color:var(--clr-primary); font-size:.75rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase;">Bánh Kem</a>
-                                <div class="title">Bánh Su Kem Dâu</div>
-                                <span class="price">150.000đ</span>
-                                <a href="sanpham2.html" class="btn btn-sweet w-100 mt-3">Xem chi tiết</a>
-                            </div>
+                            <a href="sanpham2.html" class="text-decoration-none">
+                                <div class="stb-product-card">
+                                    <div class="card__img" style="background-image: url('images/cake4.jpg');"></div>
+                                    <div class="card__img--hover" style="background-image: url('images/cake4.jpg');"></div>
+                                    <div class="card__info">
+                                        <span class="badge rounded-pill mb-2" style="background:var(--clr-primary-container); color:var(--clr-primary); font-size:.75rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase;">Bánh Kem</span>
+                                        <span class="stb-card-title">Bánh Su Kem Dâu</span>
+                                        <span class="stb-card-price">150.000đ</span>
+                                        <span class="btn stb-btn stb-btn-primary stb-btn-pill w-100 mt-3">Xem chi tiết</span>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
                         <!-- Product 3 -->
                         <div class="col-md-4 col-sm-6 product-item" data-category="Bánh Sinh Nhật" data-aos="fade-up" data-aos-delay="200">
-                            <div class="bakery-card">
-                                <img src="images/cake5.jpg" alt="Bánh Sinh Nhật Cổ Điển">
-                                <a href="products.html?search=Bánh Sinh Nhật" class="badge rounded-pill mt-3 mb-2 text-decoration-none" style="background:var(--clr-primary-container); color:var(--clr-primary); font-size:.75rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase;">Bánh Sinh Nhật</a>
-                                <div class="title">Bánh Sinh Nhật Cổ Điển</div>
-                                <span class="price">850.000đ</span>
-                                <a href="sanpham3.html" class="btn btn-sweet w-100 mt-3">Xem chi tiết</a>
-                            </div>
+                            <a href="sanpham3.html" class="text-decoration-none">
+                                <div class="stb-product-card">
+                                    <div class="card__img" style="background-image: url('images/cake5.jpg');"></div>
+                                    <div class="card__img--hover" style="background-image: url('images/cake5.jpg');"></div>
+                                    <div class="card__info">
+                                        <span class="badge rounded-pill mb-2" style="background:var(--clr-primary-container); color:var(--clr-primary); font-size:.75rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase;">Bánh Sinh Nhật</span>
+                                        <span class="stb-card-title">Bánh Sinh Nhật Cổ Điển</span>
+                                        <span class="stb-card-price">850.000đ</span>
+                                        <span class="btn stb-btn stb-btn-primary stb-btn-pill w-100 mt-3">Xem chi tiết</span>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
                         <!-- Product 4 -->
                         <div class="col-md-4 col-sm-6 product-item" data-category="Bánh Socola" data-aos="fade-up" data-aos-delay="300">
-                            <div class="bakery-card">
-                                <img src="images/cake2.jpg" alt="Midnight Ganache">
-                                <a href="products.html?search=Bánh Socola" class="badge rounded-pill mt-3 mb-2 text-decoration-none" style="background:var(--clr-primary-container); color:var(--clr-primary); font-size:.75rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase;">Bánh Socola</a>
-                                <div class="title">Midnight Ganache</div>
-                                <span class="price">520.000đ</span>
-                                <a href="sanpham4.html" class="btn btn-sweet w-100 mt-3">Xem chi tiết</a>
-                            </div>
+                            <a href="sanpham4.html" class="text-decoration-none">
+                                <div class="stb-product-card">
+                                    <div class="card__img" style="background-image: url('images/cake2.jpg');"></div>
+                                    <div class="card__img--hover" style="background-image: url('images/cake2.jpg');"></div>
+                                    <div class="card__info">
+                                        <span class="badge rounded-pill mb-2" style="background:var(--clr-primary-container); color:var(--clr-primary); font-size:.75rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase;">Bánh Socola</span>
+                                        <span class="stb-card-title">Midnight Ganache</span>
+                                        <span class="stb-card-price">520.000đ</span>
+                                        <span class="btn stb-btn stb-btn-primary stb-btn-pill w-100 mt-3">Xem chi tiết</span>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
                         <!-- Product 5 -->
                         <div class="col-md-4 col-sm-6 product-item" data-category="Bánh Kem" data-aos="fade-up" data-aos-delay="400">
-                            <div class="bakery-card">
-                                <img src="images/cake1.jpg" alt="Bánh Kem Dâu Tây">
-                                <a href="products.html?search=Bánh Kem" class="badge rounded-pill mt-3 mb-2 text-decoration-none" style="background:var(--clr-primary-container); color:var(--clr-primary); font-size:.75rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase;">Bánh Kem</a>
-                                <div class="title">Bánh Kem Dâu Tây</div>
-                                <span class="price">850.000đ</span>
-                                <a href="sanpham5.html" class="btn btn-sweet w-100 mt-3">Xem chi tiết</a>
-                            </div>
+                            <a href="sanpham5.html" class="text-decoration-none">
+                                <div class="stb-product-card">
+                                    <div class="card__img" style="background-image: url('images/cake1.jpg');"></div>
+                                    <div class="card__img--hover" style="background-image: url('images/cake1.jpg');"></div>
+                                    <div class="card__info">
+                                        <span class="badge rounded-pill mb-2" style="background:var(--clr-primary-container); color:var(--clr-primary); font-size:.75rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase;">Bánh Kem</span>
+                                        <span class="stb-card-title">Bánh Kem Dâu Tây</span>
+                                        <span class="stb-card-price">850.000đ</span>
+                                        <span class="btn stb-btn stb-btn-primary stb-btn-pill w-100 mt-3">Xem chi tiết</span>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
                         <!-- Product 6 -->
                         <div class="col-md-4 col-sm-6 product-item" data-category="Cupcake" data-aos="fade-up" data-aos-delay="500">
-                            <div class="bakery-card">
-                                <img src="images/cake7.jpg" alt="Red Velvet Classic" onerror="this.src='images/cake3.jpg'">
-                                <a href="products.html?search=Cupcake" class="badge rounded-pill mt-3 mb-2 text-decoration-none" style="background:var(--clr-primary-container); color:var(--clr-primary); font-size:.75rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase;">Cupcake</a>
-                                <div class="title">Red Velvet Classic</div>
-                                <span class="price">40.000đ</span>
-                                <a href="sanpham6.html" class="btn btn-sweet w-100 mt-3">Xem chi tiết</a>
-                            </div>
+                            <a href="sanpham6.html" class="text-decoration-none">
+                                <div class="stb-product-card">
+                                    <div class="card__img" style="background-image: url('images/cake7.jpg');"></div>
+                                    <div class="card__img--hover" style="background-image: url('images/cake7.jpg');"></div>
+                                    <div class="card__info">
+                                        <span class="badge rounded-pill mb-2" style="background:var(--clr-primary-container); color:var(--clr-primary); font-size:.75rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase;">Cupcake</span>
+                                        <span class="stb-card-title">Red Velvet Classic</span>
+                                        <span class="stb-card-price">40.000đ</span>
+                                        <span class="btn stb-btn stb-btn-primary stb-btn-pill w-100 mt-3">Xem chi tiết</span>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
                         <!-- Product 7 -->
                         <div class="col-md-4 col-sm-6 product-item" data-category="Bánh Sinh Nhật" data-aos="fade-up">
-                            <div class="bakery-card">
-                                <img src="images/cake8.png" alt="Đại Dương Xanh Thẳm" onerror="this.src='images/cake5.jpg'">
-                                <a href="products.html?search=Bánh Sinh Nhật" class="badge rounded-pill mt-3 mb-2 text-decoration-none" style="background:var(--clr-primary-container); color:var(--clr-primary); font-size:.75rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase;">Bánh Sinh Nhật</a>
-                                <div class="title">Đại Dương Xanh Thẳm</div>
-                                <span class="price">650.000đ</span>
-                                <a href="sanpham7.html" class="btn btn-sweet w-100 mt-3">Xem chi tiết</a>
-                            </div>
+                            <a href="sanpham7.html" class="text-decoration-none">
+                                <div class="stb-product-card">
+                                    <div class="card__img" style="background-image: url('images/cake8.png');"></div>
+                                    <div class="card__img--hover" style="background-image: url('images/cake8.png');"></div>
+                                    <div class="card__info">
+                                        <span class="badge rounded-pill mb-2" style="background:var(--clr-primary-container); color:var(--clr-primary); font-size:.75rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase;">Bánh Sinh Nhật</span>
+                                        <span class="stb-card-title">Đại Dương Xanh Thẳm</span>
+                                        <span class="stb-card-price">650.000đ</span>
+                                        <span class="btn stb-btn stb-btn-primary stb-btn-pill w-100 mt-3">Xem chi tiết</span>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
                         <!-- Product 8 -->
                         <div class="col-md-4 col-sm-6 product-item" data-category="Bánh Socola" data-aos="fade-up" data-aos-delay="100">
-                            <div class="bakery-card">
-                                <img src="images/cake6.jpg" alt="Socola Hoàng Gia">
-                                <a href="products.html?search=Bánh Socola" class="badge rounded-pill mt-3 mb-2 text-decoration-none" style="background:var(--clr-primary-container); color:var(--clr-primary); font-size:.75rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase;">Bánh Socola</a>
-                                <div class="title">Socola Hoàng Gia</div>
-                                <span class="price">450.000đ</span>
-                                <a href="sanpham8.html" class="btn btn-sweet w-100 mt-3">Xem chi tiết</a>
-                            </div>
+                            <a href="sanpham8.html" class="text-decoration-none">
+                                <div class="stb-product-card">
+                                    <div class="card__img" style="background-image: url('images/cake6.jpg');"></div>
+                                    <div class="card__img--hover" style="background-image: url('images/cake6.jpg');"></div>
+                                    <div class="card__info">
+                                        <span class="badge rounded-pill mb-2" style="background:var(--clr-primary-container); color:var(--clr-primary); font-size:.75rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase;">Bánh Socola</span>
+                                        <span class="stb-card-title">Socola Hoàng Gia</span>
+                                        <span class="stb-card-price">450.000đ</span>
+                                        <span class="btn stb-btn stb-btn-primary stb-btn-pill w-100 mt-3">Xem chi tiết</span>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
                         <!-- Product 9 -->
                         <div class="col-md-4 col-sm-6 product-item" data-category="Bánh Kem" data-aos="fade-up" data-aos-delay="200">
-                            <div class="bakery-card">
-                                <img src="images/cake9.png" alt="Cà Rốt Đặc Biệt" onerror="this.src='images/cake4.jpg'">
-                                <a href="products.html?search=Bánh Kem" class="badge rounded-pill mt-3 mb-2 text-decoration-none" style="background:var(--clr-primary-container); color:var(--clr-primary); font-size:.75rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase;">Bánh Kem</a>
-                                <div class="title">Cà Rốt Đặc Biệt</div>
-                                <span class="price">320.000đ</span>
-                                <a href="sanpham9.html" class="btn btn-sweet w-100 mt-3">Xem chi tiết</a>
-                            </div>
+                            <a href="sanpham9.html" class="text-decoration-none">
+                                <div class="stb-product-card">
+                                    <div class="card__img" style="background-image: url('images/cake9.png');"></div>
+                                    <div class="card__img--hover" style="background-image: url('images/cake9.png');"></div>
+                                    <div class="card__info">
+                                        <span class="badge rounded-pill mb-2" style="background:var(--clr-primary-container); color:var(--clr-primary); font-size:.75rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase;">Bánh Kem</span>
+                                        <span class="stb-card-title">Cà Rốt Đặc Biệt</span>
+                                        <span class="stb-card-price">320.000đ</span>
+                                        <span class="btn stb-btn stb-btn-primary stb-btn-pill w-100 mt-3">Xem chi tiết</span>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
+
+
+
+
                     </div>
                 </div>
             </div>

@@ -43,7 +43,7 @@
               <div id="miniCartItems" class="px-3 py-2 mini-cart-items-scroll"></div>
               <div class="p-3 border-top bg-light d-flex justify-content-between align-items-center">
                 <span class="fw-bold">Tổng: <span id="miniCartTotal" class="text-accent">0 VNĐ</span></span>
-                <a href="cart.html" class="btn btn-sm btn-primary-custom">Xem Giỏ Hàng</a>
+                <a href="cart.html" class="btn btn-sm stb-btn stb-btn-secondary">Xem Giỏ Hàng</a>
               </div>
             </div>
           </div>
@@ -61,7 +61,7 @@
           </div>
 
           <!-- Login CTA -->
-          <a href="login.html" class="btn-login-pill d-none d-lg-block" id="authNavContainer">Đăng Nhập</a>
+          <a href="login.html" class="stb-btn stb-btn-primary stb-btn-pill d-none d-lg-block" id="authNavContainer">Đăng Nhập</a>
 
           <!-- Mobile Toggler -->
           <button class="navbar-v2-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarV2Mobile">
@@ -80,7 +80,7 @@
             <li><a href="news.html" class="nav-v2-link d-block py-2">Tin Tức</a></li>
             <li><a href="contact.html" class="nav-v2-link d-block py-2">Liên Hệ</a></li>
             <li><hr class="my-3 opacity-25" /></li>
-            <li><a href="login.html" class="btn-login-pill w-100 text-center">Đăng Nhập</a></li>
+            <li><a href="login.html" class="stb-btn stb-btn-primary stb-btn-pill w-100 text-center">Đăng Nhập</a></li>
           </ul>
         </div>
       </div>
@@ -139,9 +139,7 @@
 
               <!-- Map -->
               <div class="map-placeholder mt-4" style="height:280px; border-radius:var(--radius-md); background:var(--clr-surface-high); display:flex; align-items:center; justify-content:center; color:rgba(135,78,88,.35); flex-direction:column; gap:.5rem; font-size:.9rem;">
-                <i class="bi bi-map" style="font-size:3rem;"></i>
-                <span>Bản đồ Google Maps</span>
-                <span style="font-size:.75rem;">123 Lê Lợi, Q.1, TP.HCM</span>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.2713293381385!2d106.61532917473951!3d10.866955689287385!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752a1094db353d%3A0x580ce254dd601dfd!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBMYW8gxJHhu5luZyBYw6MgaOG7mWkgLSBDxqEgc-G7nyAy!5e0!3m2!1svi!2s!4v1777459874978!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
               </div>
 
               <!-- Socials -->
@@ -191,7 +189,7 @@
                       <textarea id="contactMessage" class="form-control" rows="5" placeholder="Mô tả yêu cầu của bạn..." required></textarea>
                     </div>
                     <div class="col-12">
-                      <button type="submit" class="btn btn-primary-custom w-100 py-3" id="contactSubmitBtn">
+                      <button type="submit" class="btn stb-btn stb-btn-secondary w-100 py-3" id="contactSubmitBtn">
                         <i class="bi bi-send me-2"></i>Gửi Tin Nhắn
                       </button>
                     </div>

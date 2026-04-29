@@ -17,7 +17,6 @@
         <!-- Zone 1: Logo & Brand -->
         <a href="index.html" class="navbar-v2-brand">
           <img src="images/logo1.png" alt="Sweet House Logo" class="brand-icon" />
-          <span class="brand-text">Sweet House</span>
         </a>
 
         <!-- Zone 2: Centered Links -->
@@ -44,7 +43,7 @@
               <div id="miniCartItems" class="px-3 py-2 mini-cart-items-scroll"></div>
               <div class="p-3 border-top bg-light d-flex justify-content-between align-items-center">
                 <span class="fw-bold">Tổng: <span id="miniCartTotal" class="text-accent">0 VNĐ</span></span>
-                <a href="cart.html" class="btn btn-sm btn-primary-custom">Xem Giỏ Hàng</a>
+                <a href="cart.html" class="btn btn-sm stb-btn stb-btn-secondary">Xem Giỏ Hàng</a>
               </div>
             </div>
           </div>
@@ -62,7 +61,7 @@
           </div>
 
           <!-- Login CTA -->
-          <a href="login.html" class="btn-login-pill d-none d-lg-block" id="authNavContainer">Đăng Nhập</a>
+          <a href="login.html" class="stb-btn stb-btn-primary stb-btn-pill d-none d-lg-block" id="authNavContainer">Đăng Nhập</a>
 
           <!-- Mobile Toggler -->
           <button class="navbar-v2-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarV2Mobile">
@@ -81,13 +80,13 @@
             <li><a href="news.html" class="nav-v2-link d-block py-2">Tin Tức</a></li>
             <li><a href="contact.html" class="nav-v2-link d-block py-2">Liên Hệ</a></li>
             <li><hr class="my-3 opacity-25" /></li>
-            <li><a href="login.html" class="btn-login-pill w-100 text-center">Đăng Nhập</a></li>
+            <li><a href="login.html" class="stb-btn stb-btn-primary stb-btn-pill w-100 text-center">Đăng Nhập</a></li>
           </ul>
         </div>
       </div>
     </nav>
 
-    <main class="page-content-wrapper py-5">
+    <main class="page-content-wrapper pb-5">
       <div class="container">
         <!-- Breadcrumb -->
         <nav aria-label="breadcrumb" class="mb-4">
@@ -102,11 +101,33 @@
         <div class="row g-5 align-items-start">
           <!-- Image Column -->
           <div class="col-lg-5">
-            <div style="border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--shadow-xl);">
-              <img id="mainProductImg" src="images/cake3.jpg" alt="Bánh Cupcake Pastel" class="w-100" style="object-fit:cover; height:460px;" />
+            <div class="stb-main-view-wrapper">
+              <img id="mainProductImg" src="images/cake3.jpg" alt="Bánh Cupcake Pastel" class="w-100 h-100" style="object-fit:cover;" />
+              
+              <!-- 3D Mode View -->
+              <div class="stb-3d-viewer-overlay">
+                <div style="transform: scale(0.7); margin-top: -20px;">
+                  <div class="stb-3d-container" style="padding: 100px 0;">
+                    <div class="stb-3d-cube-wrapper">
+                      <div class="stb-3d-cube">
+                        <div class="stb-3d-face front"><img src="images/cake3.jpg" alt="F1" /></div>
+                        <div class="stb-3d-face back"><img src="images/cake3.jpg" alt="F2" /></div>
+                        <div class="stb-3d-face right"><img src="images/cake3.jpg" alt="F3" /></div>
+                        <div class="stb-3d-face left"><img src="images/cake3.jpg" alt="F4" /></div>
+                        <div class="stb-3d-face top"><img src="images/cake3.jpg" alt="F5" /></div>
+                        <div class="stb-3d-face bottom"><img src="images/cake3.jpg" alt="F6" /></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="position-absolute bottom-0 w-100 text-center pb-3 text-muted small" style="pointer-events:none">
+                  <i class="bi bi-info-circle me-1"></i> Di chuột để xoay bánh
+                </div>
+              </div>
             </div>
+
             <!-- Thumbnail row -->
-            <div class="d-flex gap-3 mt-3">
+            <div class="d-flex gap-3 mt-3 flex-wrap">
               <div class="thumbnail-img" onclick="changeImg('images/cake3.jpg', this)" style="width:80px; height:80px; border-radius:var(--radius-sm); overflow:hidden; cursor:pointer; border:3px solid var(--clr-secondary); flex-shrink:0;">
                 <img src="images/cake3.jpg" class="w-100 h-100" style="object-fit:cover;" />
               </div>
@@ -116,10 +137,16 @@
               <div class="thumbnail-img" onclick="changeImg('images/cake1.jpg', this)" style="width:80px; height:80px; border-radius:var(--radius-sm); overflow:hidden; cursor:pointer; border:3px solid transparent; flex-shrink:0; opacity:.7;">
                 <img src="images/cake1.jpg" class="w-100 h-100" style="object-fit:cover;" />
               </div>
+              
+              <div class="thumbnail-img d-flex flex-column align-items-center justify-content-center" 
+                   onclick="changeImg('3d', this)" 
+                   style="width:80px; height:80px; border-radius:var(--radius-sm); overflow:hidden; cursor:pointer; border:3px solid transparent; flex-shrink:0; opacity:.7; background:var(--clr-surface-low); color:var(--clr-secondary); font-size:1.5rem;">
+                <i class="bi bi-box"></i>
+                <span style="font-size:0.6rem; font-weight:800; text-transform:uppercase; margin-top:-5px;">3D VIEW</span>
+              </div>
             </div>
           </div>
 
-          <!-- Info Column -->
           <div class="col-lg-7">
             <span class="badge rounded-pill mb-3" style="background:var(--clr-primary-container); color:var(--clr-primary); font-size:.8rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em; padding:6px 16px;">🧁 Cupcake</span>
             <h1 class="font-headline fw-black mb-2" style="font-size:clamp(1.8rem,4vw,2.8rem); color:var(--clr-on-surface); line-height:1.2;">Bánh Cupcake Pastel</h1>
@@ -192,7 +219,7 @@
                 <span class="qty-num" id="productQtyNum">1</span>
                 <button class="qty-btn" id="productQtyPlus">+</button>
               </div>
-              <button class="btn btn-primary-custom flex-grow-1 py-3" id="addToCartBtn"
+              <button class="btn stb-btn stb-btn-secondary flex-grow-1 py-3" id="addToCartBtn"
                 data-id="sp1"
                 data-name="Bánh Cupcake Pastel"
                 data-price="90000"
@@ -259,7 +286,7 @@
                 <div class="col-md-8 col-lg-9">
                   <div class="row g-3">
                     <div class="col-md-6">
-                      <div class="stb-testimonial-card">
+                      <div class="stb-card stb-card-interactive testimonial-layout">
                         <div class="stb-stars">★★★★★</div>
                         <p>"Cupcake đẹp quá! Màu pastel nhẹ nhàng, kem tươi ngon không quá ngọt. Mua làm quà cho bạn gái thì hoàn hảo!"</p>
                         <div class="stb-reviewer">
@@ -269,7 +296,7 @@
                       </div>
                     </div>
                     <div class="col-md-6">
-                      <div class="stb-testimonial-card">
+                      <div class="stb-card stb-card-interactive testimonial-layout">
                         <div class="stb-stars">★★★★★</div>
                         <p>"Đặt 12 cái cho tiệc sinh nhật, giao đúng giờ, bánh còn tươi, trang trí y như hình. Sẽ ủng hộ lần nữa!"</p>
                         <div class="stb-reviewer">
@@ -309,7 +336,7 @@
                       <textarea id="reviewContent" class="form-control" rows="4" placeholder="Chia sẻ cảm nhận của bạn về sản phẩm..."></textarea>
                     </div>
                     <div class="col-12">
-                      <button type="submit" class="btn btn-primary-custom"><i class="bi bi-send me-2"></i>Gửi Đánh Giá</button>
+                      <button type="submit" class="btn stb-btn stb-btn-secondary"><i class="bi bi-send me-2"></i>Gửi Đánh Giá</button>
                     </div>
                   </div>
                 </form>
@@ -317,6 +344,9 @@
             </div>
           </div>
         </div>
+
+        
+        
 
         <!-- RELATED PRODUCTS -->
         <section class="mt-5">
@@ -329,7 +359,7 @@
                 </div>
                 <h3 class="font-headline fw-bold mb-1" style="font-size:.95rem;">Bánh Su Kem Dâu</h3>
                 <div class="fw-black mb-2" style="color:var(--clr-secondary);">150.000đ</div>
-                <a href="sanpham2.html" class="btn btn-secondary-custom w-100" style="font-size:.85rem;">Xem Chi Tiết</a>
+                <a href="sanpham2.html" class="btn stb-btn stb-btn-outline w-100" style="font-size:.85rem;">Xem Chi Tiết</a>
               </div>
             </div>
             <div class="col-6 col-md-3">
@@ -339,7 +369,7 @@
                 </div>
                 <h3 class="font-headline fw-bold mb-1" style="font-size:.95rem;">Bánh Sinh Nhật Cổ Điển</h3>
                 <div class="fw-black mb-2" style="color:var(--clr-secondary);">850.000đ</div>
-                <a href="sanpham3.html" class="btn btn-secondary-custom w-100" style="font-size:.85rem;">Xem Chi Tiết</a>
+                <a href="sanpham3.html" class="btn stb-btn stb-btn-outline w-100" style="font-size:.85rem;">Xem Chi Tiết</a>
               </div>
             </div>
             <div class="col-6 col-md-3">
@@ -349,7 +379,7 @@
                 </div>
                 <h3 class="font-headline fw-bold mb-1" style="font-size:.95rem;">Midnight Ganache</h3>
                 <div class="fw-black mb-2" style="color:var(--clr-secondary);">520.000đ</div>
-                <a href="sanpham4.html" class="btn btn-secondary-custom w-100" style="font-size:.85rem;">Xem Chi Tiết</a>
+                <a href="sanpham4.html" class="btn stb-btn stb-btn-outline w-100" style="font-size:.85rem;">Xem Chi Tiết</a>
               </div>
             </div>
             <div class="col-6 col-md-3">
@@ -359,7 +389,7 @@
                 </div>
                 <h3 class="font-headline fw-bold mb-1" style="font-size:.95rem;">Bánh Kem Dâu Tây</h3>
                 <div class="fw-black mb-2" style="color:var(--clr-secondary);">850.000đ</div>
-                <a href="sanpham5.html" class="btn btn-secondary-custom w-100" style="font-size:.85rem;">Xem Chi Tiết</a>
+                <a href="sanpham5.html" class="btn stb-btn stb-btn-outline w-100" style="font-size:.85rem;">Xem Chi Tiết</a>
               </div>
             </div>
           </div>
@@ -372,33 +402,49 @@
       <div class="container">
         <div class="row g-4">
           <div class="col-md-4">
-            <img src="images/logo1.png" alt="Sweet Trio Bakery" class="footer-logo mb-3" />
-            <p style="color:rgba(252,237,242,0.8); font-size:.9rem; line-height:1.7; max-width:280px;">Tiệm bánh artisanal thủ công với tình yêu và nguyên liệu tự nhiên nhất.</p>
+            <img src="images/logo1.png" alt="Sweet Trio Bakery Logo" class="footer-logo mb-3" />
+            <p>Nơi những giấc mơ ngọt ngào trở thành hiện thực qua từng chiếc bánh artisanal được nướng tươi mỗi ngày.</p>
             <div class="footer-social-icons">
-              <a href="https://www.facebook.com/Bapsxinkiu" class="footer-social-link"><i class="bi bi-facebook"></i></a>
-              <a href="https://www.instagram.com/nqoc.nahzz/" class="footer-social-link"><i class="bi bi-instagram"></i></a>
-              <a href="https://www.tiktok.com/@nacileng" class="footer-social-link"><i class="bi bi-tiktok"></i></a>
+              <a href="https://www.facebook.com/Bapsxinkiu" class="footer-social-link" title="Facebook"><i class="bi bi-facebook"></i></a>
+              <a href="https://www.instagram.com/nqoc.nahzz/" class="footer-social-link" title="Instagram"><i class="bi bi-instagram"></i></a>
+              <a href="https://www.tiktok.com/@nacileng" class="footer-social-link" title="TikTok"><i class="bi bi-tiktok"></i></a>
             </div>
           </div>
-          <div class="col-6 col-md-4">
+
+          <div class="col-6 col-md-2">
             <h5 class="mb-3">Khám Phá</h5>
             <ul class="list-unstyled" style="line-height:2;">
               <li><a href="index.html">Trang Chủ</a></li>
+              <li><a href="about.html">Giới Thiệu</a></li>
               <li><a href="products.html">Sản Phẩm</a></li>
               <li><a href="news.html">Tin Tức</a></li>
-              <li><a href="contact.html">Liên Hệ</a></li>
             </ul>
           </div>
+
+          <div class="col-6 col-md-2">
+            <h5 class="mb-3">Hỗ Trợ</h5>
+            <ul class="list-unstyled" style="line-height:2;">
+              <li><a href="contact.html">Liên Hệ</a></li>
+              <li><a href="sitemap.html">Sitemap</a></li>
+              <li><a href="cart.html">Giỏ Hàng</a></li>
+              <li><a href="login.html">Đăng Nhập</a></li>
+            </ul>
+          </div>
+
           <div class="col-md-4">
             <h5 class="mb-3">Bản Tin Ngọt Ngào</h5>
+            <p>Đăng ký để nhận tin về bánh mới và ưu đãi đặc biệt.</p>
             <div class="footer-newsletter">
-              <input type="email" placeholder="Email của bạn..." />
+              <input type="email" placeholder="Email của bạn..." aria-label="Email đăng ký nhận tin" />
               <button type="button">Gửi</button>
             </div>
           </div>
         </div>
+
         <hr class="mt-5 footer-divider" />
-        <p class="text-center mb-0" style="color:rgba(252,237,242,0.4); font-size:.8rem;">© 2026 Sweet Trio Bakery. Crafted with artisanal love.</p>
+        <div class="text-center opacity-75 small">
+          <p class="mb-0">© 2026 Sweet Trio Bakery. Crafted with artisanal love. — Website Demo</p>
+        </div>
       </div>
     </footer>
 
