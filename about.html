@@ -3,7 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Giới thiệu về Sweet Trio Bakery - câu chuyện thương hiệu, đội ngũ và các giá trị cốt lõi của chúng tôi." />
+    <meta
+      name="description"
+      content="Giới thiệu về Sweet Trio Bakery - câu chuyện thương hiệu, đội ngũ và các giá trị cốt lõi của chúng tôi."
+    />
     <link rel="icon" type="image/png" href="images/logo1.png" />
     <title>Giới Thiệu - Sweet Trio Bakery</title>
     <link rel="stylesheet" href="bootstrap/icons/bootstrap-icons.css" />
@@ -11,15 +14,16 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <!-- ===== NAVBAR ===== -->
     <nav class="navbar-custom-v2 fixed-top">
       <div class="container navbar-v2-inner">
-        <!-- Zone 1: Logo & Brand -->
         <a href="index.html" class="navbar-v2-brand">
-          <img src="images/logo1.png" alt="Sweet House Logo" class="brand-icon" />
+          <img
+            src="images/logo1.png"
+            alt="Sweet House Logo"
+            class="brand-icon"
+          />
         </a>
 
-        <!-- Zone 2: Centered Links -->
         <ul class="navbar-v2-nav d-none d-lg-flex">
           <li><a href="index.html" class="nav-v2-link">Trang Chủ</a></li>
           <li><a href="about.html" class="nav-v2-link">Giới Thiệu</a></li>
@@ -28,103 +32,289 @@
           <li><a href="contact.html" class="nav-v2-link">Liên Hệ</a></li>
         </ul>
 
-        <!-- Zone 3: Actions (Cart & Login) -->
         <div class="navbar-v2-actions">
-          <!-- Cart -->
           <div class="dropdown" id="cartNavContainer">
-            <a href="#" class="action-icon-wrap" id="cartDropdownToggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a
+              href="#"
+              class="action-icon-wrap"
+              id="cartDropdownToggle"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
               <i class="bi bi-cart3"></i>
               <span class="cart-badge" id="cartBadgeCount">0</span>
             </a>
-            <div class="dropdown-menu dropdown-menu-end shadow p-0" id="miniCartDropdown">
+            <div
+              class="dropdown-menu dropdown-menu-end shadow p-0"
+              id="miniCartDropdown"
+            >
               <div class="p-3 border-bottom">
-                <h6 class="mb-0 fw-bold"><i class="bi bi-cart3 me-2"></i>Giỏ Hàng Của Bạn</h6>
+                <h6 class="mb-0 fw-bold">
+                  <i class="bi bi-cart3 me-2"></i>Giỏ Hàng Của Bạn
+                </h6>
               </div>
-              <div id="miniCartItems" class="px-3 py-2 mini-cart-items-scroll"></div>
-              <div class="p-3 border-top bg-light d-flex justify-content-between align-items-center">
-                <span class="fw-bold">Tổng: <span id="miniCartTotal" class="text-accent">0 VNĐ</span></span>
-                <a href="cart.html" class="btn btn-sm stb-btn stb-btn-secondary">Xem Giỏ Hàng</a>
+              <div
+                id="miniCartItems"
+                class="px-3 py-2 mini-cart-items-scroll"
+              ></div>
+              <div
+                class="p-3 border-top bg-light d-flex justify-content-between align-items-center"
+              >
+                <span class="fw-bold"
+                  >Tổng:
+                  <span id="miniCartTotal" class="text-accent"
+                    >0 VNĐ</span
+                  ></span
+                >
+                <a href="cart.html" class="btn btn-sm stb-btn stb-btn-secondary"
+                  >Xem Giỏ Hàng</a
+                >
               </div>
             </div>
           </div>
 
-          <!-- Avatar (Hidden initially) -->
-          <div class="dropdown" id="avatarNavContainer" style="display:none">
-            <a href="#" class="action-icon-wrap" id="avatarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <div class="dropdown" id="avatarNavContainer" style="display: none">
+            <a
+              href="#"
+              class="action-icon-wrap"
+              id="avatarDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
               <i class="bi bi-person-circle"></i>
             </a>
             <ul class="dropdown-menu dropdown-menu-end shadow">
-              <li><a class="dropdown-item" href="profile.html"><i class="bi bi-person me-2"></i>Xem Profile</a></li>
+              <li>
+                <a class="dropdown-item" href="profile.html"
+                  ><i class="bi bi-person me-2"></i>Xem Profile</a
+                >
+              </li>
               <li><hr class="dropdown-divider" /></li>
-              <li><a class="dropdown-item text-danger" href="#" onclick="handleLogout(event)"><i class="bi bi-box-arrow-right me-2"></i>Đăng xuất</a></li>
+              <li>
+                <a
+                  class="dropdown-item text-danger"
+                  href="#"
+                  onclick="handleLogout(event)"
+                  ><i class="bi bi-box-arrow-right me-2"></i>Đăng xuất</a
+                >
+              </li>
             </ul>
           </div>
 
-          <!-- Login CTA -->
-          <a href="login.html" class="stb-btn stb-btn-primary stb-btn-pill d-none d-lg-block" id="authNavContainer">Đăng Nhập</a>
+          <a
+            href="login.html"
+            class="stb-btn stb-btn-primary stb-btn-pill d-none d-lg-block"
+            id="authNavContainer"
+            >Đăng Nhập</a
+          >
 
-          <!-- Mobile Toggler -->
-          <button class="navbar-v2-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarV2Mobile">
+          <button
+            class="navbar-v2-toggler d-lg-none"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarV2Mobile"
+          >
             <i class="bi bi-list"></i>
           </button>
         </div>
       </div>
 
-      <!-- Mobile Menu -->
       <div class="collapse navbar-collapse" id="navbarV2Mobile">
         <div class="navbar-v2-mobile p-4">
           <ul class="list-unstyled">
-            <li><a href="index.html" class="nav-v2-link d-block py-2">Trang Chủ</a></li>
-            <li><a href="about.html" class="nav-v2-link d-block py-2">Giới Thiệu</a></li>
-            <li><a href="products.html" class="nav-v2-link d-block py-2">Sản Phẩm</a></li>
-            <li><a href="news.html" class="nav-v2-link d-block py-2">Tin Tức</a></li>
-            <li><a href="contact.html" class="nav-v2-link d-block py-2">Liên Hệ</a></li>
+            <li>
+              <a href="index.html" class="nav-v2-link d-block py-2"
+                >Trang Chủ</a
+              >
+            </li>
+            <li>
+              <a href="about.html" class="nav-v2-link d-block py-2"
+                >Giới Thiệu</a
+              >
+            </li>
+            <li>
+              <a href="products.html" class="nav-v2-link d-block py-2"
+                >Sản Phẩm</a
+              >
+            </li>
+            <li>
+              <a href="news.html" class="nav-v2-link d-block py-2">Tin Tức</a>
+            </li>
+            <li>
+              <a href="contact.html" class="nav-v2-link d-block py-2"
+                >Liên Hệ</a
+              >
+            </li>
             <li><hr class="my-3 opacity-25" /></li>
-            <li><a href="login.html" class="stb-btn stb-btn-primary stb-btn-pill w-100 text-center">Đăng Nhập</a></li>
+            <li>
+              <a
+                href="login.html"
+                class="stb-btn stb-btn-primary stb-btn-pill w-100 text-center"
+                >Đăng Nhập</a
+              >
+            </li>
           </ul>
         </div>
       </div>
     </nav>
 
     <main>
-      <!-- ===== ABOUT HERO ===== -->
       <section class="about-hero">
         <div class="container">
           <span class="stb-tag">Câu Chuyện Thương Hiệu</span>
-          <h1 class="font-headline fw-black" style="font-size:clamp(2rem,5vw,3.5rem); color:var(--clr-on-background); margin-bottom:1rem;">Chúng Tôi Là <span style="color:var(--clr-secondary);">Sweet Trio Bakery</span></h1>
-          <p class="mx-auto" style="max-width:600px; color:var(--clr-on-surface-variant); font-size:1.1rem; line-height:1.8;">Ba người bạn, một đam mê — cùng nhau tạo ra những chiếc bánh ngọt ngào nhất từ trái tim.</p>
+          <h1
+            class="font-headline fw-black"
+            style="
+              font-size: clamp(2rem, 5vw, 3.5rem);
+              color: var(--clr-on-background);
+              margin-bottom: 1rem;
+            "
+          >
+            Chúng Tôi Là
+            <span style="color: var(--clr-secondary)">Sweet Trio Bakery</span>
+          </h1>
+          <p
+            class="mx-auto"
+            style="
+              max-width: 600px;
+              color: var(--clr-on-surface-variant);
+              font-size: 1.1rem;
+              line-height: 1.8;
+            "
+          >
+            Ba người bạn, một đam mê — cùng nhau tạo ra những chiếc bánh ngọt
+            ngào nhất từ trái tim.
+          </p>
         </div>
       </section>
 
-      <!-- ===== BRAND STORY ===== -->
       <section class="py-5">
         <div class="container">
           <div class="row align-items-center g-5">
             <div class="col-lg-6" data-aos="fade-up">
-              <div class="position-relative" style="height:420px; border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--shadow-xl);">
-                <img src="images/cake6.jpg" alt="Xưởng bánh Sweet Trio" class="w-100 h-100" style="object-fit:cover;" />
-                <div class="position-absolute bottom-0 start-0 p-3" style="background:linear-gradient(to top, rgba(33,26,29,0.7), transparent);">
-                  <span class="fw-bold text-white">Xưởng bánh của chúng tôi · TP. Hồ Chí Minh</span>
+              <div
+                class="position-relative"
+                style="
+                  height: 420px;
+                  border-radius: var(--radius-lg);
+                  overflow: hidden;
+                  box-shadow: var(--shadow-xl);
+                "
+              >
+                <img
+                  src="images/cake6.jpg"
+                  alt="Xưởng bánh Sweet Trio"
+                  class="w-100 h-100"
+                  style="object-fit: cover"
+                />
+                <div
+                  class="position-absolute bottom-0 start-0 p-3"
+                  style="
+                    background: linear-gradient(
+                      to top,
+                      rgba(33, 26, 29, 0.7),
+                      transparent
+                    );
+                  "
+                >
+                  <span class="fw-bold text-white"
+                    >Xưởng bánh của chúng tôi · TP. Hồ Chí Minh</span
+                  >
                 </div>
               </div>
             </div>
             <div class="col-lg-6">
               <span class="stb-tag">Từ Năm 2015</span>
-              <h2 class="font-headline fw-black mb-3" style="color:var(--clr-primary); font-size:2.2rem;">Hành Trình Ngọt Ngào Bắt Đầu Từ Một Căn Bếp Nhỏ</h2>
-              <p style="color:var(--clr-on-surface-variant); line-height:1.8; margin-bottom:1.25rem;">Sweet Trio Bakery được thành lập bởi ba người bạn thân — Minh Thư, Bảo Ngọc và Lê Văn — những người chia sẻ cùng một niềm đam mê với nghệ thuật làm bánh và phong cách ẩm thực Pháp.</p>
-              <p style="color:var(--clr-on-surface-variant); line-height:1.8; margin-bottom:2rem;">Bắt đầu từ một căn bếp nhỏ ở quận 3, chúng tôi đã phát triển thành một trong những tiệm bánh artisanal được yêu thích nhất tại TP.HCM, với hơn 5.000 khách hàng trung thành.</p>
+              <h2
+                class="font-headline fw-black mb-3"
+                style="color: var(--clr-primary); font-size: 2.2rem"
+              >
+                Hành Trình Ngọt Ngào Bắt Đầu Từ Một Căn Bếp Nhỏ
+              </h2>
+              <p
+                style="
+                  color: var(--clr-on-surface-variant);
+                  line-height: 1.8;
+                  margin-bottom: 1.25rem;
+                "
+              >
+                Sweet Trio Bakery được thành lập bởi ba người bạn thân — Minh
+                Thư, Bảo Ngọc và Lê Văn — những người chia sẻ cùng một niềm đam
+                mê với nghệ thuật làm bánh và phong cách ẩm thực Pháp.
+              </p>
+              <p
+                style="
+                  color: var(--clr-on-surface-variant);
+                  line-height: 1.8;
+                  margin-bottom: 2rem;
+                "
+              >
+                Bắt đầu từ một căn bếp nhỏ ở quận 3, chúng tôi đã phát triển
+                thành một trong những tiệm bánh artisanal được yêu thích nhất
+                tại TP.HCM, với hơn 5.000 khách hàng trung thành.
+              </p>
               <div class="row g-3">
                 <div class="col-4 text-center">
-                  <div class="fw-black" style="font-size:2rem; color:var(--clr-secondary); font-family:var(--font-headline);">10+</div>
-                  <div style="font-size:.875rem; color:var(--clr-on-surface-variant);">Năm Kinh Nghiệm</div>
+                  <div
+                    class="fw-black"
+                    style="
+                      font-size: 2rem;
+                      color: var(--clr-secondary);
+                      font-family: var(--font-headline);
+                    "
+                  >
+                    10+
+                  </div>
+                  <div
+                    style="
+                      font-size: 0.875rem;
+                      color: var(--clr-on-surface-variant);
+                    "
+                  >
+                    Năm Kinh Nghiệm
+                  </div>
                 </div>
                 <div class="col-4 text-center">
-                  <div class="fw-black" style="font-size:2rem; color:var(--clr-secondary); font-family:var(--font-headline);">50+</div>
-                  <div style="font-size:.875rem; color:var(--clr-on-surface-variant);">Loại Bánh</div>
+                  <div
+                    class="fw-black"
+                    style="
+                      font-size: 2rem;
+                      color: var(--clr-secondary);
+                      font-family: var(--font-headline);
+                    "
+                  >
+                    50+
+                  </div>
+                  <div
+                    style="
+                      font-size: 0.875rem;
+                      color: var(--clr-on-surface-variant);
+                    "
+                  >
+                    Loại Bánh
+                  </div>
                 </div>
                 <div class="col-4 text-center">
-                  <div class="fw-black" style="font-size:2rem; color:var(--clr-secondary); font-family:var(--font-headline);">5K+</div>
-                  <div style="font-size:.875rem; color:var(--clr-on-surface-variant);">Khách Hài Lòng</div>
+                  <div
+                    class="fw-black"
+                    style="
+                      font-size: 2rem;
+                      color: var(--clr-secondary);
+                      font-family: var(--font-headline);
+                    "
+                  >
+                    5K+
+                  </div>
+                  <div
+                    style="
+                      font-size: 0.875rem;
+                      color: var(--clr-on-surface-variant);
+                    "
+                  >
+                    Khách Hài Lòng
+                  </div>
                 </div>
               </div>
             </div>
@@ -132,94 +322,182 @@
         </div>
       </section>
 
-      <!-- ===== VALUES BENTO ===== -->
-      <section class="py-5" style="background:var(--clr-surface-low);">
+      <section class="py-5" style="background: var(--clr-surface-low)">
         <div class="container">
           <h2 class="section-title" data-aos="fade-up">Giá Trị Cốt Lõi</h2>
           <div class="values-bento" data-aos="fade-up">
-            <!-- Main -->
             <div class="bento-main">
-              <div class="bento-main-icon"><i class="bi bi-award-fill"></i></div>
-              <h3 class="font-headline fw-black mb-2" style="color:var(--clr-primary); font-size:1.8rem;">Chất Lượng Không Thỏa Hiệp</h3>
-              <p style="color:var(--clr-on-surface-variant); line-height:1.7; margin:0;">Mỗi chiếc bánh đều trải qua quy trình kiểm tra nghiêm ngặt — từ nguyên liệu đầu vào đến bước thành phẩm cuối cùng.</p>
+              <div class="bento-main-icon">
+                <i class="bi bi-award-fill"></i>
+              </div>
+              <h3
+                class="font-headline fw-black mb-2"
+                style="color: var(--clr-primary); font-size: 1.8rem"
+              >
+                Chất Lượng Không Thỏa Hiệp
+              </h3>
+              <p
+                style="
+                  color: var(--clr-on-surface-variant);
+                  line-height: 1.7;
+                  margin: 0;
+                "
+              >
+                Mỗi chiếc bánh đều trải qua quy trình kiểm tra nghiêm ngặt — từ
+                nguyên liệu đầu vào đến bước thành phẩm cuối cùng.
+              </p>
             </div>
-            <!-- Cells -->
+
             <div class="bento-cell">
               <div>
-                <div class="fw-bold mb-1" style="color:var(--clr-on-secondary-container);"><i class="bi bi-flower1 me-2"></i>Nguyên Liệu Tự Nhiên</div>
-                <div style="font-size:.875rem; color:var(--clr-primary);">Không chất bảo quản, không màu nhân tạo.</div>
+                <div
+                  class="fw-bold mb-1"
+                  style="color: var(--clr-on-secondary-container)"
+                >
+                  <i class="bi bi-flower1 me-2"></i>Nguyên Liệu Tự Nhiên
+                </div>
+                <div style="font-size: 0.875rem; color: var(--clr-primary)">
+                  Không chất bảo quản, không màu nhân tạo.
+                </div>
               </div>
-              <span style="font-size:2.5rem;"><i class="bi bi-flower2"></i></span>
+              <span style="font-size: 2.5rem"
+                ><i class="bi bi-flower2"></i
+              ></span>
             </div>
             <div class="bento-sm">
-              <div style="font-size:2rem; margin-bottom:.5rem;"><i class="bi bi-fire"></i></div>
-              <div class="fw-bold" style="font-size:.9rem; color:var(--clr-tertiary);">Nướng Tươi Mỗi Ngày</div>
+              <div style="font-size: 2rem; margin-bottom: 0.5rem">
+                <i class="bi bi-fire"></i>
+              </div>
+              <div
+                class="fw-bold"
+                style="font-size: 0.9rem; color: var(--clr-tertiary)"
+              >
+                Nướng Tươi Mỗi Ngày
+              </div>
             </div>
             <div class="bento-cell">
               <div>
-                <div class="fw-bold mb-1" style="color:var(--clr-on-secondary-container);"><i class="bi bi-gift-fill me-2"></i>Gói Quà Đẹp</div>
-                <div style="font-size:.875rem; color:var(--clr-primary);">Đóng gói sang trọng cho mọi dịp đặc biệt.</div>
+                <div
+                  class="fw-bold mb-1"
+                  style="color: var(--clr-on-secondary-container)"
+                >
+                  <i class="bi bi-gift-fill me-2"></i>Gói Quà Đẹp
+                </div>
+                <div style="font-size: 0.875rem; color: var(--clr-primary)">
+                  Đóng gói sang trọng cho mọi dịp đặc biệt.
+                </div>
               </div>
-              <span style="font-size:2.5rem;"><i class="bi bi-stars"></i></span>
+              <span style="font-size: 2.5rem"><i class="bi bi-stars"></i></span>
             </div>
             <div class="bento-sm2">
-              <div style="font-size:2rem; margin-bottom:.5rem;"><i class="bi bi-heart-fill"></i></div>
-              <div class="fw-bold" style="font-size:.9rem; color:var(--clr-primary);">Làm Bằng Tình Yêu</div>
+              <div style="font-size: 2rem; margin-bottom: 0.5rem">
+                <i class="bi bi-heart-fill"></i>
+              </div>
+              <div
+                class="fw-bold"
+                style="font-size: 0.9rem; color: var(--clr-primary)"
+              >
+                Làm Bằng Tình Yêu
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- ===== TEAM ===== -->
       <section class="py-5">
         <div class="container">
           <h2 class="section-title" data-aos="fade-up">Nhóm Thực Hiện</h2>
-          <p class="text-center mb-4" style="color:var(--clr-on-surface-variant);">Những con người đằng sau từng chiếc bánh ngọt ngào</p>
+          <p
+            class="text-center mb-4"
+            style="color: var(--clr-on-surface-variant)"
+          >
+            Những con người đằng sau từng chiếc bánh ngọt ngào
+          </p>
           <div class="row g-4 justify-content-center">
-            <!-- Member 1 -->
             <div class="col-md-4 mb-4">
-              <div class="stb-team-card" data-aos="fade-up" data-aos-delay="100">
+              <div
+                class="stb-team-card"
+                data-aos="fade-up"
+                data-aos-delay="100"
+              >
                 <div class="stb-slide stb-slide1">
-                  <img src="images/1.jpg" alt="Ngô Ngọc Ánh"
-                       onerror="this.src='https://ui-avatars.com/api/?name=Bao+Ngoc&background=ffd9de&color=874e58&size=350&font-size=0.35&bold=true'" />
+                  <img
+                    src="images/1.jpg"
+                    alt="Ngô Ngọc Ánh"
+                    onerror="
+                      this.src =
+                        'https://ui-avatars.com/api/?name=Bao+Ngoc&background=ffd9de&color=874e58&size=350&font-size=0.35&bold=true'
+                    "
+                  />
                 </div>
                 <div class="stb-slide stb-slide2">
                   <div class="stb-team-content">
                     <span class="team-role">Founder & Head Baker</span>
                     <h3>Ngô Ngọc Ánh</h3>
-                    <p>Chuyên gia về bánh mousse và entremet. Là linh hồn sáng tạo của Sweet Trio.</p>
+                    <p>
+                      Chuyên gia về bánh mousse và entremet. Là linh hồn sáng
+                      tạo của Sweet Trio.
+                    </p>
                   </div>
                 </div>
               </div>
             </div>
-            <!-- Member 2 -->
             <div class="col-md-4 mb-4">
-              <div class="stb-team-card" data-aos="fade-up" data-aos-delay="200">
+              <div
+                class="stb-team-card"
+                data-aos="fade-up"
+                data-aos-delay="200"
+              >
                 <div class="stb-slide stb-slide1">
-                  <img src="images/2.jpg" alt="Hoàng Gia Linh"
-                       onerror="this.src='https://ui-avatars.com/api/?name=Minh+Thu&background=ffd9de&color=874e58&size=350&font-size=0.35&bold=true'" />
+                  <img
+                    src="images/2.jpg"
+                    alt="Lê Nguyên Thanh Ngân"
+                    onerror="
+                      this.src =
+                        'https://ui-avatars.com/api/?name=Minh+Thu&background=ffd9de&color=874e58&size=350&font-size=0.35&bold=true'
+                    "
+                  />
                 </div>
                 <div class="stb-slide stb-slide2">
                   <div class="stb-team-content">
-                    <span class="team-role">Co-Founder & Creative Director</span>
-                    <h3>Hoàng Gia Linh</h3>
-                    <p>Chịu trách nhiệm thiết kế và thẩm mỹ cho từng chiếc bánh. Mỗi tác phẩm là một câu chuyện được kể qua đường kẻ và màu sắc.</p>
+                    <span class="team-role"
+                      >Co-Founder & Creative Director</span
+                    >
+                    <h3>Lê Nguyên Thanh Ngân</h3>
+                    <p>
+                      Chịu trách nhiệm thiết kế và thẩm mỹ cho từng chiếc bánh.
+                      Mỗi tác phẩm là một câu chuyện được kể qua đường kẻ và màu
+                      sắc.
+                    </p>
                   </div>
                 </div>
               </div>
             </div>
-            <!-- Member 3 -->
+
             <div class="col-md-4 mb-4">
-              <div class="stb-team-card" data-aos="fade-up" data-aos-delay="300">
+              <div
+                class="stb-team-card"
+                data-aos="fade-up"
+                data-aos-delay="300"
+              >
                 <div class="stb-slide stb-slide1">
-                  <img src="images/3.jpg" alt="Lê Nguyên Thanh Ngân"
-                       onerror="this.src='https://ui-avatars.com/api/?name=Le+Van&background=ffd9de&color=874e58&size=350&font-size=0.35&bold=true'" />
+                  <img
+                    src="images/3.jpg"
+                    alt="Cái Hoàng Gia Linh"
+                    onerror="
+                      this.src =
+                        'https://ui-avatars.com/api/?name=Le+Van&background=ffd9de&color=874e58&size=350&font-size=0.35&bold=true'
+                    "
+                  />
                 </div>
                 <div class="stb-slide stb-slide2">
                   <div class="stb-team-content">
                     <span class="team-role">Co-Founder & Operations</span>
-                    <h3>Lê Nguyên Thanh Ngân</h3>
-                    <p>Phụ trách vận hành và đảm bảo mỗi chiếc bánh được giao đến tay khách hàng trong tình trạng hoàn hảo nhất.</p>
+                    <h3>Cái Hoàng Gia Linh</h3>
+                    <p>
+                      Phụ trách vận hành và đảm bảo mỗi chiếc bánh được giao đến
+                      tay khách hàng trong tình trạng hoàn hảo nhất.
+                    </p>
                   </div>
                 </div>
               </div>
@@ -228,58 +506,106 @@
         </div>
       </section>
 
-      <!-- ===== CTA ===== -->
-      <section class="py-5 text-center" style="background:var(--clr-surface-low);">
+      <section
+        class="py-5 text-center"
+        style="background: var(--clr-surface-low)"
+      >
         <div class="container">
-          <h2 class="font-headline fw-black mb-3" style="color:var(--clr-primary);">Hãy Trở Thành Một Phần Câu Chuyện Của Chúng Tôi</h2>
-          <p class="mb-4" style="color:var(--clr-on-surface-variant);">Ghé thăm tiệm hoặc đặt hàng online để cảm nhận sự khác biệt.</p>
-          <a href="products.html" class="btn stb-btn stb-btn-secondary me-3"><i class="bi bi-shop me-2"></i>Xem Sản Phẩm</a>
-          <a href="contact.html" class="btn stb-btn stb-btn-outline"><i class="bi bi-telephone me-2"></i>Liên Hệ</a>
+          <h2
+            class="font-headline fw-black mb-3"
+            style="color: var(--clr-primary)"
+          >
+            Hãy Trở Thành Một Phần Câu Chuyện Của Chúng Tôi
+          </h2>
+          <p class="mb-4" style="color: var(--clr-on-surface-variant)">
+            Ghé thăm tiệm hoặc đặt hàng online để cảm nhận sự khác biệt.
+          </p>
+          <a href="products.html" class="btn stb-btn stb-btn-secondary me-3"
+            ><i class="bi bi-shop me-2"></i>Xem Sản Phẩm</a
+          >
+          <a href="contact.html" class="btn stb-btn stb-btn-outline"
+            ><i class="bi bi-telephone me-2"></i>Liên Hệ</a
+          >
         </div>
       </section>
     </main>
 
-    <!-- ===== FOOTER ===== -->
     <footer class="footer">
       <div class="container">
         <div class="row g-4">
           <div class="col-md-4">
-            <img src="images/logo1.png" alt="Sweet Trio Bakery" class="footer-logo mb-3" />
-            <p style="color:rgba(252,237,242,0.8); font-size:.9rem; line-height:1.7; max-width:280px;">Tiệm bánh artisanal thủ công với tình yêu và nguyên liệu tự nhiên nhất.</p>
+            <img
+              src="images/logo1.png"
+              alt="Sweet Trio Bakery Logo"
+              class="footer-logo mb-3"
+            />
+            <p>
+              Nơi những giấc mơ ngọt ngào trở thành hiện thực qua từng chiếc
+              bánh artisanal được nướng tươi mỗi ngày.
+            </p>
             <div class="footer-social-icons">
-              <a href="https://www.facebook.com/Bapsxinkiu" class="footer-social-link"><i class="bi bi-facebook"></i></a>
-              <a href="https://www.instagram.com/nqoc.nahzz/" class="footer-social-link"><i class="bi bi-instagram"></i></a>
-              <a href="https://www.tiktok.com/@nacileng" class="footer-social-link"><i class="bi bi-tiktok"></i></a>
+              <a
+                href="https://www.facebook.com/Bapsxinkiu"
+                class="footer-social-link"
+                title="Facebook"
+                ><i class="bi bi-facebook"></i
+              ></a>
+              <a
+                href="https://www.instagram.com/nqoc.nahzz/"
+                class="footer-social-link"
+                title="Instagram"
+                ><i class="bi bi-instagram"></i
+              ></a>
+              <a
+                href="https://www.tiktok.com/@nacileng"
+                class="footer-social-link"
+                title="TikTok"
+                ><i class="bi bi-tiktok"></i
+              ></a>
             </div>
           </div>
+
           <div class="col-6 col-md-2">
             <h5 class="mb-3">Khám Phá</h5>
-            <ul class="list-unstyled" style="line-height:2;">
+            <ul class="list-unstyled" style="line-height: 2">
               <li><a href="index.html">Trang Chủ</a></li>
               <li><a href="about.html">Giới Thiệu</a></li>
               <li><a href="products.html">Sản Phẩm</a></li>
               <li><a href="news.html">Tin Tức</a></li>
             </ul>
           </div>
+
           <div class="col-6 col-md-2">
             <h5 class="mb-3">Hỗ Trợ</h5>
-            <ul class="list-unstyled" style="line-height:2;">
+            <ul class="list-unstyled" style="line-height: 2">
               <li><a href="contact.html">Liên Hệ</a></li>
               <li><a href="sitemap.html">Sitemap</a></li>
+              <li><a href="cart.html">Giỏ Hàng</a></li>
               <li><a href="login.html">Đăng Nhập</a></li>
             </ul>
           </div>
+
           <div class="col-md-4">
             <h5 class="mb-3">Bản Tin Ngọt Ngào</h5>
-            <p style="color:rgba(252,237,242,0.8); font-size:.9rem; margin-bottom:1rem;">Nhận thông tin về bánh mới và ưu đãi đặc biệt.</p>
+            <p>Đăng ký để nhận tin về bánh mới và ưu đãi đặc biệt.</p>
             <div class="footer-newsletter">
-              <input type="email" placeholder="Email của bạn..." />
+              <input
+                type="email"
+                placeholder="Email của bạn..."
+                aria-label="Email đăng ký nhận tin"
+              />
               <button type="button">Gửi</button>
             </div>
           </div>
         </div>
+
         <hr class="mt-5 footer-divider" />
-        <p class="text-center mb-0" style="color:rgba(252,237,242,0.4); font-size:.8rem;">© 2026 Sweet Trio Bakery. Crafted with artisanal love.</p>
+        <div class="text-center opacity-75 small">
+          <p class="mb-0">
+            © 2026 Sweet Trio Bakery. Crafted with artisanal love. — Website
+            Demo
+          </p>
+        </div>
       </div>
     </footer>
 

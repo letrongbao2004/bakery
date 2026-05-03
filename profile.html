@@ -3,7 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Hồ sơ thành viên Sweet Trio Bakery - Cập nhật thông tin cá nhân và xem lịch sử đơn hàng." />
+    <meta
+      name="description"
+      content="Hồ sơ thành viên Sweet Trio Bakery - Cập nhật thông tin cá nhân và xem lịch sử đơn hàng."
+    />
     <link rel="icon" type="image/png" href="images/logo1.png" />
     <title>Hồ Sơ Của Tôi - Sweet Trio Bakery</title>
     <link rel="stylesheet" href="bootstrap/icons/bootstrap-icons.css" />
@@ -11,15 +14,16 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <!-- NAVBAR -->
     <nav class="navbar-custom-v2 fixed-top">
       <div class="container navbar-v2-inner">
-        <!-- Zone 1: Logo & Brand -->
         <a href="index.html" class="navbar-v2-brand">
-          <img src="images/logo1.png" alt="Sweet House Logo" class="brand-icon" />
+          <img
+            src="images/logo1.png"
+            alt="Sweet House Logo"
+            class="brand-icon"
+          />
         </a>
 
-        <!-- Zone 2: Centered Links -->
         <ul class="navbar-v2-nav d-none d-lg-flex">
           <li><a href="index.html" class="nav-v2-link">Trang Chủ</a></li>
           <li><a href="about.html" class="nav-v2-link">Giới Thiệu</a></li>
@@ -28,59 +32,129 @@
           <li><a href="contact.html" class="nav-v2-link">Liên Hệ</a></li>
         </ul>
 
-        <!-- Zone 3: Actions (Cart & Login) -->
         <div class="navbar-v2-actions">
-          <!-- Cart -->
           <div class="dropdown" id="cartNavContainer">
-            <a href="#" class="action-icon-wrap" id="cartDropdownToggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a
+              href="#"
+              class="action-icon-wrap"
+              id="cartDropdownToggle"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
               <i class="bi bi-cart3"></i>
               <span class="cart-badge" id="cartBadgeCount">0</span>
             </a>
-            <div class="dropdown-menu dropdown-menu-end shadow p-0" id="miniCartDropdown">
+            <div
+              class="dropdown-menu dropdown-menu-end shadow p-0"
+              id="miniCartDropdown"
+            >
               <div class="p-3 border-bottom">
-                <h6 class="mb-0 fw-bold"><i class="bi bi-cart3 me-2"></i>Giỏ Hàng Của Bạn</h6>
+                <h6 class="mb-0 fw-bold">
+                  <i class="bi bi-cart3 me-2"></i>Giỏ Hàng Của Bạn
+                </h6>
               </div>
-              <div id="miniCartItems" class="px-3 py-2 mini-cart-items-scroll"></div>
-              <div class="p-3 border-top bg-light d-flex justify-content-between align-items-center">
-                <span class="fw-bold">Tổng: <span id="miniCartTotal" class="text-accent">0 VNĐ</span></span>
-                <a href="cart.html" class="btn btn-sm stb-btn stb-btn-secondary">Xem Giỏ Hàng</a>
+              <div
+                id="miniCartItems"
+                class="px-3 py-2 mini-cart-items-scroll"
+              ></div>
+              <div
+                class="p-3 border-top bg-light d-flex justify-content-between align-items-center"
+              >
+                <span class="fw-bold"
+                  >Tổng:
+                  <span id="miniCartTotal" class="text-accent"
+                    >0 VNĐ</span
+                  ></span
+                >
+                <a href="cart.html" class="btn btn-sm stb-btn stb-btn-secondary"
+                  >Xem Giỏ Hàng</a
+                >
               </div>
             </div>
           </div>
 
-          <!-- Avatar (Hidden initially) -->
-          <div class="dropdown" id="avatarNavContainer" style="display:none">
-            <a href="#" class="action-icon-wrap" id="avatarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <div class="dropdown" id="avatarNavContainer" style="display: none">
+            <a
+              href="#"
+              class="action-icon-wrap"
+              id="avatarDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
               <i class="bi bi-person-circle"></i>
             </a>
             <ul class="dropdown-menu dropdown-menu-end shadow">
-              <li><a class="dropdown-item" href="profile.html"><i class="bi bi-person me-2"></i>Xem Profile</a></li>
+              <li>
+                <a class="dropdown-item" href="profile.html"
+                  ><i class="bi bi-person me-2"></i>Xem Profile</a
+                >
+              </li>
               <li><hr class="dropdown-divider" /></li>
-              <li><a class="dropdown-item text-danger" href="#" onclick="handleLogout(event)"><i class="bi bi-box-arrow-right me-2"></i>Đăng xuất</a></li>
+              <li>
+                <a
+                  class="dropdown-item text-danger"
+                  href="#"
+                  onclick="handleLogout(event)"
+                  ><i class="bi bi-box-arrow-right me-2"></i>Đăng xuất</a
+                >
+              </li>
             </ul>
           </div>
 
-          <!-- Login CTA -->
-          <a href="login.html" class="stb-btn stb-btn-primary stb-btn-pill d-none d-lg-block" id="authNavContainer">Đăng Nhập</a>
+          <a
+            href="login.html"
+            class="stb-btn stb-btn-primary stb-btn-pill d-none d-lg-block"
+            id="authNavContainer"
+            >Đăng Nhập</a
+          >
 
-          <!-- Mobile Toggler -->
-          <button class="navbar-v2-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarV2Mobile">
+          <button
+            class="navbar-v2-toggler d-lg-none"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarV2Mobile"
+          >
             <i class="bi bi-list"></i>
           </button>
         </div>
       </div>
 
-      <!-- Mobile Menu -->
       <div class="collapse navbar-collapse" id="navbarV2Mobile">
         <div class="navbar-v2-mobile p-4">
           <ul class="list-unstyled">
-            <li><a href="index.html" class="nav-v2-link d-block py-2">Trang Chủ</a></li>
-            <li><a href="about.html" class="nav-v2-link d-block py-2">Giới Thiệu</a></li>
-            <li><a href="products.html" class="nav-v2-link d-block py-2">Sản Phẩm</a></li>
-            <li><a href="news.html" class="nav-v2-link d-block py-2">Tin Tức</a></li>
-            <li><a href="contact.html" class="nav-v2-link d-block py-2">Liên Hệ</a></li>
+            <li>
+              <a href="index.html" class="nav-v2-link d-block py-2"
+                >Trang Chủ</a
+              >
+            </li>
+            <li>
+              <a href="about.html" class="nav-v2-link d-block py-2"
+                >Giới Thiệu</a
+              >
+            </li>
+            <li>
+              <a href="products.html" class="nav-v2-link d-block py-2"
+                >Sản Phẩm</a
+              >
+            </li>
+            <li>
+              <a href="news.html" class="nav-v2-link d-block py-2">Tin Tức</a>
+            </li>
+            <li>
+              <a href="contact.html" class="nav-v2-link d-block py-2"
+                >Liên Hệ</a
+              >
+            </li>
             <li><hr class="my-3 opacity-25" /></li>
-            <li><a href="login.html" class="stb-btn stb-btn-primary stb-btn-pill w-100 text-center">Đăng Nhập</a></li>
+            <li>
+              <a
+                href="login.html"
+                class="stb-btn stb-btn-primary stb-btn-pill w-100 text-center"
+                >Đăng Nhập</a
+              >
+            </li>
           </ul>
         </div>
       </div>
@@ -89,66 +163,184 @@
     <main class="page-content-wrapper pb-5">
       <div class="container">
         <div class="row g-4">
-          <!-- SIDEBAR -->
           <div class="col-md-3">
-            <!-- Identity Card -->
             <div class="profile-sidebar mb-4">
-              <div class="p-4 text-center" style="border-bottom:1px solid var(--clr-outline-variant);">
-                <div class="profile-avatar-wrap mb-3 mx-auto" style="display:inline-block;">
-                  <img id="profileAvatarPreview" src="images/logo1.png" alt="Avatar" class="profile-avatar" />
+              <div
+                class="p-4 text-center"
+                style="border-bottom: 1px solid var(--clr-outline-variant)"
+              >
+                <div
+                  class="profile-avatar-wrap mb-3 mx-auto"
+                  style="display: inline-block"
+                >
+                  <img
+                    id="profileAvatarPreview"
+                    src="images/logo1.png"
+                    alt="Avatar"
+                    class="profile-avatar"
+                  />
                   <label for="avatarUpload" class="profile-avatar-overlay">
                     <span><i class="bi bi-camera me-1"></i>Thay đổi</span>
                   </label>
-                  <input type="file" id="avatarUpload" accept="image/*" style="display:none;" />
+                  <input
+                    type="file"
+                    id="avatarUpload"
+                    accept="image/*"
+                    style="display: none"
+                  />
                 </div>
-                <h3 class="font-headline fw-bold mb-0" style="font-size:1.1rem;" id="displayUserName">Đang tải...</h3>
-                <p style="color:var(--clr-on-surface-variant); font-size:.85rem; margin:.25rem 0 .5rem;" id="displayUserEmail">--</p>
-                <span class="badge rounded-pill px-3 py-1" style="background:var(--clr-primary-container); color:var(--clr-primary); font-size:.75rem; font-weight:700;">Thành Viên</span>
+                <h3
+                  class="font-headline fw-bold mb-0"
+                  style="font-size: 1.1rem"
+                  id="displayUserName"
+                >
+                  Đang tải...
+                </h3>
+                <p
+                  style="
+                    color: var(--clr-on-surface-variant);
+                    font-size: 0.85rem;
+                    margin: 0.25rem 0 0.5rem;
+                  "
+                  id="displayUserEmail"
+                >
+                  --
+                </p>
+                <span
+                  class="badge rounded-pill px-3 py-1"
+                  style="
+                    background: var(--clr-primary-container);
+                    color: var(--clr-primary);
+                    font-size: 0.75rem;
+                    font-weight: 700;
+                  "
+                  >Thành Viên</span
+                >
               </div>
 
-              <!-- Nav Links -->
               <div class="py-2">
-                <button class="profile-sidebar-link active" onclick="showTab('info')">
+                <button
+                  class="profile-sidebar-link active"
+                  onclick="showTab('info')"
+                >
                   <i class="bi bi-person-fill"></i>Thông Tin Cá Nhân
                 </button>
-                <button class="profile-sidebar-link" onclick="showTab('orders')">
+                <button
+                  class="profile-sidebar-link"
+                  onclick="showTab('orders')"
+                >
                   <i class="bi bi-bag-fill"></i>Lịch Sử Đơn Hàng
                 </button>
-                <button class="profile-sidebar-link" onclick="showTab('password')">
+                <button
+                  class="profile-sidebar-link"
+                  onclick="showTab('password')"
+                >
                   <i class="bi bi-lock-fill"></i>Đổi Mật Khẩu
                 </button>
-                <div style="height:1px; background:var(--clr-outline-variant); margin:.5rem 0;"></div>
-                <button class="profile-sidebar-link danger" onclick="handleLogout()">
+                <div
+                  style="
+                    height: 1px;
+                    background: var(--clr-outline-variant);
+                    margin: 0.5rem 0;
+                  "
+                ></div>
+                <button
+                  class="profile-sidebar-link danger"
+                  onclick="handleLogout()"
+                >
                   <i class="bi bi-box-arrow-right"></i>Đăng Xuất
                 </button>
               </div>
             </div>
           </div>
 
-          <!-- MAIN CONTENT -->
           <div class="col-md-9">
-            <!-- Tab: Personal Info -->
-            <div id="tabInfo" style="background:var(--clr-surface-lowest); border-radius:var(--radius-md); padding:2.5rem; box-shadow:var(--shadow-sm);">
-              <h1 class="font-headline fw-black mb-1" style="font-size:1.8rem; color:var(--clr-on-surface);">Hồ Sơ Của Tôi</h1>
-              <p class="mb-4" style="color:var(--clr-on-surface-variant);">Cập nhật thông tin tài khoản để nhận ưu đãi đặc quyền từ Sweet Trio.</p>
+            <div
+              id="tabInfo"
+              style="
+                background: var(--clr-surface-lowest);
+                border-radius: var(--radius-md);
+                padding: 2.5rem;
+                box-shadow: var(--shadow-sm);
+              "
+            >
+              <h1
+                class="font-headline fw-black mb-1"
+                style="font-size: 1.8rem; color: var(--clr-on-surface)"
+              >
+                Hồ Sơ Của Tôi
+              </h1>
+              <p class="mb-4" style="color: var(--clr-on-surface-variant)">
+                Cập nhật thông tin tài khoản để nhận ưu đãi đặc quyền từ Sweet
+                Trio.
+              </p>
 
-              <form id="profileForm" onsubmit="handleProfileSave(); return false;">
+              <form
+                id="profileForm"
+                onsubmit="
+                  handleProfileSave();
+                  return false;
+                "
+              >
                 <div class="row g-4">
                   <div class="col-md-6">
-                    <label class="form-label">Email <span style="font-size:.75rem; color:var(--clr-on-surface-variant);">(không thể thay đổi)</span></label>
-                    <input type="email" id="profileEmail" class="form-control" readonly style="opacity:.6; cursor:not-allowed; background:var(--clr-surface-low);" />
+                    <label class="form-label"
+                      >Email
+                      <span
+                        style="
+                          font-size: 0.75rem;
+                          color: var(--clr-on-surface-variant);
+                        "
+                        >(không thể thay đổi)</span
+                      ></label
+                    >
+                    <input
+                      type="email"
+                      id="profileEmail"
+                      class="form-control"
+                      readonly
+                      style="
+                        opacity: 0.6;
+                        cursor: not-allowed;
+                        background: var(--clr-surface-low);
+                      "
+                    />
                   </div>
                   <div class="col-md-6">
                     <label class="form-label">ID Thành Viên</label>
-                    <input type="text" class="form-control" value="STB-00001" readonly style="opacity:.6; cursor:not-allowed; background:var(--clr-surface-low);" />
+                    <input
+                      type="text"
+                      class="form-control"
+                      value="STB-00001"
+                      readonly
+                      style="
+                        opacity: 0.6;
+                        cursor: not-allowed;
+                        background: var(--clr-surface-low);
+                      "
+                    />
                   </div>
                   <div class="col-md-6">
-                    <label for="profileName" class="form-label">Họ và Tên</label>
-                    <input type="text" id="profileName" class="form-control" placeholder="Nguyễn Văn A" />
+                    <label for="profileName" class="form-label"
+                      >Họ và Tên</label
+                    >
+                    <input
+                      type="text"
+                      id="profileName"
+                      class="form-control"
+                      placeholder="Nguyễn Văn A"
+                    />
                   </div>
                   <div class="col-md-6">
-                    <label for="profilePhone" class="form-label">Số Điện Thoại</label>
-                    <input type="tel" id="profilePhone" class="form-control" placeholder="0901 234 567" />
+                    <label for="profilePhone" class="form-label"
+                      >Số Điện Thoại</label
+                    >
+                    <input
+                      type="tel"
+                      id="profilePhone"
+                      class="form-control"
+                      placeholder="0901 234 567"
+                    />
                   </div>
                   <div class="col-md-6">
                     <label for="profileDob" class="form-label">Ngày Sinh</label>
@@ -157,23 +349,60 @@
                   <div class="col-md-6">
                     <label class="form-label">Giới Tính</label>
                     <div class="d-flex gap-3 mt-2">
-                      <label class="d-flex align-items-center gap-2 cursor-pointer">
-                        <input type="radio" name="profileGender" value="Nữ" class="form-check-input mt-0" id="genderFemale" /> Nữ
+                      <label
+                        class="d-flex align-items-center gap-2 cursor-pointer"
+                      >
+                        <input
+                          type="radio"
+                          name="profileGender"
+                          value="Nữ"
+                          class="form-check-input mt-0"
+                          id="genderFemale"
+                        />
+                        Nữ
                       </label>
-                      <label class="d-flex align-items-center gap-2 cursor-pointer">
-                        <input type="radio" name="profileGender" value="Nam" class="form-check-input mt-0" id="genderMale" /> Nam
+                      <label
+                        class="d-flex align-items-center gap-2 cursor-pointer"
+                      >
+                        <input
+                          type="radio"
+                          name="profileGender"
+                          value="Nam"
+                          class="form-check-input mt-0"
+                          id="genderMale"
+                        />
+                        Nam
                       </label>
-                      <label class="d-flex align-items-center gap-2 cursor-pointer">
-                        <input type="radio" name="profileGender" value="Khác" class="form-check-input mt-0" id="genderOther" /> Khác
+                      <label
+                        class="d-flex align-items-center gap-2 cursor-pointer"
+                      >
+                        <input
+                          type="radio"
+                          name="profileGender"
+                          value="Khác"
+                          class="form-check-input mt-0"
+                          id="genderOther"
+                        />
+                        Khác
                       </label>
                     </div>
                   </div>
                   <div class="col-12">
-                    <label for="profileAddress" class="form-label">Địa Chỉ Giao Hàng Mặc Định</label>
-                    <textarea id="profileAddress" class="form-control" rows="3" placeholder="Số nhà, đường, phường, quận, tỉnh/thành..."></textarea>
+                    <label for="profileAddress" class="form-label"
+                      >Địa Chỉ Giao Hàng Mặc Định</label
+                    >
+                    <textarea
+                      id="profileAddress"
+                      class="form-control"
+                      rows="3"
+                      placeholder="Số nhà, đường, phường, quận, tỉnh/thành..."
+                    ></textarea>
                   </div>
                   <div class="col-12 text-end">
-                    <button type="submit" class="btn stb-btn stb-btn-secondary px-5 py-3">
+                    <button
+                      type="submit"
+                      class="btn stb-btn stb-btn-secondary px-5 py-3"
+                    >
                       <i class="bi bi-save me-2"></i>Lưu Thay Đổi
                     </button>
                   </div>
@@ -181,35 +410,98 @@
               </form>
             </div>
 
-            <!-- Tab: Order History -->
-            <div id="tabOrders" style="display:none; background:var(--clr-surface-lowest); border-radius:var(--radius-md); padding:2.5rem; box-shadow:var(--shadow-sm);">
-              <h2 class="font-headline fw-black mb-4" style="font-size:1.5rem; color:var(--clr-on-surface);">Lịch Sử Đơn Hàng</h2>
-              <div class="text-center py-5" style="color:var(--clr-on-surface-variant);">
-                <i class="bi bi-bag-x" style="font-size:4rem; display:block; margin-bottom:1rem; color:var(--clr-outline);"></i>
+            <div
+              id="tabOrders"
+              style="
+                display: none;
+                background: var(--clr-surface-lowest);
+                border-radius: var(--radius-md);
+                padding: 2.5rem;
+                box-shadow: var(--shadow-sm);
+              "
+            >
+              <h2
+                class="font-headline fw-black mb-4"
+                style="font-size: 1.5rem; color: var(--clr-on-surface)"
+              >
+                Lịch Sử Đơn Hàng
+              </h2>
+              <div
+                class="text-center py-5"
+                style="color: var(--clr-on-surface-variant)"
+              >
+                <i
+                  class="bi bi-bag-x"
+                  style="
+                    font-size: 4rem;
+                    display: block;
+                    margin-bottom: 1rem;
+                    color: var(--clr-outline);
+                  "
+                ></i>
                 <p>Bạn chưa có đơn hàng nào.</p>
-                <a href="products.html" class="btn stb-btn stb-btn-secondary"><i class="bi bi-shop me-2"></i>Mua Sắm Ngay</a>
+                <a href="products.html" class="btn stb-btn stb-btn-secondary"
+                  ><i class="bi bi-shop me-2"></i>Mua Sắm Ngay</a
+                >
               </div>
             </div>
 
-            <!-- Tab: Change Password -->
-            <div id="tabPassword" style="display:none; background:var(--clr-surface-lowest); border-radius:var(--radius-md); padding:2.5rem; box-shadow:var(--shadow-sm);">
-              <h2 class="font-headline fw-black mb-4" style="font-size:1.5rem; color:var(--clr-on-surface);">Đổi Mật Khẩu</h2>
+            <div
+              id="tabPassword"
+              style="
+                display: none;
+                background: var(--clr-surface-lowest);
+                border-radius: var(--radius-md);
+                padding: 2.5rem;
+                box-shadow: var(--shadow-sm);
+              "
+            >
+              <h2
+                class="font-headline fw-black mb-4"
+                style="font-size: 1.5rem; color: var(--clr-on-surface)"
+              >
+                Đổi Mật Khẩu
+              </h2>
               <form id="changePasswordForm">
-                <div class="row g-4" style="max-width:480px;">
+                <div class="row g-4" style="max-width: 480px">
                   <div class="col-12">
-                    <label for="oldPassword" class="form-label">Mật Khẩu Hiện Tại</label>
-                    <input type="password" id="oldPassword" class="form-control" placeholder="Nhập mật khẩu cũ..." />
+                    <label for="oldPassword" class="form-label"
+                      >Mật Khẩu Hiện Tại</label
+                    >
+                    <input
+                      type="password"
+                      id="oldPassword"
+                      class="form-control"
+                      placeholder="Nhập mật khẩu cũ..."
+                    />
                   </div>
                   <div class="col-12">
-                    <label for="newPassword" class="form-label">Mật Khẩu Mới</label>
-                    <input type="password" id="newPassword" class="form-control" placeholder="Ít nhất 6 ký tự..." />
+                    <label for="newPassword" class="form-label"
+                      >Mật Khẩu Mới</label
+                    >
+                    <input
+                      type="password"
+                      id="newPassword"
+                      class="form-control"
+                      placeholder="Ít nhất 6 ký tự..."
+                    />
                   </div>
                   <div class="col-12">
-                    <label for="confirmNewPassword" class="form-label">Xác Nhận Mật Khẩu Mới</label>
-                    <input type="password" id="confirmNewPassword" class="form-control" placeholder="Nhập lại mật khẩu mới..." />
+                    <label for="confirmNewPassword" class="form-label"
+                      >Xác Nhận Mật Khẩu Mới</label
+                    >
+                    <input
+                      type="password"
+                      id="confirmNewPassword"
+                      class="form-control"
+                      placeholder="Nhập lại mật khẩu mới..."
+                    />
                   </div>
                   <div class="col-12">
-                    <button type="submit" class="btn stb-btn stb-btn-secondary w-100 py-3">
+                    <button
+                      type="submit"
+                      class="btn stb-btn stb-btn-secondary w-100 py-3"
+                    >
                       <i class="bi bi-lock me-2"></i>Đổi Mật Khẩu
                     </button>
                   </div>
@@ -226,42 +518,135 @@
     <script src="js/main.js"></script>
     <script>
       function showTab(tab) {
-        $('#tabInfo, #tabOrders, #tabPassword').hide();
-        $('#tab' + tab.charAt(0).toUpperCase() + tab.slice(1)).show();
-        $('.profile-sidebar-link').removeClass('active');
-        $('.profile-sidebar-link:contains("Info"), .profile-sidebar-link:contains("Thông Tin"), .profile-sidebar-link:contains("Đơn Hàng"), .profile-sidebar-link:contains("Mật Khẩu")').each(function() {
-          if ((tab === 'info' && $(this).text().includes('Thông Tin')) ||
-              (tab === 'orders' && $(this).text().includes('Đơn Hàng')) ||
-              (tab === 'password' && $(this).text().includes('Mật Khẩu'))) {
-            $(this).addClass('active');
+        $("#tabInfo, #tabOrders, #tabPassword").hide();
+        $("#tab" + tab.charAt(0).toUpperCase() + tab.slice(1)).show();
+        $(".profile-sidebar-link").removeClass("active");
+        $(
+          '.profile-sidebar-link:contains("Info"), .profile-sidebar-link:contains("Thông Tin"), .profile-sidebar-link:contains("Đơn Hàng"), .profile-sidebar-link:contains("Mật Khẩu")',
+        ).each(function () {
+          if (
+            (tab === "info" && $(this).text().includes("Thông Tin")) ||
+            (tab === "orders" && $(this).text().includes("Đơn Hàng")) ||
+            (tab === "password" && $(this).text().includes("Mật Khẩu"))
+          ) {
+            $(this).addClass("active");
           }
         });
       }
 
-      $('#changePasswordForm').submit(function(e) {
+      $("#changePasswordForm").submit(function (e) {
         e.preventDefault();
-        var oldPwd = $('#oldPassword').val();
-        var newPwd = $('#newPassword').val();
-        var confirmPwd = $('#confirmNewPassword').val();
-        var user = JSON.parse(localStorage.getItem('cakeShopUser'));
+        var oldPwd = $("#oldPassword").val();
+        var newPwd = $("#newPassword").val();
+        var confirmPwd = $("#confirmNewPassword").val();
+        var user = JSON.parse(localStorage.getItem("cakeShopUser"));
         if (!user) return;
         if (user.password !== oldPwd) {
-          showNotification('error', 'Lỗi', 'Mật khẩu hiện tại không đúng.'); return;
+          showNotification("error", "Lỗi", "Mật khẩu hiện tại không đúng.");
+          return;
         }
         if (newPwd.length < 6) {
-          showNotification('warning', 'Lỗi', 'Mật khẩu mới phải có ít nhất 6 ký tự.'); return;
+          showNotification(
+            "warning",
+            "Lỗi",
+            "Mật khẩu mới phải có ít nhất 6 ký tự.",
+          );
+          return;
         }
         if (newPwd !== confirmPwd) {
-          showNotification('error', 'Lỗi', 'Xác nhận mật khẩu không khớp.'); return;
+          showNotification("error", "Lỗi", "Xác nhận mật khẩu không khớp.");
+          return;
         }
         user.password = newPwd;
-        localStorage.setItem('cakeShopUser', JSON.stringify(user));
-        var users = JSON.parse(localStorage.getItem('cakeShopUsers')) || [];
-        var idx = users.findIndex(u => u.email === user.email);
-        if (idx !== -1) { users[idx].password = newPwd; localStorage.setItem('cakeShopUsers', JSON.stringify(users)); }
-        showNotification('success', 'Thành Công', 'Mật khẩu đã được cập nhật!');
+        localStorage.setItem("cakeShopUser", JSON.stringify(user));
+        var users = JSON.parse(localStorage.getItem("cakeShopUsers")) || [];
+        var idx = users.findIndex((u) => u.email === user.email);
+        if (idx !== -1) {
+          users[idx].password = newPwd;
+          localStorage.setItem("cakeShopUsers", JSON.stringify(users));
+        }
+        showNotification("success", "Thành Công", "Mật khẩu đã được cập nhật!");
         this.reset();
       });
     </script>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-md-4">
+            <img
+              src="images/logo1.png"
+              alt="Sweet Trio Bakery Logo"
+              class="footer-logo mb-3"
+            />
+            <p>
+              Nơi những giấc mơ ngọt ngào trở thành hiện thực qua từng chiếc
+              bánh artisanal được nướng tươi mỗi ngày.
+            </p>
+            <div class="footer-social-icons">
+              <a
+                href="https://www.facebook.com/Bapsxinkiu"
+                class="footer-social-link"
+                title="Facebook"
+                ><i class="bi bi-facebook"></i
+              ></a>
+              <a
+                href="https://www.instagram.com/nqoc.nahzz/"
+                class="footer-social-link"
+                title="Instagram"
+                ><i class="bi bi-instagram"></i
+              ></a>
+              <a
+                href="https://www.tiktok.com/@nacileng"
+                class="footer-social-link"
+                title="TikTok"
+                ><i class="bi bi-tiktok"></i
+              ></a>
+            </div>
+          </div>
+
+          <div class="col-6 col-md-2">
+            <h5 class="mb-3">Khám Phá</h5>
+            <ul class="list-unstyled" style="line-height: 2">
+              <li><a href="index.html">Trang Chủ</a></li>
+              <li><a href="about.html">Giới Thiệu</a></li>
+              <li><a href="products.html">Sản Phẩm</a></li>
+              <li><a href="news.html">Tin Tức</a></li>
+            </ul>
+          </div>
+
+          <div class="col-6 col-md-2">
+            <h5 class="mb-3">Hỗ Trợ</h5>
+            <ul class="list-unstyled" style="line-height: 2">
+              <li><a href="contact.html">Liên Hệ</a></li>
+              <li><a href="sitemap.html">Sitemap</a></li>
+              <li><a href="cart.html">Giỏ Hàng</a></li>
+              <li><a href="login.html">Đăng Nhập</a></li>
+            </ul>
+          </div>
+
+          <div class="col-md-4">
+            <h5 class="mb-3">Bản Tin Ngọt Ngào</h5>
+            <p>Đăng ký để nhận tin về bánh mới và ưu đãi đặc biệt.</p>
+            <div class="footer-newsletter">
+              <input
+                type="email"
+                placeholder="Email của bạn..."
+                aria-label="Email đăng ký nhận tin"
+              />
+              <button type="button">Gửi</button>
+            </div>
+          </div>
+        </div>
+
+        <hr class="mt-5 footer-divider" />
+        <div class="text-center opacity-75 small">
+          <p class="mb-0">
+            © 2026 Sweet Trio Bakery. Crafted with artisanal love. — Website
+            Demo
+          </p>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

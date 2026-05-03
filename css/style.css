@@ -1,19 +1,6 @@
-/*
-  Sweet Trio Bakery - Main Stylesheet
-  Design System ported from Stitch (Tailwind → Bootstrap + Custom CSS)
-  Colors based on Material Design 3 / PRD Design System
-*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
 
-/* ==============================================
-   GOOGLE FONTS IMPORT
-   ============================================== */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
-
-/* ==============================================
-   DESIGN TOKENS (CSS Custom Properties)
-   ============================================== */
 :root {
-  /* Brand Colors (Restored Original Palette) */
   --clr-primary: #874e58;
   --clr-secondary: #af2856;
   --clr-background: #fff3f5;
@@ -22,20 +9,17 @@
   --clr-on-surface-variant: #514345;
   --clr-white: #ffffff;
 
-  /* Surface colors */
   --clr-surface-lowest: #fff3f5;
   --clr-surface-low: #ffebee;
   --clr-surface-container: #fce4ec;
   --clr-primary-container: #ffccd5;
   --clr-outline-variant: #f2cbd2;
-  --clr-footer-bg: #3D1A24;
+  --clr-footer-bg: #3d1a24;
 
-  /* Typography */
-  --font-headline: 'Poppins', sans-serif;
-  --font-body: 'Inter', sans-serif;
-  --font-elegant: 'Playfair Display', serif;
+  --font-headline: "Poppins", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-elegant: "Playfair Display", serif;
 
-  /* Shadows & Spacing (Enhanced contrast) */
   --shadow-soft: 0 4px 20px rgba(135, 78, 88, 0.08);
   --shadow-md: 0 8px 30px rgba(135, 78, 88, 0.12);
   --shadow-hover: 0 12px 40px rgba(135, 78, 88, 0.18);
@@ -44,43 +28,33 @@
   --navbar-height: 70px;
   --navbar-blur: 16px;
 
-  /* [BUG-03] Shadows bổ sung */
   --shadow-sm: 0 2px 8px rgba(135, 78, 88, 0.06);
   --shadow-lg: 0 16px 48px rgba(135, 78, 88, 0.16);
   --shadow-xl: 0 24px 64px rgba(135, 78, 88, 0.22);
 
-  /* [BUG-03] Border radius bổ sung */
   --radius-sm: 8px;
   --radius-lg: 20px;
 
-  /* [BUG-03] Error colors */
   --clr-error: #ba1a1a;
   --clr-error-container: #ffdad6;
 
-  /* [BUG-03] Surface variants */
   --clr-surface-high: #f48fb1;
   --clr-surface-highest: #f06292;
   --clr-surface-variant: #ec407a;
 
-  /* [BUG-03] Tertiary & secondary containers */
   --clr-tertiary: #7d5260;
   --clr-tertiary-container: #ffd8e4;
   --clr-on-secondary-container: #3e001f;
   --clr-secondary-container: #ffccd5;
 
-  /* [BUG-03] Inverse */
   --clr-inverse-surface: #352f30;
 
-  /* [BUG-03] Primary variants */
   --clr-primary-dark: #6b3840;
   --clr-primary-fixed-dim: #ffb2bc;
   --clr-on-primary: #ffffff;
   --clr-on-secondary: #ffffff;
 }
 
-/* ==============================================
-   UNIFIED COMPONENT SYSTEM (CARDS & BUTTONS)
-   ============================================== */
 .stb-card {
   background: var(--clr-surface-lowest);
   border-radius: var(--radius-md);
@@ -89,7 +63,9 @@
 }
 
 .stb-card-interactive {
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
   height: 100%;
 }
 
@@ -152,9 +128,6 @@
   padding: 10px 24px;
 }
 
-/* ==============================================
-   BASE STYLES
-   ============================================== */
 *,
 *::before,
 *::after {
@@ -176,7 +149,6 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Global Page Spacing for Fixed Navbar */
 .page-content-wrapper {
   padding-top: var(--navbar-height);
 }
@@ -203,9 +175,6 @@ img {
   height: auto;
 }
 
-/* ==============================================
-   NAVBAR (V3 - Modern 3-Zone Architecture)
-   ============================================== */
 .navbar-custom-v2 {
   position: fixed;
   top: 0;
@@ -252,7 +221,6 @@ img {
   color: var(--clr-on-surface-variant);
 }
 
-/* 3-Zone Wrapper */
 .navbar-v2-inner {
   display: grid;
   grid-template-columns: 240px 1fr 240px;
@@ -264,7 +232,6 @@ img {
   padding: 0 2rem;
 }
 
-/* Zone 1: Logo & Wordmark (Left) */
 .navbar-v2-brand {
   display: flex;
   align-items: center;
@@ -291,7 +258,6 @@ img {
   transform: rotate(-5deg) scale(1.1);
 }
 
-/* Zone 2: Navigation Links (Center) */
 .navbar-v2-nav {
   display: flex;
   justify-content: center;
@@ -314,9 +280,8 @@ img {
   transition: color 0.2s ease;
 }
 
-/* Hover Underline Growth */
 .nav-v2-link::before {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 4px;
   left: 0;
@@ -336,13 +301,12 @@ img {
   transform: scaleX(1);
 }
 
-/* Active Dot State */
 .nav-v2-link.active {
   color: var(--clr-primary);
 }
 
 .nav-v2-link.active::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -4px;
   left: 50%;
@@ -351,7 +315,8 @@ img {
   height: 5px;
   background-color: var(--clr-primary);
   border-radius: 50%;
-  animation: dotScaleIn 0.2s forwards 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation: dotScaleIn 0.2s forwards 0.2s
+    cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 @keyframes dotScaleIn {
@@ -360,7 +325,6 @@ img {
   }
 }
 
-/* Zone 3: Actions (Right) */
 .navbar-v2-actions {
   display: flex;
   align-items: center;
@@ -372,7 +336,9 @@ img {
   position: relative;
   color: var(--clr-on-surface-variant);
   font-size: 1.3rem;
-  transition: color 0.2s ease, transform 0.2s ease;
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
 }
 
 .action-icon-wrap:hover {
@@ -380,7 +346,6 @@ img {
   transform: translateY(-2px);
 }
 
-/* Pulse Animation for Cart Badge */
 .cart-badge {
   position: absolute;
   top: -5px;
@@ -419,13 +384,10 @@ img {
   }
 }
 
-
-/* User Avatar Dropdown Refinement */
 #avatarNavContainer .dropdown-toggle::after {
   display: none;
 }
 
-/* Mobile Toggler */
 .navbar-v2-toggler {
   border: none;
   background: none;
@@ -451,26 +413,16 @@ img {
   .navbar-v2-actions {
     gap: 1rem;
   }
-
-
-
-  /* Show in mobile menu instead */
 }
 
 .nav-v2-icon-link:hover {
   transform: scale(1.1);
 }
 
-
-
-/* ==============================================
-   EDITORIAL COMPONENTS (Pink Theme)
-   ============================================== */
 .section-padding {
   padding: 80px 0;
 }
 
-/* Category Menu Sidebar Modern Redesign */
 .category-menu {
   display: flex;
   flex-direction: column;
@@ -506,9 +458,6 @@ img {
   transform: translateX(6px);
 }
 
-/* ==============================================
-   DROPDOWN MENU (Mini Cart / Avatar)
-   ============================================== */
 .dropdown-menu {
   border-radius: var(--radius-md);
   border: 1px solid var(--clr-outline-variant);
@@ -521,7 +470,6 @@ img {
   overflow-y: auto;
 }
 
-/* Cart Badge */
 #cartBadgeCount {
   font-size: 0.6em;
   top: -4px;
@@ -529,9 +477,6 @@ img {
   transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-/* ==============================================
-   HERO SECTION
-   ============================================== */
 .hero-wrapper {
   height: 100vh;
   display: flex;
@@ -550,7 +495,12 @@ img {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to bottom, rgba(33, 26, 29, 0.6) 0%, rgba(33, 26, 29, 0.3) 40%, rgba(33, 26, 29, 0.5) 100%);
+  background: linear-gradient(
+    to bottom,
+    rgba(33, 26, 29, 0.6) 0%,
+    rgba(33, 26, 29, 0.3) 40%,
+    rgba(33, 26, 29, 0.5) 100%
+  );
 }
 
 .hero-content {
@@ -565,7 +515,9 @@ img {
   color: #ffffff;
   margin-bottom: 20px;
   font-family: var(--font-headline);
-  text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.4), 0 0 40px rgba(0, 0, 0, 0.2);
+  text-shadow:
+    2px 4px 8px rgba(0, 0, 0, 0.4),
+    0 0 40px rgba(0, 0, 0, 0.2);
   letter-spacing: -0.02em;
 }
 
@@ -574,7 +526,6 @@ img {
 }
 
 @keyframes bounce {
-
   0%,
   20%,
   50%,
@@ -592,12 +543,6 @@ img {
   }
 }
 
-
-
-
-/* ==============================================
-   SECTION TITLE
-   ============================================== */
 .section-title {
   font-family: var(--font-headline);
   font-size: 2.2rem;
@@ -609,7 +554,7 @@ img {
 }
 
 .section-title::after {
-  content: '';
+  content: "";
   display: block;
   width: 60px;
   height: 3px;
@@ -618,9 +563,6 @@ img {
   margin: 12px auto 0;
 }
 
-/* ==============================================
-   FEATURES STRIP (Above Carousel)
-   ============================================== */
 .stb-features-strip {
   background: var(--clr-surface-low);
   padding: 1.5rem 0;
@@ -656,9 +598,6 @@ img {
   margin: 0;
 }
 
-/* ==============================================
-   FEATURE CARDS GRID (Homepage)
-   ============================================== */
 .stb-features-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -715,10 +654,6 @@ img {
   }
 }
 
-
-/* ==============================================
-   VIDEO SECTION
-   ============================================== */
 .stb-video-section {
   background: var(--clr-surface-low);
   border-radius: var(--radius-lg);
@@ -789,9 +724,6 @@ img {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* ==============================================
-   ABOUT PAGE SPECIFIC
-   ============================================== */
 .about-hero {
   padding: 160px 0 80px;
   background: var(--clr-surface-low);
@@ -799,7 +731,6 @@ img {
   position: relative;
 }
 
-/* Values Bento Grid */
 .values-bento {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -843,8 +774,6 @@ img {
   text-align: center;
   border: 1px solid var(--clr-outline-variant);
 }
-
-
 
 @media (max-width: 991px) {
   .values-bento {
@@ -900,9 +829,6 @@ img {
   font-weight: 500;
 }
 
-/* ==============================================
-   TESTIMONIALS
-   ============================================== */
 .stb-testimonials-section {
   background: var(--clr-surface-low);
   padding: 5rem 0;
@@ -960,9 +886,6 @@ img {
   color: var(--clr-on-surface-variant);
 }
 
-/* ==============================================
-   PRODUCT CATEGORY PILLS
-   ============================================== */
 .category-pill-active {
   background-color: var(--clr-secondary) !important;
   color: #fff !important;
@@ -982,9 +905,6 @@ img {
   border-color: var(--clr-secondary) !important;
 }
 
-/* ==============================================
-   PRODUCT DETAIL PAGE
-   ============================================== */
 .product-detail-img-border {
   border: 4px solid var(--clr-primary-container);
 }
@@ -1001,9 +921,6 @@ img {
   color: var(--clr-secondary);
 }
 
-/* ==============================================
-   BREADCRUMBS
-   ============================================== */
 .breadcrumb-item a {
   color: var(--clr-on-surface-variant);
   font-size: 0.9rem;
@@ -1014,13 +931,10 @@ img {
   font-weight: 600;
 }
 
-.breadcrumb-item+.breadcrumb-item::before {
+.breadcrumb-item + .breadcrumb-item::before {
   color: var(--clr-on-surface-variant);
 }
 
-/* ==============================================
-   SITEMAP PAGE
-   ============================================== */
 .sitemap-page-header {
   background: var(--clr-surface-low);
   padding: 3rem 0 2rem;
@@ -1042,7 +956,7 @@ img {
 }
 
 .sitemap-section-header::before {
-  content: '';
+  content: "";
   display: inline-block;
   width: 2rem;
   height: 2px;
@@ -1082,9 +996,6 @@ img {
   color: var(--clr-on-surface-variant);
 }
 
-/* ==============================================
-   NEWS PAGE
-   ============================================== */
 .news-layout {
   overflow: hidden;
   display: flex;
@@ -1168,7 +1079,9 @@ img {
   font-weight: 700;
   font-size: 0.9rem;
   margin-top: 1.25rem;
-  transition: gap 0.2s, color 0.2s;
+  transition:
+    gap 0.2s,
+    color 0.2s;
 }
 
 .news-read-more:hover {
@@ -1176,7 +1089,6 @@ img {
   color: var(--clr-primary);
 }
 
-/* Newsletter box */
 .newsletter-box {
   background: rgba(255, 182, 193, 0.15);
   border: 2px dashed var(--clr-primary-container);
@@ -1184,9 +1096,6 @@ img {
   padding: 2.5rem;
 }
 
-/* ==============================================
-   CONTACT PAGE
-   ============================================== */
 .contact-info-item {
   display: flex;
   align-items: flex-start;
@@ -1211,7 +1120,9 @@ img {
   color: var(--clr-primary);
   font-size: 1.25rem;
   flex-shrink: 0;
-  transition: background 0.2s, color 0.2s;
+  transition:
+    background 0.2s,
+    color 0.2s;
 }
 
 .contact-info-item:hover .contact-info-icon {
@@ -1219,7 +1130,6 @@ img {
   color: #fff;
 }
 
-/* Map placeholder */
 .map-placeholder {
   height: 300px;
   border-radius: var(--radius-md);
@@ -1239,9 +1149,6 @@ img {
   border: none;
 }
 
-/* ==============================================
-   FORM INPUTS
-   ============================================== */
 .form-control,
 .form-select {
   border-radius: var(--radius-sm);
@@ -1251,7 +1158,9 @@ img {
   padding: 0.75rem 1rem;
   font-family: var(--font-body);
   font-size: 0.95rem;
-  transition: border-color 0.2s, box-shadow 0.2s;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
 }
 
 .form-control:focus,
@@ -1277,9 +1186,6 @@ img {
   padding-right: 1.25rem !important;
 }
 
-/* ==============================================
-   CART PAGE
-   ============================================== */
 .cart-item-layout {
   padding: 1.5rem;
   display: flex;
@@ -1334,9 +1240,6 @@ img {
   top: calc(var(--navbar-height) + 1rem);
 }
 
-/* ==============================================
-   CHECKOUT PAGE
-   ============================================== */
 .checkout-step-bar {
   display: flex;
   align-items: center;
@@ -1359,7 +1262,9 @@ img {
   position: relative;
   z-index: 1;
   flex-shrink: 0;
-  transition: background 0.2s, color 0.2s;
+  transition:
+    background 0.2s,
+    color 0.2s;
 }
 
 .step-dot.active {
@@ -1397,9 +1302,6 @@ img {
   font-weight: 700;
 }
 
-/* ==============================================
-   LOGIN / REGISTER PAGE
-   ============================================== */
 .auth-page-wrap {
   min-height: calc(100vh - var(--navbar-height));
   background: var(--clr-surface-low);
@@ -1442,9 +1344,6 @@ img {
   object-fit: cover;
 }
 
-/* ==============================================
-   PROFILE PAGE
-   ============================================== */
 .profile-avatar-wrap {
   position: relative;
   display: inline-block;
@@ -1492,7 +1391,9 @@ img {
   gap: 1rem;
   padding: 1rem 1.5rem;
   color: var(--clr-on-surface-variant);
-  transition: background 0.2s, color 0.2s;
+  transition:
+    background 0.2s,
+    color 0.2s;
   border: none;
   background: none;
   width: 100%;
@@ -1522,13 +1423,12 @@ img {
   background: rgba(186, 26, 26, 0.08);
 }
 
-/* ==============================================
-   SCROLL ANIMATIONS
-   ============================================== */
 .fade-in {
   opacity: 0;
   transform: translateY(24px);
-  transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+  transition:
+    opacity 0.2s ease-out,
+    transform 0.2s ease-out;
 }
 
 .fade-in.visible {
@@ -1552,9 +1452,6 @@ img {
   transition-delay: 0.2s;
 }
 
-/* ==============================================
-   TOAST NOTIFICATIONS
-   ============================================== */
 .custom-toast-container {
   position: fixed;
   top: 80px;
@@ -1651,9 +1548,6 @@ img {
   color: #444;
 }
 
-/* ==============================================
-   MINI CART
-   ============================================== */
 .mini-cart-item {
   padding-bottom: 10px;
   margin-bottom: 10px;
@@ -1673,9 +1567,6 @@ img {
   border-radius: 6px;
 }
 
-/* ==============================================
-   UTILITY CLASSES
-   ============================================== */
 .text-accent,
 .text-secondary-custom {
   color: var(--clr-secondary) !important;
@@ -1701,9 +1592,6 @@ img {
   font-family: var(--font-display) !important;
 }
 
-/* ==============================================
-   RESPONSIVE - MOBILE
-   ============================================== */
 @media (max-width: 767px) {
   .carousel-item img {
     height: 45vh;
@@ -1751,7 +1639,6 @@ img {
   }
 }
 
-/* Animated Cart Shake */
 @keyframes cart-shake {
   0% {
     transform: scale(1) rotate(0deg);
@@ -1787,16 +1674,10 @@ img {
   display: inline-block;
 }
 
-/* ==============================================
-   PRODUCT LISTING - SEARCH RESULT BANNER
-   ============================================== */
 #searchResultBanner {
   margin-bottom: 1.5rem;
 }
 
-/* ==============================================
-   FOOTER
-   ============================================== */
 .footer {
   background-color: var(--clr-footer-bg);
   padding: 80px 0 30px;
@@ -1832,7 +1713,9 @@ img {
 .footer a {
   color: rgba(255, 255, 255, 0.65);
   text-decoration: none;
-  transition: color 0.2s ease, padding-left 0.2s ease;
+  transition:
+    color 0.2s ease,
+    padding-left 0.2s ease;
   display: inline-block;
   padding: 5px 10px;
 }
@@ -1897,7 +1780,9 @@ img {
   justify-content: center;
   color: #fff !important;
   font-size: 1.1rem;
-  transition: background 0.2s, transform 0.2s;
+  transition:
+    background 0.2s,
+    transform 0.2s;
 }
 
 .footer-social-link:hover {
@@ -1905,11 +1790,7 @@ img {
   transform: scale(1.2);
 }
 
-/* ==============================================
-   PRINT / ACCESSIBILITY
-   ============================================== */
 @media print {
-
   .navbar-custom-v2,
   footer,
   .cart-item-layout .qty-control {
@@ -1927,9 +1808,6 @@ img {
   border-radius: 4px;
 }
 
-/* ==============================================
-   3D PRODUCT SHOWCASE (Experimental)
-   ============================================== */
 .stb-3d-container {
   perspective: 1000px;
   display: flex;
@@ -2113,9 +1991,6 @@ img {
   }
 }
 
-/* ==============================================
-   TEAM MEMBER SLIDE HOVER EFFECT
-   ============================================== */
 .stb-team-card {
   position: relative;
   width: 100%;
@@ -2137,7 +2012,7 @@ img {
   justify-content: center;
   align-items: center;
   z-index: 1;
-  transition: .7s;
+  transition: 0.7s;
   transform: translateY(100px);
   border-radius: var(--radius-lg) var(--radius-lg) 0 0;
   overflow: hidden;
@@ -2167,7 +2042,7 @@ img {
   align-items: center;
   padding: 20px;
   box-sizing: border-box;
-  transition: .8s;
+  transition: 0.8s;
   transform: translateY(-100px);
   box-shadow: var(--shadow-xl);
   background: var(--clr-surface-lowest);
@@ -2218,16 +2093,13 @@ img {
   line-height: 1.5;
 }
 
-/* ==============================================
-   PRODUCT CARD HOVER EFFECT
-   ============================================== */
 .stb-product-card {
   position: relative;
   background-color: var(--clr-surface-lowest);
   border-radius: var(--radius-lg);
   overflow: hidden;
   box-shadow: 0px 13px 10px -7px rgba(0, 0, 0, 0.1);
-  transition: all .4s cubic-bezier(0.175, 0.885, 0, 1);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0, 1);
   height: 100%;
 }
 

@@ -3,7 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Tin tức và bài viết mới nhất từ Sweet Trio Bakery - bí quyết làm bánh, xu hướng dessert và câu chuyện từ bếp bánh." />
+    <meta
+      name="description"
+      content="Tin tức và bài viết mới nhất từ Sweet Trio Bakery - bí quyết làm bánh, xu hướng dessert và câu chuyện từ bếp bánh."
+    />
     <link rel="icon" type="image/png" href="images/logo1.png" />
     <title>Tin Tức - Sweet Trio Bakery</title>
     <link rel="stylesheet" href="bootstrap/icons/bootstrap-icons.css" />
@@ -11,15 +14,16 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <!-- ===== NAVBAR ===== -->
     <nav class="navbar-custom-v2 fixed-top">
       <div class="container navbar-v2-inner">
-        <!-- Zone 1: Logo & Brand -->
         <a href="index.html" class="navbar-v2-brand">
-          <img src="images/logo1.png" alt="Sweet House Logo" class="brand-icon" />
+          <img
+            src="images/logo1.png"
+            alt="Sweet House Logo"
+            class="brand-icon"
+          />
         </a>
 
-        <!-- Zone 2: Centered Links -->
         <ul class="navbar-v2-nav d-none d-lg-flex">
           <li><a href="index.html" class="nav-v2-link">Trang Chủ</a></li>
           <li><a href="about.html" class="nav-v2-link">Giới Thiệu</a></li>
@@ -28,285 +32,590 @@
           <li><a href="contact.html" class="nav-v2-link">Liên Hệ</a></li>
         </ul>
 
-        <!-- Zone 3: Actions (Cart & Login) -->
         <div class="navbar-v2-actions">
-          <!-- Cart -->
           <div class="dropdown" id="cartNavContainer">
-            <a href="#" class="action-icon-wrap" id="cartDropdownToggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a
+              href="#"
+              class="action-icon-wrap"
+              id="cartDropdownToggle"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
               <i class="bi bi-cart3"></i>
               <span class="cart-badge" id="cartBadgeCount">0</span>
             </a>
-            <div class="dropdown-menu dropdown-menu-end shadow p-0" id="miniCartDropdown">
+            <div
+              class="dropdown-menu dropdown-menu-end shadow p-0"
+              id="miniCartDropdown"
+            >
               <div class="p-3 border-bottom">
-                <h6 class="mb-0 fw-bold"><i class="bi bi-cart3 me-2"></i>Giỏ Hàng Của Bạn</h6>
+                <h6 class="mb-0 fw-bold">
+                  <i class="bi bi-cart3 me-2"></i>Giỏ Hàng Của Bạn
+                </h6>
               </div>
-              <div id="miniCartItems" class="px-3 py-2 mini-cart-items-scroll"></div>
-              <div class="p-3 border-top bg-light d-flex justify-content-between align-items-center">
-                <span class="fw-bold">Tổng: <span id="miniCartTotal" class="text-accent">0 VNĐ</span></span>
-                <a href="cart.html" class="btn btn-sm stb-btn stb-btn-secondary">Xem Giỏ Hàng</a>
+              <div
+                id="miniCartItems"
+                class="px-3 py-2 mini-cart-items-scroll"
+              ></div>
+              <div
+                class="p-3 border-top bg-light d-flex justify-content-between align-items-center"
+              >
+                <span class="fw-bold"
+                  >Tổng:
+                  <span id="miniCartTotal" class="text-accent"
+                    >0 VNĐ</span
+                  ></span
+                >
+                <a href="cart.html" class="btn btn-sm stb-btn stb-btn-secondary"
+                  >Xem Giỏ Hàng</a
+                >
               </div>
             </div>
           </div>
 
-          <!-- Avatar (Hidden initially) -->
-          <div class="dropdown" id="avatarNavContainer" style="display:none">
-            <a href="#" class="action-icon-wrap" id="avatarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <div class="dropdown" id="avatarNavContainer" style="display: none">
+            <a
+              href="#"
+              class="action-icon-wrap"
+              id="avatarDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
               <i class="bi bi-person-circle"></i>
             </a>
             <ul class="dropdown-menu dropdown-menu-end shadow">
-              <li><a class="dropdown-item" href="profile.html"><i class="bi bi-person me-2"></i>Xem Profile</a></li>
+              <li>
+                <a class="dropdown-item" href="profile.html"
+                  ><i class="bi bi-person me-2"></i>Xem Profile</a
+                >
+              </li>
               <li><hr class="dropdown-divider" /></li>
-              <li><a class="dropdown-item text-danger" href="#" onclick="handleLogout(event)"><i class="bi bi-box-arrow-right me-2"></i>Đăng xuất</a></li>
+              <li>
+                <a
+                  class="dropdown-item text-danger"
+                  href="#"
+                  onclick="handleLogout(event)"
+                  ><i class="bi bi-box-arrow-right me-2"></i>Đăng xuất</a
+                >
+              </li>
             </ul>
           </div>
 
-          <!-- Login CTA -->
-          <a href="login.html" class="stb-btn stb-btn-primary stb-btn-pill d-none d-lg-block" id="authNavContainer">Đăng Nhập</a>
+          <a
+            href="login.html"
+            class="stb-btn stb-btn-primary stb-btn-pill d-none d-lg-block"
+            id="authNavContainer"
+            >Đăng Nhập</a
+          >
 
-          <!-- Mobile Toggler -->
-          <button class="navbar-v2-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarV2Mobile">
+          <button
+            class="navbar-v2-toggler d-lg-none"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarV2Mobile"
+          >
             <i class="bi bi-list"></i>
           </button>
         </div>
       </div>
 
-      <!-- Mobile Menu -->
       <div class="collapse navbar-collapse" id="navbarV2Mobile">
         <div class="navbar-v2-mobile p-4">
           <ul class="list-unstyled">
-            <li><a href="index.html" class="nav-v2-link d-block py-2">Trang Chủ</a></li>
-            <li><a href="about.html" class="nav-v2-link d-block py-2">Giới Thiệu</a></li>
-            <li><a href="products.html" class="nav-v2-link d-block py-2">Sản Phẩm</a></li>
-            <li><a href="news.html" class="nav-v2-link d-block py-2">Tin Tức</a></li>
-            <li><a href="contact.html" class="nav-v2-link d-block py-2">Liên Hệ</a></li>
+            <li>
+              <a href="index.html" class="nav-v2-link d-block py-2"
+                >Trang Chủ</a
+              >
+            </li>
+            <li>
+              <a href="about.html" class="nav-v2-link d-block py-2"
+                >Giới Thiệu</a
+              >
+            </li>
+            <li>
+              <a href="products.html" class="nav-v2-link d-block py-2"
+                >Sản Phẩm</a
+              >
+            </li>
+            <li>
+              <a href="news.html" class="nav-v2-link d-block py-2">Tin Tức</a>
+            </li>
+            <li>
+              <a href="contact.html" class="nav-v2-link d-block py-2"
+                >Liên Hệ</a
+              >
+            </li>
             <li><hr class="my-3 opacity-25" /></li>
-            <li><a href="login.html" class="stb-btn stb-btn-primary stb-btn-pill w-100 text-center">Đăng Nhập</a></li>
+            <li>
+              <a
+                href="login.html"
+                class="stb-btn stb-btn-primary stb-btn-pill w-100 text-center"
+                >Đăng Nhập</a
+              >
+            </li>
           </ul>
         </div>
       </div>
     </nav>
 
     <main class="page-content-wrapper">
-      <!-- ===== PAGE HEADER ===== -->
-      <section class="py-5 text-center" style="background:var(--clr-surface-low);">
+      <section
+        class="py-5 text-center"
+        style="background: var(--clr-surface-low)"
+      >
         <div class="container">
           <span class="stb-tag">Blog & Bí Quyết</span>
-          <h1 class="font-headline fw-black mb-2" style="font-size:clamp(2rem,5vw,3rem); color:var(--clr-on-background);">Góc Bếp Ngọt Ngào</h1>
-          <div style="width:4rem; height:3px; background:var(--clr-secondary); border-radius:99px; margin:1rem auto 1.5rem;"></div>
-          <p style="color:var(--clr-on-surface-variant); max-width:480px; margin:0 auto;">Bí quyết làm bánh, xu hướng dessert, và những câu chuyện ấm lòng từ xưởng bánh Sweet Trio.</p>
+          <h1
+            class="font-headline fw-black mb-2"
+            style="
+              font-size: clamp(2rem, 5vw, 3rem);
+              color: var(--clr-on-background);
+            "
+          >
+            Góc Bếp Ngọt Ngào
+          </h1>
+          <div
+            style="
+              width: 4rem;
+              height: 3px;
+              background: var(--clr-secondary);
+              border-radius: 99px;
+              margin: 1rem auto 1.5rem;
+            "
+          ></div>
+          <p
+            style="
+              color: var(--clr-on-surface-variant);
+              max-width: 480px;
+              margin: 0 auto;
+            "
+          >
+            Bí quyết làm bánh, xu hướng dessert, và những câu chuyện ấm lòng từ
+            xưởng bánh Sweet Trio.
+          </p>
         </div>
       </section>
 
-      <!-- ===== FEATURED POST ===== -->
       <section class="py-5">
         <div class="container">
-          <div class="row g-0" style="background:var(--clr-surface-lowest); border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--shadow-lg);">
-            <div class="col-md-6" style="min-height:340px; overflow:hidden;">
-              <img src="images/cake5.jpg" alt="Nghệ Thuật Trang Trí Bánh" class="w-100 h-100" style="object-fit:cover; transition:transform .5s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" />
+          <div
+            class="row g-0"
+            style="
+              background: var(--clr-surface-lowest);
+              border-radius: var(--radius-lg);
+              overflow: hidden;
+              box-shadow: var(--shadow-lg);
+            "
+          >
+            <div class="col-md-6" style="min-height: 340px; overflow: hidden">
+              <img
+                src="images/cake5.jpg"
+                alt="Nghệ Thuật Trang Trí Bánh"
+                class="w-100 h-100"
+                style="object-fit: cover; transition: transform 0.5s"
+                onmouseover="this.style.transform = 'scale(1.05)'"
+                onmouseout="this.style.transform = 'scale(1)'"
+              />
             </div>
             <div class="col-md-6 p-5 d-flex flex-column justify-content-center">
               <div class="d-flex gap-2 mb-3">
                 <span class="stb-tag">Nổi Bật</span>
-                <span style="font-size:.85rem; color:var(--clr-on-surface-variant);">15 Tháng 3, 2026</span>
+                <span
+                  style="
+                    font-size: 0.85rem;
+                    color: var(--clr-on-surface-variant);
+                  "
+                  >15 Tháng 3, 2026</span
+                >
               </div>
-              <h2 class="font-headline fw-black mb-3" style="color:var(--clr-on-surface); font-size:1.8rem; line-height:1.3;">Nghệ Thuật Trang Trí Bánh: Từ Đường Kem Đến Hoa Tươi</h2>
-              <p style="color:var(--clr-on-surface-variant); line-height:1.7; flex-grow:1;">Khám phá những kỹ thuật trang trí bánh cao cấp mà các chuyên gia Sweet Trio áp dụng để tạo ra những tác phẩm nghệ thuật ăn được. Từ kỹ thuật piping cơ bản đến nghệ thuật đặt hoa tươi phức tạp...</p>
-              <a href="#" class="news-read-more mt-3">Đọc tiếp <i class="bi bi-arrow-right"></i></a>
+              <h2
+                class="font-headline fw-black mb-3"
+                style="
+                  color: var(--clr-on-surface);
+                  font-size: 1.8rem;
+                  line-height: 1.3;
+                "
+              >
+                Nghệ Thuật Trang Trí Bánh: Từ Đường Kem Đến Hoa Tươi
+              </h2>
+              <p
+                style="
+                  color: var(--clr-on-surface-variant);
+                  line-height: 1.7;
+                  flex-grow: 1;
+                "
+              >
+                Khám phá những kỹ thuật trang trí bánh cao cấp mà các chuyên gia
+                Sweet Trio áp dụng để tạo ra những tác phẩm nghệ thuật ăn được.
+                Từ kỹ thuật piping cơ bản đến nghệ thuật đặt hoa tươi phức
+                tạp...
+              </p>
+              <a href="#" class="news-read-more mt-3"
+                >Đọc tiếp <i class="bi bi-arrow-right"></i
+              ></a>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- ===== NEWS GRID ===== -->
       <section class="pb-5">
         <div class="container">
           <div class="d-flex justify-content-between align-items-center mb-4">
-            <h2 class="font-headline fw-black mb-0" style="color:var(--clr-on-background);">Bài Viết Mới Nhất</h2>
+            <h2
+              class="font-headline fw-black mb-0"
+              style="color: var(--clr-on-background)"
+            >
+              Bài Viết Mới Nhất
+            </h2>
           </div>
           <div class="row g-4">
-
-            <!-- Article 1 -->
             <div class="col-md-6 col-lg-4">
               <article class="stb-card stb-card-interactive news-layout">
                 <div class="news-layout-img-wrap">
-                  <img src="images/cake1.jpg" alt="Bí Quyết Bánh Dâu" class="news-layout-img" />
+                  <img
+                    src="images/cake1.jpg"
+                    alt="Bí Quyết Bánh Dâu"
+                    class="news-layout-img"
+                  />
                   <span class="news-layout-badge">Bí Quyết</span>
                 </div>
                 <div class="news-layout-body">
-                  <div class="d-flex gap-2 mb-2" style="font-size:.8rem; color:var(--clr-on-surface-variant);">
-                    <span><i class="bi bi-calendar3 me-1"></i>10 Tháng 3, 2026</span>
+                  <div
+                    class="d-flex gap-2 mb-2"
+                    style="
+                      font-size: 0.8rem;
+                      color: var(--clr-on-surface-variant);
+                    "
+                  >
+                    <span
+                      ><i class="bi bi-calendar3 me-1"></i>10 Tháng 3,
+                      2026</span
+                    >
                     <span>·</span>
                     <span><i class="bi bi-clock me-1"></i>5 phút đọc</span>
                   </div>
-                  <h3 class="news-layout-title">5 Bí Quyết Làm Bánh Kem Dâu Tây Ngon Như Tiệm</h3>
-                  <p class="news-layout-text">Bạn muốn tự tay làm bánh kem dâu tây thơm ngon tại nhà? Hãy cùng Sweet Trio khám phá những bí quyết đơn giản...</p>
-                  <a href="#" class="news-read-more">Đọc tiếp <i class="bi bi-arrow-right"></i></a>
+                  <h3 class="news-layout-title">
+                    5 Bí Quyết Làm Bánh Kem Dâu Tây Ngon Như Tiệm
+                  </h3>
+                  <p class="news-layout-text">
+                    Bạn muốn tự tay làm bánh kem dâu tây thơm ngon tại nhà? Hãy
+                    cùng Sweet Trio khám phá những bí quyết đơn giản...
+                  </p>
+                  <a href="#" class="news-read-more"
+                    >Đọc tiếp <i class="bi bi-arrow-right"></i
+                  ></a>
                 </div>
               </article>
             </div>
 
-            <!-- Article 2 -->
             <div class="col-md-6 col-lg-4">
               <article class="stb-card stb-card-interactive news-layout">
                 <div class="news-layout-img-wrap">
-                  <img src="images/cake2.jpg" alt="Socola và Sức Khỏe" class="news-layout-img" />
+                  <img
+                    src="images/cake2.jpg"
+                    alt="Socola và Sức Khỏe"
+                    class="news-layout-img"
+                  />
                   <span class="news-layout-badge">Kiến Thức</span>
                 </div>
                 <div class="news-layout-body">
-                  <div class="d-flex gap-2 mb-2" style="font-size:.8rem; color:var(--clr-on-surface-variant);">
-                    <span><i class="bi bi-calendar3 me-1"></i>5 Tháng 3, 2026</span>
+                  <div
+                    class="d-flex gap-2 mb-2"
+                    style="
+                      font-size: 0.8rem;
+                      color: var(--clr-on-surface-variant);
+                    "
+                  >
+                    <span
+                      ><i class="bi bi-calendar3 me-1"></i>5 Tháng 3, 2026</span
+                    >
                     <span>·</span>
                     <span><i class="bi bi-clock me-1"></i>4 phút đọc</span>
                   </div>
-                  <h3 class="news-layout-title">Socola Đen Có Thực Sự Tốt Cho Sức Khỏe?</h3>
-                  <p class="news-layout-text">Nghiên cứu mới nhất đã chỉ ra những lợi ích bất ngờ của socola đen đối với sức khỏe tim mạch và tinh thần...</p>
-                  <a href="#" class="news-read-more">Đọc tiếp <i class="bi bi-arrow-right"></i></a>
+                  <h3 class="news-layout-title">
+                    Socola Đen Có Thực Sự Tốt Cho Sức Khỏe?
+                  </h3>
+                  <p class="news-layout-text">
+                    Nghiên cứu mới nhất đã chỉ ra những lợi ích bất ngờ của
+                    socola đen đối với sức khỏe tim mạch và tinh thần...
+                  </p>
+                  <a href="#" class="news-read-more"
+                    >Đọc tiếp <i class="bi bi-arrow-right"></i
+                  ></a>
                 </div>
               </article>
             </div>
 
-            <!-- Article 3 -->
             <div class="col-md-6 col-lg-4">
               <article class="stb-card stb-card-interactive news-layout">
                 <div class="news-layout-img-wrap">
-                  <img src="images/cake3.jpg" alt="Xu Hướng Cupcake" class="news-layout-img" />
+                  <img
+                    src="images/cake3.jpg"
+                    alt="Xu Hướng Cupcake"
+                    class="news-layout-img"
+                  />
                   <span class="news-layout-badge">Xu Hướng</span>
                 </div>
                 <div class="news-layout-body">
-                  <div class="d-flex gap-2 mb-2" style="font-size:.8rem; color:var(--clr-on-surface-variant);">
-                    <span><i class="bi bi-calendar3 me-1"></i>28 Tháng 2, 2026</span>
+                  <div
+                    class="d-flex gap-2 mb-2"
+                    style="
+                      font-size: 0.8rem;
+                      color: var(--clr-on-surface-variant);
+                    "
+                  >
+                    <span
+                      ><i class="bi bi-calendar3 me-1"></i>28 Tháng 2,
+                      2026</span
+                    >
                     <span>·</span>
                     <span><i class="bi bi-clock me-1"></i>3 phút đọc</span>
                   </div>
-                  <h3 class="news-layout-title">Cupcake Floral 2026: Những Xu Hướng Đang Chiếm Lĩnh Mạng Xã Hội</h3>
-                  <p class="news-layout-text">Từ hoa ăn được đến kỹ thuật painting trên fondant, năm 2026 chứng kiến sự bùng nổ của cupcake nghệ thuật...</p>
-                  <a href="#" class="news-read-more">Đọc tiếp <i class="bi bi-arrow-right"></i></a>
+                  <h3 class="news-layout-title">
+                    Cupcake Floral 2026: Những Xu Hướng Đang Chiếm Lĩnh Mạng Xã
+                    Hội
+                  </h3>
+                  <p class="news-layout-text">
+                    Từ hoa ăn được đến kỹ thuật painting trên fondant, năm 2026
+                    chứng kiến sự bùng nổ của cupcake nghệ thuật...
+                  </p>
+                  <a href="#" class="news-read-more"
+                    >Đọc tiếp <i class="bi bi-arrow-right"></i
+                  ></a>
                 </div>
               </article>
             </div>
 
-            <!-- Article 4 -->
             <div class="col-md-6 col-lg-4">
               <article class="stb-card stb-card-interactive news-layout">
                 <div class="news-layout-img-wrap">
-                  <img src="images/cake4.jpg" alt="Câu Chuyện Bếp Bánh" class="news-layout-img" />
+                  <img
+                    src="images/cake4.jpg"
+                    alt="Câu Chuyện Bếp Bánh"
+                    class="news-layout-img"
+                  />
                   <span class="news-layout-badge">Câu Chuyện</span>
                 </div>
                 <div class="news-layout-body">
-                  <div class="d-flex gap-2 mb-2" style="font-size:.8rem; color:var(--clr-on-surface-variant);">
-                    <span><i class="bi bi-calendar3 me-1"></i>20 Tháng 2, 2026</span>
+                  <div
+                    class="d-flex gap-2 mb-2"
+                    style="
+                      font-size: 0.8rem;
+                      color: var(--clr-on-surface-variant);
+                    "
+                  >
+                    <span
+                      ><i class="bi bi-calendar3 me-1"></i>20 Tháng 2,
+                      2026</span
+                    >
                     <span>·</span>
                     <span><i class="bi bi-clock me-1"></i>6 phút đọc</span>
                   </div>
-                  <h3 class="news-layout-title">Một Ngày Ở Bếp Bánh Sweet Trio: Từ 5 Giờ Sáng Đến Khi Cửa Tiệm Mở</h3>
-                  <p class="news-layout-text">Hãy cùng chúng tôi khám phá một ngày làm việc thực sự trong bếp bánh — từ lúc nhào bột đến khi những mẻ bánh đầu tiên ra lò...</p>
-                  <a href="#" class="news-read-more">Đọc tiếp <i class="bi bi-arrow-right"></i></a>
+                  <h3 class="news-layout-title">
+                    Một Ngày Ở Bếp Bánh Sweet Trio: Từ 5 Giờ Sáng Đến Khi Cửa
+                    Tiệm Mở
+                  </h3>
+                  <p class="news-layout-text">
+                    Hãy cùng chúng tôi khám phá một ngày làm việc thực sự trong
+                    bếp bánh — từ lúc nhào bột đến khi những mẻ bánh đầu tiên ra
+                    lò...
+                  </p>
+                  <a href="#" class="news-read-more"
+                    >Đọc tiếp <i class="bi bi-arrow-right"></i
+                  ></a>
                 </div>
               </article>
             </div>
 
-            <!-- Article 5 -->
             <div class="col-md-6 col-lg-4">
               <article class="stb-card stb-card-interactive news-layout">
                 <div class="news-layout-img-wrap">
-                  <img src="images/cake6.jpg" alt="Chọn Bánh Theo Dịp" class="news-layout-img" />
+                  <img
+                    src="images/cake6.jpg"
+                    alt="Chọn Bánh Theo Dịp"
+                    class="news-layout-img"
+                  />
                   <span class="news-layout-badge">Hướng Dẫn</span>
                 </div>
                 <div class="news-layout-body">
-                  <div class="d-flex gap-2 mb-2" style="font-size:.8rem; color:var(--clr-on-surface-variant);">
-                    <span><i class="bi bi-calendar3 me-1"></i>15 Tháng 2, 2026</span>
+                  <div
+                    class="d-flex gap-2 mb-2"
+                    style="
+                      font-size: 0.8rem;
+                      color: var(--clr-on-surface-variant);
+                    "
+                  >
+                    <span
+                      ><i class="bi bi-calendar3 me-1"></i>15 Tháng 2,
+                      2026</span
+                    >
                     <span>·</span>
                     <span><i class="bi bi-clock me-1"></i>4 phút đọc</span>
                   </div>
-                  <h3 class="news-layout-title">Hướng Dẫn Chọn Bánh Hoàn Hảo Cho Từng Dịp Đặc Biệt</h3>
-                  <p class="news-layout-text">Sinh nhật, lễ cưới, hay tiệc văn phòng — mỗi dịp lại có loại bánh phù hợp riêng. Cùng Sweet Trio tìm hiểu cách chọn...</p>
-                  <a href="#" class="news-read-more">Đọc tiếp <i class="bi bi-arrow-right"></i></a>
+                  <h3 class="news-layout-title">
+                    Hướng Dẫn Chọn Bánh Hoàn Hảo Cho Từng Dịp Đặc Biệt
+                  </h3>
+                  <p class="news-layout-text">
+                    Sinh nhật, lễ cưới, hay tiệc văn phòng — mỗi dịp lại có loại
+                    bánh phù hợp riêng. Cùng Sweet Trio tìm hiểu cách chọn...
+                  </p>
+                  <a href="#" class="news-read-more"
+                    >Đọc tiếp <i class="bi bi-arrow-right"></i
+                  ></a>
                 </div>
               </article>
             </div>
 
-            <!-- Article 6 -->
             <div class="col-md-6 col-lg-4">
               <article class="stb-card stb-card-interactive news-layout">
                 <div class="news-layout-img-wrap">
-                  <img src="images/cake5.jpg" alt="Nguyên Liệu Thượng Hạng" class="news-layout-img" />
+                  <img
+                    src="images/cake5.jpg"
+                    alt="Nguyên Liệu Thượng Hạng"
+                    class="news-layout-img"
+                  />
                   <span class="news-layout-badge">Nguyên Liệu</span>
                 </div>
                 <div class="news-layout-body">
-                  <div class="d-flex gap-2 mb-2" style="font-size:.8rem; color:var(--clr-on-surface-variant);">
-                    <span><i class="bi bi-calendar3 me-1"></i>8 Tháng 2, 2026</span>
+                  <div
+                    class="d-flex gap-2 mb-2"
+                    style="
+                      font-size: 0.8rem;
+                      color: var(--clr-on-surface-variant);
+                    "
+                  >
+                    <span
+                      ><i class="bi bi-calendar3 me-1"></i>8 Tháng 2, 2026</span
+                    >
                     <span>·</span>
                     <span><i class="bi bi-clock me-1"></i>5 phút đọc</span>
                   </div>
-                  <h3 class="news-layout-title">Tại Sao Sweet Trio Chỉ Dùng Bơ Pháp Và Dâu Tây Đà Lạt?</h3>
-                  <p class="news-layout-text">Chất lượng nguyên liệu là điều quyết định hương vị. Chúng tôi chia sẻ lý do tại sao chất lượng đầu vào không bao giờ được thỏa hiệp...</p>
-                  <a href="#" class="news-read-more">Đọc tiếp <i class="bi bi-arrow-right"></i></a>
+                  <h3 class="news-layout-title">
+                    Tại Sao Sweet Trio Chỉ Dùng Bơ Pháp Và Dâu Tây Đà Lạt?
+                  </h3>
+                  <p class="news-layout-text">
+                    Chất lượng nguyên liệu là điều quyết định hương vị. Chúng
+                    tôi chia sẻ lý do tại sao chất lượng đầu vào không bao giờ
+                    được thỏa hiệp...
+                  </p>
+                  <a href="#" class="news-read-more"
+                    >Đọc tiếp <i class="bi bi-arrow-right"></i
+                  ></a>
                 </div>
               </article>
             </div>
-
-
           </div>
         </div>
       </section>
 
-      <!-- ===== NEWSLETTER ===== -->
-      <section class="py-5" style="background:var(--clr-surface-low);">
+      <section class="py-5" style="background: var(--clr-surface-low)">
         <div class="container">
           <div class="newsletter-box text-center">
             <span class="stb-tag">Newsletter</span>
-            <h2 class="font-headline fw-black mb-2" style="color:var(--clr-primary);">Đừng Bỏ Lỡ Bài Viết Nào</h2>
-            <p class="mb-4" style="color:var(--clr-on-surface-variant);">Đăng ký nhận bản tin hàng tuần với công thức bánh mới và tin tức từ Sweet Trio.</p>
+            <h2
+              class="font-headline fw-black mb-2"
+              style="color: var(--clr-primary)"
+            >
+              Đừng Bỏ Lỡ Bài Viết Nào
+            </h2>
+            <p class="mb-4" style="color: var(--clr-on-surface-variant)">
+              Đăng ký nhận bản tin hàng tuần với công thức bánh mới và tin tức
+              từ Sweet Trio.
+            </p>
             <form class="d-flex gap-3 justify-content-center flex-wrap">
-              <input type="email" class="form-control stb-input-rounded" style="max-width:320px;" placeholder="Nhập email của bạn..." />
-              <button type="submit" class="btn stb-btn stb-btn-secondary"><i class="bi bi-send me-2"></i>Đăng Ký</button>
+              <input
+                type="email"
+                class="form-control stb-input-rounded"
+                style="max-width: 320px"
+                placeholder="Nhập email của bạn..."
+              />
+              <button type="submit" class="btn stb-btn stb-btn-secondary">
+                <i class="bi bi-send me-2"></i>Đăng Ký
+              </button>
             </form>
           </div>
         </div>
       </section>
     </main>
 
-    <!-- ===== FOOTER ===== -->
     <footer class="footer">
       <div class="container">
         <div class="row g-4">
           <div class="col-md-4">
-            <img src="images/logo1.png" alt="Sweet Trio Bakery" class="footer-logo mb-3" />
-            <p style="color:rgba(252,237,242,0.8); font-size:.9rem; line-height:1.7; max-width:280px;">Tiệm bánh artisanal thủ công với tình yêu và nguyên liệu tự nhiên nhất.</p>
+            <img
+              src="images/logo1.png"
+              alt="Sweet Trio Bakery Logo"
+              class="footer-logo mb-3"
+            />
+            <p>
+              Nơi những giấc mơ ngọt ngào trở thành hiện thực qua từng chiếc
+              bánh artisanal được nướng tươi mỗi ngày.
+            </p>
             <div class="footer-social-icons">
-              <a href="https://www.facebook.com/Bapsxinkiu" class="footer-social-link"><i class="bi bi-facebook"></i></a>
-              <a href="https://www.instagram.com/nqoc.nahzz/" class="footer-social-link"><i class="bi bi-instagram"></i></a>
-              <a href="https://www.tiktok.com/@nacileng" class="footer-social-link"><i class="bi bi-tiktok"></i></a>
+              <a
+                href="https://www.facebook.com/Bapsxinkiu"
+                class="footer-social-link"
+                title="Facebook"
+                ><i class="bi bi-facebook"></i
+              ></a>
+              <a
+                href="https://www.instagram.com/nqoc.nahzz/"
+                class="footer-social-link"
+                title="Instagram"
+                ><i class="bi bi-instagram"></i
+              ></a>
+              <a
+                href="https://www.tiktok.com/@nacileng"
+                class="footer-social-link"
+                title="TikTok"
+                ><i class="bi bi-tiktok"></i
+              ></a>
             </div>
           </div>
+
           <div class="col-6 col-md-2">
             <h5 class="mb-3">Khám Phá</h5>
-            <ul class="list-unstyled" style="line-height:2;">
+            <ul class="list-unstyled" style="line-height: 2">
               <li><a href="index.html">Trang Chủ</a></li>
               <li><a href="about.html">Giới Thiệu</a></li>
               <li><a href="products.html">Sản Phẩm</a></li>
               <li><a href="news.html">Tin Tức</a></li>
             </ul>
           </div>
+
           <div class="col-6 col-md-2">
             <h5 class="mb-3">Hỗ Trợ</h5>
-            <ul class="list-unstyled" style="line-height:2;">
+            <ul class="list-unstyled" style="line-height: 2">
               <li><a href="contact.html">Liên Hệ</a></li>
               <li><a href="sitemap.html">Sitemap</a></li>
+              <li><a href="cart.html">Giỏ Hàng</a></li>
               <li><a href="login.html">Đăng Nhập</a></li>
             </ul>
           </div>
+
           <div class="col-md-4">
             <h5 class="mb-3">Bản Tin Ngọt Ngào</h5>
-            <p style="color:rgba(252,237,242,0.8); font-size:.9rem; margin-bottom:1rem;">Nhận thông tin về bánh mới và ưu đãi đặc biệt.</p>
+            <p>Đăng ký để nhận tin về bánh mới và ưu đãi đặc biệt.</p>
             <div class="footer-newsletter">
-              <input type="email" placeholder="Email của bạn..." />
+              <input
+                type="email"
+                placeholder="Email của bạn..."
+                aria-label="Email đăng ký nhận tin"
+              />
               <button type="button">Gửi</button>
             </div>
           </div>
         </div>
+
         <hr class="mt-5 footer-divider" />
-        <p class="text-center mb-0" style="color:rgba(252,237,242,0.4); font-size:.8rem;">© 2026 Sweet Trio Bakery. Crafted with artisanal love.</p>
+        <div class="text-center opacity-75 small">
+          <p class="mb-0">
+            © 2026 Sweet Trio Bakery. Crafted with artisanal love. — Website
+            Demo
+          </p>
+        </div>
       </div>
     </footer>
 
